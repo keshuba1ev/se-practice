@@ -36,14 +36,36 @@ rate in a clean, readable view."
 
 ## Screenshots
 
-- screenshots/01_prompt_and_result.png — initial prompt + Rocket's build summary
+- screenshots/01_prompt_and_result.png
+- screenshots/02_test_a_result.png
+- screenshots/03_invalid_input.png
+- screenshots/04_test_c_result.png
+- screenshots/05_empty_list_handled.png
+- screenshots/06_test_c_after_fix_prompt.png
+
+## Test results (same 4 cases as Part 1)
+
+### Test A: 85, 23, 45, 90, 92
+Expected: Valid 5, Average 67.00, Highest 92, Lowest 23, Pass rate 60.0%
+Got: Valid 5, Average 67.0, Highest 92, Lowest 23, Pass rate 60.0%
+Mismatch: average shown with 1 decimal instead of 2
+
+### Test B: 88, 47, -5, 101, abc, 73, 50, , 100
+Could not fully test — the Mark input field has type="number" with
+min=0/max=100, so -5, 101, and abc cannot be entered into the UI at all.
+The app blocks invalid input at entry instead of filtering it during
+processing, which does not match the specification.
+
+### Test C: 10, 20, 30
+Expected: Valid 3, Average 20.00, Highest 30, Lowest 10, Pass rate 0.0%
+Got: Valid 3, Average 20.0, Highest 30, Lowest 10, Pass rate 0.0%
+Mismatch: same formatting bug as Test A
+
+### Test D: abc, , xyz (empty valid list)
+Expected: clear message, no crash
+Got: "No results to display" with helpful guidance — correct, no crash
 
 ## Second Prompt
-
-The average score should be displayed with exactly 2 decimal places
-(e.g. 67.00, not 67.0). Please fix the formatting.
-
-## Follow-up fix attempt
 
 Prompt: "The average score should be displayed with exactly 2 decimal places
 (e.g. 67.00, not 67.0). Please fix the formatting."
