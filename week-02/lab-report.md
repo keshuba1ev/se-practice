@@ -11,11 +11,11 @@
 | AI assistant | ChatGPT |
 | Exact model name | GPT-6 Astra (Лёгкое) |
 | Implementation language | Python |
-| Date of the runs | 2026-09-30 (Asia/Qyzylorda) |
+| Date of the runs | 2026-09-30 (Almaty, Kazakhstan) |
 
 **Non-Python substitutions:** n/a — used Python.
 
-**Confirmations:** Each prompt was sent in a fresh chat: yes, as reported by the student. No follow-up questions were asked during A–D: yes. Every code output was saved without editing: yes. The explanatory prose and assumptions in the complete replies were preserved as observations below; the code blocks (and tests where supplied) are in `code/` without changes.
+**Confirmations:** Each prompt was sent in a fresh chat: yes. No follow-up questions during A–D: yes. The code blocks were copied into `code/` without editing, including the tests in C and D. I noted the models' explanations and assumptions in the sections below.
 
 ## 2. Prompt A — minimal
 
@@ -37,7 +37,7 @@ Write Python code to analyze student marks.
 
 **First impression before testing:** The printed student report does not match the requested four-value dictionary.
 
-**Verbatim response context:** The reply described averages, letter grades, a class average, and top students; it said to replace sample names and marks. The complete unedited code block is `code/prompt_a.py`.
+**Response context:** The reply described averages, letter grades, a class average, and top students; it said to replace sample names and marks. Its code block is saved unchanged in `code/prompt_a.py`.
 
 ## 3. Prompt B — structured context
 
