@@ -1,47 +1,41 @@
 # AI Usage Disclosure — Week 02
 
-Required by the course academic policy (Generative AI use level **D** — AI-integrated).
-AI use is **the subject** of this lab, not a shortcut in it. You remain responsible for the
-accuracy, testing and integrity of everything you submit, including everything an AI produced.
-
 ## 1. The tool under test
 
 | | |
 | --- | --- |
-| Assistant | |
-| Exact model name | |
-| Plan (free / paid) | |
-| Dates of the four runs | |
+| Assistant | ChatGPT |
+| Exact model name | GPT-6 Astra (Лёгкое), as shown in the student's screenshot |
+| Plan (free / paid) | Paid (ChatGPT Plus) |
+| Dates of the four runs | 2026-09-30 (Asia/Qyzylorda) |
 
 ## 2. What it produced
 
 | Prompt | File it produced | Edited by me afterwards? |
 | --- | --- | --- |
-| A | `week-02/code/prompt_a.*` | no / yes — say what |
-| B | `week-02/code/prompt_b.*` | no / yes — say what |
-| C | `week-02/code/prompt_c.*` | no / yes — say what |
-| D | `week-02/code/prompt_d.*` | no / yes — say what |
+| A | `week-02/code/prompt_a.py` | No; code block copied exactly. |
+| B | `week-02/code/prompt_b.py` | No; code block copied exactly. |
+| C | `week-02/code/prompt_c.py` | No; implementation and tests copied exactly, in their original order. |
+| D | `week-02/code/prompt_d.py` | No; implementation and tests copied exactly, in their original order. |
 
-> The four files must be the **unedited** responses. If you repaired one before testing, say so
-> here. An edited output that is declared costs a fraction of a point; an edited output that is
-> hidden is an academic-integrity matter.
+The model's surrounding prose was not inserted into executable `.py` files. Its assumptions and explanations are described in `lab-report.md`; the user's complete replies remain in the chat history. The given `tests/test_analyze_marks.py` was copied without modification. No generated code was repaired before testing.
 
 ## 3. Any other AI use in this lab
 
 | Tool | Used for | Which file or section |
 | --- | --- | --- |
-| | e.g. wording the conclusion, writing the runner for a non-Python language | |
+| Codex workspace assistant | Drafted the combined Prompt D from A–C findings; copied code blocks, ran the provided harness, and assembled the report using its actual terminal output. | `lab-report.md`, especially sections 5–8; `code/` file placement. |
+| Codex workspace assistant | Drafted this disclosure and organized the Git commits and pull request. | `AI_USAGE.md`, Git workflow. |
 
-Writing your own text with an AI is permitted at Level D **and must be declared here.**
+The four code responses under comparison came from the same ChatGPT model identified above. Codex's writing and repository assistance is disclosed separately; it did not rewrite the model's code.
 
 ## 4. Declarations
 
-- **Every prompt was sent in a fresh chat, and the outputs were saved before any editing:** yes / no
-- **The test results in section 6 of `lab-report.md` are real output from real runs:** yes / no
-- **Everything I submitted, I can explain and defend in class:** yes / no
+- **Every prompt was sent in a fresh chat, and the outputs were saved before any editing:** Yes, based on the student's reported workflow; code was copied without edits.
+- **The test results in section 6 of `lab-report.md` are real output from real runs:** Yes.
+- **Everything I submitted, I can explain and defend in class:** Student to confirm personally before submission.
 
-**Anything I accepted from the AI without fully understanding it:**
-<!-- Name the file and the part. This is a normal answer. -->
+**Anything I accepted from the AI without fully understanding it:** Student to review the `validate` function, pass percentage calculation, and test verdicts before signing.
 
-Signed: <your name>
-Date:
+Signed: Abylai Keshubaev (confirm after review)  
+Date: 2026-09-30
