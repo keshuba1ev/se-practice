@@ -1,0 +1,54 @@
+@startuml
+title Smart Campus - Book Room Sequence Diagram
+
+actor Student
+participant BookingService
+database BookingRepository
+
+Student -> BookingService : bookRoom(roomId, startTime, duration)
+activate BookingService
+
+BookingService -> BookingService : validateTime(startTime, duration)\n[R1: future start, 0 < duration <= 2h]
+
+BookingService -> BookingRepository : isRoomBlocked(roomId)
+activate BookingRepository
+BookingRepository --> BookingService : blocked / not blocked
+deactivate BookingRepository
+
+BookingService -> BookingRepository : hasOverlappingActiveBooking(\nroomId, startTime, duration)
+activate BookingRepository
+BookingRepository --> BookingService : overlap / no overlap
+deactivate BookingRepository
+
+alt Valid request and room available
+    BookingService -> BookingRepository : createBooking(studentId, roomId,\nstartTime, duration)
+    activate BookingRepository
+    BookingRepository --> BookingService : bookingCreated(bookingId)
+    deactivate BookingRepository
+
+    BookingService --> Student : bookingConfirmation(bookingId)
+else Invalid request or room unavailable
+    BookingService --> Student : bookingRejected(reason)
+end
+
+deactivate BookingService
+
+note right of BookingService
+R1: Future start, duration > 0
+and duration <= 2 hours.
+
+R3: A blocked room cannot
+accept a new booking.
+end note
+
+note right of BookingRepository
+R2: Active bookings for the
+same room cannot overlap.
+end note
+
+note over Student, BookingService
+R4: A successful booking
+produces a confirmation.
+end note
+
+@enduml

@@ -1,0 +1,43 @@
+schema: 1
+week: "04"
+
+student:
+  name: "Abylai Keshubaev"
+  student_id: "24B031847"
+  github: "keshuba1ev"
+
+assistant:
+  tool: "ChatGPT"
+  model: "GPT-5.6 Sol (Instant)"
+
+counts:
+  behaviour_diagram: sequence
+  stories_source: week-03
+  use_cases: 6
+  change_log_rows: 7
+
+checker:
+  pass: 36
+  fail: 1
+  error: 0
+  commit: "aedcf7c"
+  kept_fails: [SQ3]
+
+assumptions:
+  overlap_touching_bookings: allowed
+  blocking_a_booked_room: keep-bookings
+
+traceability:
+  use_cases_not_traced: []
+  rules_not_shown: []
+
+review_findings:
+  - "Student to Send Booking Confirmation was removed; confirmation is an included system outcome."
+  - "Administrator-Room manages association was removed because permanent assignments are not required."
+  - "Direct createBooking was replaced by an atomic attemptReservation with a conflict outcome."
+  - "R4 note was moved from Student to Booking after the critique."
+
+honesty:
+  originals_unedited: yes
+  can_explain_everything_submitted: no
+  ai_usage_disclosed: yes
