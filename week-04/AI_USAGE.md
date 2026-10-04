@@ -2,10 +2,10 @@
 
 | Tool | Exact model | Used for | Which files it touched |
 | --- | --- | --- | --- |
-| ChatGPT | Awaiting exact model confirmation | Task 1 — use-case draft | `models/original/use-case.puml` |
-| ChatGPT | Awaiting exact model confirmation | Task 2 — class draft | `models/original/class.puml` |
-| ChatGPT | Awaiting exact model confirmation | Task 3A — sequence draft | `models/original/sequence.puml` |
-| ChatGPT | Awaiting exact model confirmation | Critique in a new chat | `lab-report.md` §6 |
+| ChatGPT | GPT-5.6 Sol (Instant) | Task 1 — use-case draft | `models/original/use-case.puml` |
+| ChatGPT | GPT-5.6 Sol (Instant) | Task 2 — class draft | `models/original/class.puml` |
+| ChatGPT | GPT-5.6 Sol (Instant) | Task 3A — sequence draft | `models/original/sequence.puml` |
+| ChatGPT | GPT-5.6 Sol (Instant) | Critique in a new chat | `lab-report.md` §6 |
 | Codex workspace assistant | Model name not displayed in this workspace | Assisted with stories, review, revised diagrams, rendering, report and repository work | Revised `models/` files, `lab-report.md`, `AI_USAGE.md`, `submission.yml` |
 
 **The files in models/original/ are the AI's first replies, unedited:** yes — PlantUML blocks copied without changes. Surrounding explanations are retained in the conversation and summarized in the report.

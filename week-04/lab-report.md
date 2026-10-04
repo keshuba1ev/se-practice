@@ -7,7 +7,7 @@
 | Name | Abylai Keshubaev |
 | Group | Not provided |
 | AI assistant | ChatGPT |
-| Exact model | Awaiting exact model confirmation |
+| Exact model | GPT-5.6 Sol (Instant) |
 | Renderer | Local PlantUML 1.2026.6 JAR, Smetana layout |
 | Behaviour diagram | sequence |
 | Stories used | My Week 03 stories, revised for Week 04; US-01 to US-06 retain their IDs |
