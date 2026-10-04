@@ -1,0 +1,57 @@
+@startuml
+left to right direction
+
+actor Student
+actor Administrator
+
+rectangle "Smart Campus Study Room Booking System" {
+    usecase "View Room\nAvailability" as UC01
+    usecase "Book Room" as UC02
+    usecase "Cancel Own\nBooking" as UC03
+    usecase "Block or Unblock\nRoom" as UC04
+    usecase "Review Room\nUsage" as UC05
+    usecase "Send Booking\nConfirmation" as UC06
+}
+
+Student --> UC01
+Student --> UC02
+Student --> UC03
+Student --> UC06
+
+Administrator --> UC04
+Administrator --> UC05
+
+UC02 ..> UC06 : <<include>>
+
+note right of UC02
+R1: Start must be in the future.
+Duration > 0 and <= 2 hours.
+R2: Active bookings for the
+same room cannot overlap.
+R3: A blocked room cannot
+accept a new booking.
+end note
+
+note right of UC06
+R4: Every successful booking
+produces a confirmation.
+end note
+
+note bottom of UC01
+Availability reflects:
+- existing active bookings (R2)
+- blocked rooms (R3)
+end note
+
+legend bottom
+Assumptions:
+1. A Student may cancel only their own booking.
+2. "Send Booking Confirmation" occurs only after a successful booking.
+3. Booking confirmation is modeled with <<include>> because R4 makes it mandatory.
+4. No <<extend>> relationship is used because the approved stories define no optional extension behavior.
+5. Cancellation confirmation is excluded from this model.
+6. Payments, room equipment, recurring bookings, waiting lists,
+   other notifications, and user registration are out of scope.
+endlegend
+
+@enduml
