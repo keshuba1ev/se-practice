@@ -33,7 +33,7 @@ else valid time
             A2: blocking keeps existing bookings.
             Failure leaves storage unchanged.
             end note
-            BookingRepository --> BookingService : reservationResult(created, bookingId, reason)
+            BookingRepository --> BookingService : reservationResult(status, bookingId, reason)
             alt created
                 BookingService --> Student : bookingConfirmation(bookingId)
             else unavailable

@@ -47,21 +47,23 @@ duration > 0 and <= 2 hours.
 
 R2: Active bookings for the
 same Room cannot overlap.
-A1: Intervals are half-open [start, end).
+Assumption A1: Intervals are half-open [start, end).
 Touching bookings are allowed.
 endTime = startTime + duration.
+US-03: cancel() is permitted only for the owning Student.
+Cancelled records are retained for usage review (US-05).
 end note
 
 note right of Room
 R3: A blocked Room cannot
 accept a new Booking.
-A2: Blocking keeps existing bookings.
+Assumption A2: Blocking keeps existing bookings.
 Cancelled bookings release their time slot.
 end note
 
-note bottom of Student
-R4: A successful bookRoom()
-operation produces a confirmation.
+note bottom of Booking
+R4: A successful booking
+produces a confirmation.
 end note
 
 @enduml

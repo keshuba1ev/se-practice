@@ -22,6 +22,6 @@ Students view room availability, book a room, and cancel their own bookings. Adm
 | US-05 | As an Administrator, I want to review room usage over a period, so that I can understand demand. | — |
 | US-06 | As a Student, I want to receive confirmation of a successful booking, so that I know my reservation was recorded. | R4 |
 
-Week 03 US-07 concerned a separate cancellation confirmation. It is excluded from this Week 04 model because this week's scope permits only the booking confirmation. Cancellation still releases the reservation; surviving story IDs are unchanged.
+The extra Week 03 story concerned a separate cancellation confirmation. It is excluded from this Week 04 model because this week's scope permits only the booking confirmation. Cancellation still releases the reservation; surviving story IDs are unchanged.
 
 **Out of scope:** payments, equipment in rooms, recurring bookings, waiting lists, notifications other than the booking confirmation, user registration.
