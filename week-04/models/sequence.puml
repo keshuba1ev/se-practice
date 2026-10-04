@@ -1,0 +1,50 @@
+@startuml
+title Smart Campus - Book Room Sequence Diagram
+
+actor Student
+participant BookingService
+database BookingRepository
+
+Student -> BookingService : bookRoom(studentId, roomId, startTime, duration)
+activate BookingService
+BookingService -> BookingService : validateTime(startTime, duration)
+note right of BookingService
+R1: startTime > now; 0 < duration <= 2 hours.
+end note
+
+alt invalid time
+    BookingService --> Student : bookingRejected(invalid time)
+else valid time
+    BookingService -> BookingRepository : isRoomBlocked(roomId)
+    BookingRepository --> BookingService : blocked
+    alt room blocked
+        BookingService --> Student : bookingRejected(blocked room)
+    else room unblocked
+        BookingService -> BookingRepository : hasOverlappingActiveBooking(roomId, startTime, duration)
+        BookingRepository --> BookingService : overlap
+        alt overlapping booking
+            BookingService --> Student : bookingRejected(unavailable room)
+        else no overlap
+            BookingService -> BookingRepository : attemptReservation(studentId, roomId, startTime, duration)
+            note right of BookingRepository
+            Atomically recheck R1, R2 and R3 before saving.
+            Create an ACTIVE Booking only when all rules hold.
+            A1: intervals [start, end); touching is allowed.
+            A2: blocking keeps existing bookings.
+            Failure leaves storage unchanged.
+            end note
+            BookingRepository --> BookingService : reservationResult(created, bookingId, reason)
+            alt created
+                BookingService --> Student : bookingConfirmation(bookingId)
+            else unavailable
+                BookingService --> Student : bookingRejected(reason)
+            end
+        end
+    end
+end
+
+deactivate BookingService
+note over Student, BookingService
+R4: confirmation follows a successful reservation only.
+end note
+@enduml
