@@ -220,21 +220,26 @@ row saying which lines of the plan you checked against which AC.
 
 ## 3. Task 2 — the first version (v1), read before it was run
 
-v1 is saved as `code/original/booking_v1.<ext>`, exactly as the assistant returned it: yes / no
+v1 is saved as `code/original/booking_v1.<ext>`, exactly as supplied in the student's pasted response: yes (one physical line)
 
 **AC map.** One row per condition in v1. Quote the line.
 
 | # | Line in v1 | AC it implements | Correct as written? If not, why |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
+| 1 | `def can_book(start, end, now, blocked, existing):    # AC1: ...` | Function contract | Incorrect as received: all the remaining text follows a comment on one physical line; there is no function body. Predict an IndentationError before any AC can execute. |
+| 2 | `if not (0 <= start < end <= 1440):` | AC1 | Intended condition is correct, but commented out in the pasted one-line version. |
+| 3 | `if start <= now:` | AC1 | Intended strict future rule is correct; currently not executable. |
+| 4 | `if end - start > 120:` | AC2 | Intended inclusive 120-minute boundary is correct; currently not executable. |
+| 5 | `if blocked:` | AC3 | Intended rule is correct under the Boolean precondition; currently not executable. |
+| 6 | `if start < existing_end and end > existing_start:` | AC4 | Intended strict overlap rule is correct; currently not executable. |
+| 7 | `return True` after the loop | AC5 | Intended Boolean result and read-only loop are correct; currently not executable. |
+
+Review completed with Codex assistance before running v1. The formatting problem may have arisen while copying; no claim is made that the assistant's displayed original had the same problem.
 
 **Anything in v1 that no AC asks for** (extra validation, a buffer between bookings, logging,
 saving the booking, a different return type):
 
--
+- No extra rule in the intended logic. No validation of guaranteed now/blocked/existing preconditions, sorting, saving or confirmation. Non-integer times remain outside the contract.
 
 ---
 
