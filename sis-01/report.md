@@ -38,7 +38,7 @@ I accepted the concern about confirmed requirements and replaced that wording wi
 
 Verification row 1 supports a launch procedure but does not establish a universal documentation obligation. Row 2 supports equality and exception checks but cannot prove that this analyzer has been tested. I opened both sources; the assistant helped locate and explain the relevant passages. No fictional customer approval or actual calculation test output is claimed.
 
-The initial outline was adapted from AI examples, which is disclosed. W6 remains if my own reflection is short. E7 remains until the exact Prompt B message is confirmed; I will not invent a pasted draft.
+The initial outline was adapted from AI examples. Reflection was expanded with assistance from my own messages, which is disclosed. E7 is retained: I sent Prompt B without pasting A, relying on the same chat history.
 
 ## 4. Conclusion
 
@@ -48,13 +48,15 @@ The main limitation is that this fictional customer's environment and priorities
 
 ## 5. Reflection
 
-программа должна выводить ошибку потому что не все проподаватели польностью могут разбираться в программе в соответствии с этим нужна дополнительная помощь оповещение чтобы было понятно что именно стоит не стоит вводить в поле оценок
+<!-- Expanded by the assistant from the student's own messages at his request; disclosed in AI_USAGE.md. Not independently written. -->
 
-документация питон, промты мы уже тренируем на протяжении всех практик оно не заняло вопрос или трудностей
+В этой работе самой сложной частью для меня стала документация Python. Трудности были связаны с поиском нужных разделов. Когда работаешь с незнакомым текстом, трудно ориентироваться и понять, где находится информация, которая относится к твоему вопросу. Я открыл документацию, но не смог сразу найти нужные объяснения. Поэтому мне понадобилась помощь, чтобы разобраться в предложенных источниках.
 
-поиск разделов и в целом когда работаешь с незнакомым текстом трудно ориентироваться
+Промпты не вызвали таких трудностей, потому что мы уже тренируем работу с ними на протяжении всех практик. Для меня они были знакомой частью задания. При этом я не могу сказать, что самостоятельно сделал весь отчёт: большую часть подготовки и оформления выполнил помощник.
 
-особо ничего все равно нужно самому сидеть и все разбирать своими силами
+Самым важным исправлением я считаю понятную обработку ошибок и округление. Преподаватель не обязательно полностью разбирается в программе. Поэтому сообщение должно помогать ему понять, что можно и нельзя вводить в поле оценок. Просто сообщить об ошибке недостаточно: человеку нужна дополнительная помощь для исправления введённых данных.
+
+На будущее я не вижу способа полностью избежать трудностей с незнакомой документацией. Всё равно нужно самому сидеть, читать и разбирать материал своими силами. Помощь может указать нужное место, но не заменяет самостоятельного понимания текста.
 
 ## 6. References
 
