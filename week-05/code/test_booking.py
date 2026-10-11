@@ -77,3 +77,15 @@ class BookingTests(unittest.TestCase):
 
     def test_final_minute_of_day_is_allowed(self):
         self.assertIs(can_book(1439, 1440, 1438, False, []), True)
+
+    def test_fractional_start_returns_false(self):
+        self.assertIs(can_book(720.5, 780, 540, False, []), False)
+
+    def test_fractional_end_returns_false(self):
+        self.assertIs(can_book(720, 780.5, 540, False, []), False)
+
+    def test_text_start_returns_false(self):
+        self.assertIs(can_book("720", 780, 540, False, []), False)
+
+    def test_text_end_returns_false(self):
+        self.assertIs(can_book(720, "780", 540, False, []), False)

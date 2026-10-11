@@ -1,4 +1,7 @@
 def can_book(start, end, now, blocked, existing):
+    # Outside-contract policy: reject non-integer request times.
+    if type(start) is not int or type(end) is not int:
+        return False
     # AC1: Check valid time range and future start
     if not (0 <= start < end <= 1440):
         return False
