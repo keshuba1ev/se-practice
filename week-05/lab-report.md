@@ -271,7 +271,7 @@ cause column says why no change was needed.
 
 | # | Input (the full call) | Expected | Actual | Cause (quote the line) | Fix | Who proposed the fix |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | | | | | | |
+| 1 | `can_book(660, 720, 540, False, [(600, 660)])` | True, AC4 permits touching | Import failed: IndentationError before the call could execute | The one physical line begins `def can_book(...): # AC1`; the remaining text is a comment, leaving no body. | Restore line breaks and indentation only in booking.py; preserve original byte-for-byte. | Codex from the received text; copying may have caused the problem. |
 
 **The debug prompt I sent, and the assistant's answer** (leave the block empty if you did not use it):
 
