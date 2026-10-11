@@ -14,7 +14,7 @@ grader find your answers by them. Add rows to any table; never remove its header
 | | |
 | --- | --- |
 | Assistant (tool) | ChatGPT (web) |
-| **Exact** model name | GPT-6 (Instant), proposed; confirm in the new chat |
+| **Exact** model name | GPT-6 (Instant), selected for this workflow |
 | Language and version | Python 3; code must run on grader Python 3.13 |
 | Path | A |
 | My Week 04 declaration for touching bookings | allowed |
@@ -28,9 +28,179 @@ grader find your answers by them. Add rows to any table; never remove its header
 
 **The assistant's plan, pasted unedited:**
 
-```text
-(paste here)
-```
+~~~~text
+## Implementation Plan — `can_book()`
+
+Language: Python 3 Function: `can_book(start, end, now, blocked, existing)` Output: `True` if booking is allowed, otherwise `False`.
+
+### 1. Checks in order
+
+1. Validate time (AC1): Check `0 <= start < end <= 1440` and `start > now`. Return `False` if invalid.
+2. Check duration (AC2): Calculate `end - start`. Return `False` if it exceeds 120 minutes.
+3. Check room status (AC3): Return `False` if `blocked` is `True`.
+4. Check overlaps (AC4): Compare the requested interval with each existing booking. An overlap exists when `start < existing_end` and `end > existing_start`. Return `False` if any overlap is found.
+5. Final decision (AC5): Return `True` only if all checks pass. Never modify `existing` or other inputs.
+
+### 2. Assumptions
+
+- `start` and `end` are integer minutes after midnight.
+- `now` is valid (0–1439).
+- `blocked` is a Boolean.
+- `existing` contains valid booking tuples for the selected room only.
+- All times refer to the same date.
+- Intervals include the start but exclude the end: `[start, end)`.
+- The function only checks availability; saving and confirmation are handled elsewhere.
+
+### 3. Suggested boundary tests
+
+|   |
+| - |
+
+Test case
+
+|   |
+| - |
+
+Expected
+
+|   |
+| - |
+
+Start = 0, now = 0
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+Start = now + 1
+
+|   |
+| - |
+
+`True` if other rules pass
+
+|   |
+| - |
+
+Start = now
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+End = 1440, valid start
+
+|   |
+| - |
+
+`True` if other rules pass
+
+|   |
+| - |
+
+End = 1441
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+Start = end
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+Duration = 120 minutes
+
+|   |
+| - |
+
+`True` if other rules pass
+
+|   |
+| - |
+
+Duration = 121 minutes
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+Room is blocked
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+New booking starts exactly when existing ends
+
+|   |
+| - |
+
+`True`
+
+|   |
+| - |
+
+New booking ends exactly when existing starts
+
+|   |
+| - |
+
+`True`
+
+|   |
+| - |
+
+New booking overlaps existing by 1 minute
+
+|   |
+| - |
+
+`False`
+
+|   |
+| - |
+
+Existing bookings list is empty
+
+|   |
+| - |
+
+`True` if other rules pass
+
+### 4. Implementation approach
+
+Use simple `if` statements and a `for` loop to check existing bookings. Return `False` immediately when a rule fails and `True` at the end.
+
+Important: Test both valid and invalid boundaries, especially the strict `start > now` condition, the inclusive 120-minute duration limit, and allowed endpoint touching.
+
+No code written yet.
+~~~~
 
 **What the plan invented or changed.** One row for every rule in the plan that is not in the
 contract or in AC1–AC5, or that says something different from them. If you found none, write one
@@ -38,11 +208,13 @@ row saying which lines of the plan you checked against which AC.
 
 | # | What the plan said | What the contract or the AC says | What I did |
 | --- | --- | --- | --- |
-| 1 | | | |
+| 1 | No invented rule found: checks 1–5 | AC1 bounds/future; AC2 duration; AC3 blocked; AC4 strict overlap; AC5 Boolean and unchanged inputs | Keep the plan; contract preconditions are assumptions, not extra validation. |
 
 **Boundary cases the assistant suggested that I kept as tests:**
 
--
+- Planned cases: start equals now and now + 1; durations 120 and 121; end 1440 and 1441; zero length; touching at both ends; one-minute overlap; blocked room; empty existing.
+- Start = 0, now = 0 is rejected by the future rule too, so it cannot isolate the lower day bound.
+- Review performed with Codex assistance before implementation; student independent review is not claimed.
 
 ---
 
