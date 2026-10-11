@@ -1,0 +1,45 @@
+schema: 1
+week: "05"
+
+student:
+  name: "Abylai Keshubaev"
+  student_id: "24B031847"
+  github: "keshuba1ev"
+
+assistant:
+  tool: "ChatGPT (web)"
+  model: "GPT-6 (Instant)"
+
+language:
+  name: "python"
+  path: "A"
+
+counts:
+  tests: 27
+  v1_changed: "yes"
+  change_log_rows: 3
+
+checker:
+  pass: 30
+  fail: 2
+  error: 0
+  commit: "c18975b"
+  known_fails: [L1, L2]
+
+assumptions:
+  non_integer_time: "return-false"
+
+carried:
+  week04_touching: "allowed"
+
+review_findings:
+  - "v1: the received one-line function cannot import; line breaks were restored only in the working copy after its original was committed."
+  - "AC4: strict comparisons allow touching; containment and overlaps with later existing bookings are tested."
+  - "AC5: unsorted existing input is compared before and after calls; M9 and M10 are caught."
+  - "AC1: the lower start bound cannot be the sole rejection because valid now is non-negative and start must exceed now."
+  - "L1 and L2: preserved numeric headings in the unedited plan confuse the shipped report section parser; both FAILs are explained and retained."
+
+honesty:
+  v1_unedited: "yes"
+  can_explain_overlap_without_ai: "no"
+  ai_usage_disclosed: "yes"
