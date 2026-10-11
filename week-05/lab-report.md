@@ -249,17 +249,29 @@ Base input for every row unless the row says otherwise: `now=540, blocked=False,
 
 | # | Test name | Request (start, end) | What differs from the base input | Expected | AC | Result on v1 | Result on final |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | | | | | | | |
-| 2 | | | | | | | |
-| 3 | | | | | | | |
-| 4 | | | | | | | |
-| 5 | | | | | | | |
-| 6 | | | | | | | |
-| 7 | | | | | | | |
-| 8 | | | | | | | |
-| 9 | | | | | | | |
-| 10 | | | | | | | |
-| 11 | | | | | | | |
+| 1 | `test_touching_end_is_allowed` | (660, 720) | `now=540, blocked=False, existing=[(600, 660)]` | True | AC4 | ERROR: v1 cannot import | PASS |
+| 2 | `test_partial_overlap_is_rejected` | (630, 690) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC4 | ERROR: v1 cannot import | PASS |
+| 3 | `test_blocked_room_is_rejected` | (660, 720) | `now=540, blocked=True, existing=[(600, 660)]` | False | AC3 | ERROR: v1 cannot import | PASS |
+| 4 | `test_exactly_120_minutes_is_allowed` | (720, 840) | `now=540, blocked=False, existing=[(600, 660)]` | True | AC2 | ERROR: v1 cannot import | PASS |
+| 5 | `test_121_minutes_is_rejected` | (720, 841) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC2 | ERROR: v1 cannot import | PASS |
+| 6 | `test_start_equal_now_is_rejected` | (540, 570) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC1 | ERROR: v1 cannot import | PASS |
+| 7 | `test_zero_length_is_rejected` | (720, 720) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC1 | ERROR: v1 cannot import | PASS |
+| 8 | `test_reversed_interval_is_rejected` | (720, 719) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC1 | ERROR: v1 cannot import | PASS |
+| 9 | `test_end_at_midnight_is_allowed` | (1380, 1440) | `now=540, blocked=False, existing=[(600, 660)]` | True | AC1 | ERROR: v1 cannot import | PASS |
+| 10 | `test_end_after_midnight_is_rejected` | (1381, 1441) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC1 | ERROR: v1 cannot import | PASS |
+| 11 | `test_negative_start_is_rejected` | (-1, 30) | `now=0, blocked=False, existing=[]` | False | AC1 | ERROR: v1 cannot import | PASS |
+| 12 | `test_empty_existing_is_allowed` | (600, 660) | `now=540, blocked=False, existing=[]` | True | AC4/AC5 | ERROR: v1 cannot import | PASS |
+| 13 | `test_touching_start_is_allowed` | (570, 600) | `now=540, blocked=False, existing=[(600, 660)]` | True | AC4 | ERROR: v1 cannot import | PASS |
+| 14 | `test_request_inside_existing_is_rejected` | (615, 645) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC4 | ERROR: v1 cannot import | PASS |
+| 15 | `test_request_contains_existing_is_rejected` | (570, 690) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC4 | ERROR: v1 cannot import | PASS |
+| 16 | `test_one_minute_overlap_is_rejected` | (659, 719) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC4 | ERROR: v1 cannot import | PASS |
+| 17 | `test_later_existing_overlap_is_rejected` | (720, 780) | `now=540, blocked=False, existing=[(600, 660), (750, 810)]` | False | AC4 | ERROR: v1 cannot import | PASS |
+| 18 | `test_gap_between_multiple_bookings_is_allowed` | (660, 720) | `now=540, blocked=False, existing=[(600, 660), (720, 780)]` | True | AC4 | ERROR: v1 cannot import | PASS |
+| 19 | `test_input_order_unchanged_after_allowed_request` | (720, 780) | `existing=[(900, 960), (600, 660)]; full list equality after call` | True | AC5 | ERROR: v1 cannot import | PASS |
+| 20 | `test_input_unchanged_after_rejected_request` | (630, 690) | `existing=[(900, 960), (600, 660)]; full list equality after call` | False | AC5 | ERROR: v1 cannot import | PASS |
+| 21 | `test_start_one_minute_after_now_is_allowed` | (541, 570) | `now=540, blocked=False, existing=[(600, 660)]` | True | AC1 | ERROR: v1 cannot import | PASS |
+| 22 | `test_start_before_now_is_rejected` | (539, 570) | `now=540, blocked=False, existing=[(600, 660)]` | False | AC1 | ERROR: v1 cannot import | PASS |
+| 23 | `test_final_minute_of_day_is_allowed` | (1439, 1440) | `now=1438, blocked=False, existing=[]` | True | AC1 | ERROR: v1 cannot import | PASS |
 
 ---
 
@@ -299,7 +311,8 @@ cause column says why no change was needed.
 
 | # | What changed (the line, before → after) | Why | Evidence: the test or check that moved |
 | --- | --- | --- | --- |
-| 1 | | | |
+| 1 | One physical line → correctly indented function; same conditions and returns | Received v1 cannot import; restore formatting in final only | IndentationError → six table tests pass; F1–F10 pass |
+| 2 | Six tests → 23 tests | Add further kinds and isolated boundaries from AC1–AC5 | M2/M3/M7/M8/M9/M10 survived the six-case suite; all ten M checks now pass |
 
 ---
 
