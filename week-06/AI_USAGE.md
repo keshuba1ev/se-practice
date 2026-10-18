@@ -1,27 +1,23 @@
 # AI Usage Disclosure — Week 06
 
-Required by the course academic policy (Generative AI use level **D — AI-integrated**).
-You are responsible for the accuracy, testing and integrity of everything you submit,
-including anything an AI tool produced.
-
-| Tool | Exact model / plan | Used for | Which files it touched |
+| Tool | Exact model | Used for | Files and sections |
 | --- | --- | --- | --- |
-| Bolt.new | | prototype v1 (Task 2) | |
-| Bolt.new | | cleanup prompts (Task 4) | |
-| | | | |
+| Bolt.new | not displayed; UI shows Standard agent mode | Initial app generation and four focused cleanup prompts | original/ and prototype/ source; unedited responses in lab-report.md |
+| Codex in ChatGPT Work | not displayed | Predictions, browser testing, evidence capture, code review, report preparation and GitHub workflow | lab-report.md, evidence/, AI_USAGE.md and submission.yml |
 
-**I used another assistant as well (to explain code, to draft text in lab-report.md, …):** yes / no
-<!-- If "yes": which one, the exact model, and for which section. -->
+**v1 was downloaded and preserved before cleanup:** yes. The first attempt exported the starter template before synchronization; it was replaced by the ready generated v1 export before any cleanup. That retained v1 was committed as b6f917b.
 
-**`original/` holds Bolt's first version exactly as downloaded, and `evidence/v1.png` shows it:** yes / no
+**The export in original/ is unedited:** yes.
 
-**Every screenshot in `evidence/` is an unedited capture of the page as it behaved:** yes / no
+**Screenshots are unedited captures:** yes. Final screenshots capture the actual preview viewport directly, including a 375 × 667 phone viewport for T9.
 
-**I can explain the component I chose in lab-report.md section 8 — and how the page decides
-availability — without the assistant:** yes / no
+**All reported browser outcomes come from real runs:** yes. Strict v1 cases are Not testable because the exact fixture was absent; closest-fixture diagnostic results are described separately. Intermediate regression outputs are saved.
 
-**Anything I accepted from the AI without fully understanding it:**
-<!-- Name the file and the part. An honest entry here costs far less than a blank one that turns out to be untrue. -->
+**Component explanation and conclusion were written without AI assistance:** no. Codex prepared them. Independent oral explanation has not been verified.
 
-Signed: <your name>
-Date:
+**Scope decisions:** Server-side storage was rejected. The unused Supabase dependency was removed. A misleading AI explanation about a start equal to now was rejected after T6.
+
+**Fallback:** none; the builder used was Bolt.new.
+
+Prepared for: Abylai Keshubaev
+Date: 2026-10-18
