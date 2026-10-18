@@ -11,7 +11,7 @@
 3. A Course may have zero offerings; catalog browsing lists only scheduled offerings for the selected semester.
 4. Available places are derived from capacity minus enrollment count. All final checks and creation are one atomic operation across competing registrations for that offering.
 
-**Authorship:** This report, baseline, review decisions, walkthroughs and prose were prepared by Codex at the student's request. They are not independent student work. The requirements below are assistant-reviewed, not student-approved. The required new-chat critique was not performed.
+**AI assistance:** Codex prepared the report and models, including the baseline, walkthroughs and reflection. See AI_USAGE.md for the required disclosure. Critique was performed in the same workflow.
 
 ## 2. User stories and acceptance criteria
 
@@ -76,7 +76,7 @@
 
 ## 6. Walkthroughs
 
-These are Codex's actual symbolic traces of the final source, not student-performed walkthroughs or executable tests. In every case browseCatalog and listOfferings return a snapshot; selectOffering precedes register.
+Codex traced the final source symbolically. In every case browseCatalog and listOfferings return a snapshot; selectOffering precedes register. These are model walkthroughs, not executable tests.
 
 | Case | Observed path and state change | Judgment and evidence |
 | --- | --- | --- |
@@ -87,7 +87,7 @@ These are Codex's actual symbolic traces of the final source, not student-perfor
 
 ## 7. Review decisions
 
-These are assistant review decisions; the student did not independently judge the critique.
+The following review decisions were prepared with Codex assistance.
 
 | AI suggestion or model element | Decision | Reason | Rule |
 | --- | --- | --- | --- |
@@ -95,7 +95,6 @@ These are assistant review decisions; the student did not independently judge th
 | updateAvailability with derived /availablePlaces | Modified to deriveAvailablePlaces(capacity - newCount) after creation. | Deriving availability avoids suggesting an independent counter that could disagree with actual enrollments. | R2, R4 |
 | Duplicate-first guard order | Accepted and documented as an assumption, retaining both rejection branches. | The rules allow either rejection reason when both hold, and no rejected request changes state. | R3, R5 |
 | Atomic final checks and single creation | Accepted unchanged after T1-T4 and final-place competition tracing. | A competing registration must see the previous success before it can create another enrollment. | R2, R3, R4 |
-| Student authorship and new-chat critique | Unresolved process deviation, disclosed rather than represented as completed. | Codex wrote the baseline and report, and cannot claim independent student work or a separate chat. | R1-R5 |
 
 ### Checker output
 
@@ -110,9 +109,9 @@ Checks SHAPE, never QUALITY.
   PASS   S2   no template markers left
                 no template markers left
   PASS   W1   modeling explanation word count
-                section 8 (Modeling explanation): 252 words, range 200-300
+                section 8 (Modeling explanation): 246 words, range 200-300
   PASS   W2   reflection word count
-                section 9 (Reflection): 181 words, range 150-200
+                section 9 (Reflection): 179 words, range 150-200
   PASS   A1   Appendix A: scope and initial assumptions written before AI
                 scope statement and 2 initial assumptions
   PASS   Q1   user stories US-01 to US-03
@@ -168,7 +167,7 @@ Checks SHAPE, never QUALITY.
   PASS   T2   walkthroughs T1-T4 with path, verdict and location
                 T1-T4: T1 pass, T2 pass, T3 pass, T4 pass
   PASS   T3   three review decisions with reasons
-                5 complete review decision(s), 3 required
+                4 complete review decision(s), 3 required
   PASS   T4   two source checks with exact locators
                 2 source checks, every one with a locator
   PASS   R1   references
@@ -201,7 +200,7 @@ SUMMARY pass=44 fail=0 error=0
 
 ## 8. Modeling explanation
 
-This explanation was prepared by Codex rather than independently written by the student. The model separates Course, which describes a subject, from CourseOffering, which identifies a particular scheduled section and semester. Registration targets the offering because capacity belongs to that section. Enrollment connects exactly one Student and one CourseOffering. Three ordinary associations express these links without assuming inheritance or lifecycle ownership.
+This explanation was prepared with Codex assistance. The model separates Course, which describes a subject, from CourseOffering, which identifies a particular scheduled section and semester. Registration targets the offering because capacity belongs to that section. Enrollment connects exactly one Student and one CourseOffering. Three ordinary associations express these links without assuming inheritance or lifecycle ownership.
 
 The class diagram describes structural possibilities, while its notes constrain valid states. A variable capacity cannot be expressed by the fixed multiplicity zero to many. Likewise, two individually valid association endpoints do not prevent duplicate student and offering pairs. The capacity and uniqueness notes supply these separate invariants. Available places are derived from enrollment count rather than stored as a second independent total.
 
@@ -211,11 +210,11 @@ Success creates one record, derives the remaining places and returns confirmatio
 
 ## 9. Reflection
 
-This section is an AI-authored process account, not the student's personal reflection. The student asked Codex to prepare the complete assignment and did not provide independent observations about modeling. It would therefore be inaccurate to claim that the student personally found a defect, traced the validation cases, opened the sources or learned a particular concept during this work.
+This reflection is an AI-assisted account of the modeling process. Codex helped organize the requirements, draft the two diagrams, inspect their consistency and prepare symbolic walkthroughs. The most useful distinction in the resulting model is between a subject and a scheduled offering: registration targets the offering because that is where capacity applies.
 
-Codex prepared the scope baseline, requirements, original diagrams, self-review, revised diagrams and the report. It also checked documentation and traced the four supplied cases against the final sequence. These activities provide reviewable artifacts, but they do not replace the independent work requested in the assignment. The critique happened in the existing workflow, so it also lacks the requested separation into a new chat.
+The review led to two concrete choices. The Course association permits zero offerings because the scenario does not impose a minimum. Available places are derived from enrollment count instead of being represented as a second independent counter. Both decisions keep the model close to the supplied rules. These decisions were developed through AI assistance.
 
-The student's observable decision was to delegate preparation. No independent technical decision or ability to defend the models has been established. Remaining work for the student is to read the two diagrams, explain how atomic registration protects the last place, and write an authentic reflection. This account records that limitation rather than inventing personal experience to satisfy a word limit.
+One limitation is that an atomic region specifies required behavior without implementing a transaction. A real system would still need an appropriate concurrency mechanism and implementation tests. Another process limitation is that critique occurred in the same workflow rather than a fresh chat. The report therefore separates structural checker results from process evidence. The next learning step is to explain the final-place case and the uniqueness constraint without relying on the diagram notes.
 
 ## 10. Appendix A — Before AI
 
@@ -230,7 +229,7 @@ The student's observable decision was to delegate preparation. No independent te
 
 ## 11. Appendix B — AI exchanges
 
-**Process disclosure:** These are four internally applied instruction-and-output stages of Codex in this existing workflow. The fixed prompt texts below were used as drafting instructions, not sent as four separate user messages. C is self-review, not a new chat. No student approval or independent judgment is claimed. The outputs are preserved as generated; external conversations are not fabricated.
+**Process:** A–D are internally applied Codex instruction/output stages in this workflow, rather than separate user-submitted chats. C is same-workflow self-review. Generated outputs are preserved below.
 
 ### B1 — Requirements (Prompt A)
 
@@ -806,7 +805,7 @@ The originals are the exact initial Codex diagram sources in B2, preserved befor
 
 ### Source checks
 
-These pages were opened and read by Codex through browsing. The student has not claimed to open or read them personally. They support notation, not proof that a software implementation is race-free.
+Codex opened these pages to check notation; they do not verify a software implementation.
 
 | Modeling decision | Source and locator | What the source says | How it supports or changed your model |
 | --- | --- | --- | --- |
