@@ -24,32 +24,26 @@
 
 ## 2. User stories and acceptance criteria
 
-<!-- Your APPROVED requirements: Prompt A's draft after your review. Keep the IDs, the three
-     story headings and the bullet shape. Every criterion names the rule(s) it maps to,
-     e.g. (R2, R4). Two criteria per story. Nothing out of scope.
-     Format of a criterion, on one bullet:
-     - **AC-03** (R2, R4): Given ..., When ..., Then ... -->
-
 ### US-01 — Browse offerings
 
-**US-01:** (write here — As a student, I want …, so that …)
+**US-01:** As a student, I want to browse offerings for one semester, so that I can select a suitable offering.
 
-- **AC-01** (R?): (write here — Given …, When …, Then …)
-- **AC-02** (R?): (write here)
+- **AC-01** (R1): Given offerings exist for a semester, When the student opens its catalog, Then each entry shows course code, title, offering identifier and available places.
+- **AC-02** (R1, R2): Given the student views an offering with available places, When the student selects it, Then the offering is selected but no place is reserved and availability must be rechecked during registration.
 
 ### US-02 — Register for an offering
 
-**US-02:** (write here)
+**US-02:** As a student, I want to register for a selected offering, so that I have a confirmed enrollment.
 
-- **AC-03** (R?): (write here)
-- **AC-04** (R?): (write here)
+- **AC-03** (R2, R3, R4): Given the student is not enrolled and current count is below capacity, When registration atomically rechecks duplicate and capacity conditions, Then exactly one Enrollment links that student and offering, count increases by one, available places decrease by one, and confirmation follows creation.
+- **AC-04** (R2, R4): Given capacity is two and current count is one for a new student, When registration atomically checks availability and creates the Enrollment, Then count becomes two, available places become zero, and confirmation is returned without exceeding capacity.
 
 ### US-03 — Receive a clear rejection
 
-**US-03:** (write here)
+**US-03:** As a student, I want a clear registration rejection, so that I understand why registration did not succeed.
 
-- **AC-05** (R?): (write here)
-- **AC-06** (R?): (write here)
+- **AC-05** (R2, R5): Given the catalog previously showed a place but the offering is now full and the student is not enrolled, When registration checks current capacity, Then it returns "course full", creates no Enrollment and leaves count unchanged.
+- **AC-06** (R3, R5): Given the student already has an Enrollment in the selected offering, When the student requests registration again, Then it returns "already enrolled", creates no Enrollment and leaves count unchanged.
 
 ## 3. Sequence diagram
 
@@ -153,6 +147,9 @@
 **Provenance:** Codex wrote this baseline before the requirements draft, at the student's explicit request. It is not an independently student-written baseline and does not satisfy that authorship requirement. No claim otherwise is made.
 
 ## 11. Appendix B — AI exchanges
+
+**Process disclosure:** A and B below are Codex drafting stages in the existing workflow. Their fixed instructions were applied internally; they were not separately submitted by the student. The student did not independently approve the requirements. This records generated artifacts, not a claim of four independent user chats.
+
 
 <!-- Complete prompts and complete responses, as text — never screenshots. Paste each inside
      the ~~~~ block that follows its label: AI responses contain ``` PlantUML blocks, and
