@@ -1,3 +1,36 @@
-' SIS #02 — your FINAL sequence diagram goes here, as PlantUML (@startuml … @enduml).
-' Start from the AI's original in models/original/sequence.puml, apply your accepted review
-' decisions, then render it to models/img/sequence.png (or .svg). README section 5.
+@startuml
+title Course registration - final sequence
+actor Student
+participant RegistrationService
+database RegistrationRepository
+Student -> RegistrationService : browseCatalog(semester)
+RegistrationService -> RegistrationRepository : listOfferings(semester)
+RegistrationRepository --> RegistrationService : catalog(code, title, offeringId, availablePlaces)
+RegistrationService --> Student : showCatalog(code, title, offeringId, availablePlaces)
+Student -> Student : selectOffering(offeringId)
+Student -> RegistrationService : register(studentId, offeringId)
+critical atomic registration for the selected offering
+RegistrationService -> RegistrationRepository : checkDuplicate(studentId, offeringId)
+RegistrationRepository --> RegistrationService : alreadyEnrolled
+RegistrationService -> RegistrationRepository : countEnrollmentsAndCapacity(offeringId)
+RegistrationRepository --> RegistrationService : count, capacity
+alt already enrolled
+RegistrationService --> Student : already enrolled
+else course full
+RegistrationService --> Student : course full
+else not enrolled and places left
+RegistrationService -> RegistrationRepository : createEnrollment(studentId, offeringId)
+RegistrationRepository --> RegistrationService : enrollmentId
+RegistrationRepository -> RegistrationRepository : deriveAvailablePlaces(capacity - newCount)
+RegistrationRepository --> RegistrationService : availablePlaces
+RegistrationService --> Student : confirmRegistration(enrollmentId, offeringId)
+end
+end
+note over RegistrationService, RegistrationRepository
+R2/R3/R4: final checks and creation are atomic across all
+registration requests for this offering. Catalog reserves nothing.
+R5: rejected requests create no Enrollment and leave count unchanged.
+Assumption: duplicate reason takes priority when both conditions hold.
+R4: availability is derived after creating exactly one Enrollment.
+end note
+@enduml
