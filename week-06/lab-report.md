@@ -23,19 +23,24 @@ grader find your answers by them. Add rows to any table; never remove its header
 
 ## 2. Task 1 — define before generating
 
-**Two predictions, written BEFORE you send the first prompt.** Where do you expect v1 to go wrong?
+**Two predictions, written BEFORE you send the first prompt.** Prepared with Codex assistance before generation; Bolt sign-in had already been opened. Where do you expect v1 to go wrong?
 Fill the first three columns now; fill the last one after Task 3.
 
 | # | What I expect to go wrong | AC it concerns | Was I right? (after Task 3) |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
+| 1 | Touching 11:00-12:00 after an existing 10:00-11:00 booking may be wrongly treated as overlapping. | AC4 | Pending v1 test. |
+| 2 | v1 may use the computer clock without a supplied-current-time control, making the fixed 09:00 test difficult to reproduce. | AC1, AC6 | Pending v1 test. |
 
 **The initial prompt exactly as I sent it** — the deck's prompt with AC1–AC6 pasted in place of
 `[paste AC1–AC6]`, nothing else changed:
 
 ```text
-(paste here)
+Build a small responsive Smart Campus Room Availability Checker. Requirements: AC1: Accept a candidate interval only when 0 ≤ start < end ≤ 1440 and start is after the supplied current time.
+AC2: Reject a booking longer than 120 minutes.
+AC3: Reject the request when the selected room is blocked.
+AC4: Reject any interval that overlaps an existing booking; touching endpoints are allowed.
+AC5: Show a clear Available / Unavailable decision without changing the existing booking data.
+AC6: The page remains usable at desktop and narrow/mobile width and gives understandable validation feedback. Use fictional sample data only. Keep the implementation simple and within one-page scope. Do not add authentication, backend services, analytics, or unrelated features. After building, briefly list the main files/components you created.
 ```
 
 ---
