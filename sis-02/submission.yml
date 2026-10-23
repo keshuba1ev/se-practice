@@ -1,0 +1,29 @@
+schema: 1
+assignment: "sis-02"
+student:
+  name: "Abylai Keshubaev"
+  student_id: "24B031847"
+  group: "not provided"
+  github: "keshuba1ev"
+assistant:
+  tool: "Codex in ChatGPT Work"
+  model: "not displayed"
+checker:
+  pass: 44
+  fail: 0
+  error: 0
+  commit: "ee598408"
+counts:
+  stories: 3
+  criteria: 6
+  exchanges: 4
+  review_decisions: 4
+  source_checks: 2
+  explanation_words: 246
+  reflection_words: 179
+walkthroughs:
+  T1: pass
+  T2: pass
+  T3: pass
+  T4: pass
+known_fails: []
