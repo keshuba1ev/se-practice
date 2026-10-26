@@ -1,0 +1,48 @@
+[
+  {
+    "id": "T1",
+    "result": "Available",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nAvailable\n\nCurie 204 is available from 11:00 to 12:00.\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T2",
+    "result": "Unavailable",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nUnavailable\n\nOverlaps an existing booking (10:00–11:00).\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T3",
+    "result": "Unavailable",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Turing 310\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nUnavailable\n\nTuring 310 is currently blocked and cannot be booked.\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T4",
+    "result": "Available",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nAvailable\n\nCurie 204 is available from 12:00 to 14:00.\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T5",
+    "result": "Unavailable",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nUnavailable\n\nBookings cannot be longer than 120 minutes.\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T6",
+    "result": "Unavailable",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nUnavailable\n\nStart time must be later than the current time.\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T7",
+    "result": "Unavailable",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nUnavailable\n\nEnd time must be after the start time.\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T10",
+    "result": "Unavailable",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Lovelace 105\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nUnavailable\n\nOverlaps an existing booking (11:40–12:40).\n\nChecking does not create or modify any booking."
+  },
+  {
+    "id": "T11",
+    "result": "Available",
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nAvailable\n\nCurie 204 is available from 11:00 to 12:00.\n\nChecking does not create or modify any booking.",
+    "unchanged": true
+  }
+]

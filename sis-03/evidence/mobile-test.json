@@ -1,0 +1,13 @@
+{
+  "id": "T12",
+  "result": "Available",
+  "frame": {
+    "width": 375,
+    "height": 667
+  },
+  "document": {
+    "scrollWidth": 375,
+    "text": "Smart Campus Room Availability\n\nCheck whether a campus room is free for your proposed time slot.\n\nROOMS\n6 rooms\nAthena 101\n\nEngineering Block\n\nOpen\nCapacity 40\nIntro to Circuits\n09:00–10:00\nSignals Lab\n12:00–13:00\nCurie 204\n\nScience Wing\n\nOpen\nCapacity 24\nOrgo Study Group\n10:00–11:00\nTuring 310\n\nCS Lab\n\nBlocked\nCapacity 16\nMaintenance Hold\n10:00–11:00\nDa Vinci 012\n\nArts Hall\n\nOpen\nCapacity 60\nFaculty Meeting\n08:00–09:00\nNewton 220\n\nPhysics Block\n\nOpen\nCapacity 30\nQuantum Seminar\n14:00–15:00\nLovelace 105\n\nMath Wing\n\nOpen\nCapacity 20\nCalculus Recitation\n10:00–11:00\nLinear Algebra Review\n11:40–12:40\nCheck a slot\nSelected room: Curie 204\nStart\nMust be after current time\nEnd\nMax 120 min after start\nCurrent time\nCheck availability\nReset\n\nAvailable\n\nCurie 204 is available from 11:00 to 12:00.\n\nChecking does not create or modify any booking.",
+    "width": 375
+  }
+}

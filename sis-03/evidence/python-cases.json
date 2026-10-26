@@ -1,0 +1,33 @@
+{
+  "v1": {
+    "import_error": "Traceback (most recent call last):\n  File \"<stdin>\", line 9, in <module>\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap_external>\", line 1133, in get_code\n  File \"<frozen importlib._bootstrap_external>\", line 1063, in source_to_code\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/workspace/scratch/ab26a17e9871/sis-03-work/sis-03/code/original/booking_v1.py\", line 1\n    def can_book(start, end, now, blocked, existing):    # AC1: Check valid time range and future start    if not (0 <= start < end <= 1440):        return False    if start <= now:        return False    # AC2: Maximum booking duration is 120 minutes    if end - start > 120:        return False    # AC3: Room must not be blocked    if blocked:        return False    # AC4: Check for overlap with existing bookings    for existing_start, existing_end in existing:        if start < existing_end and end > existing_start:            return False    # AC5: All conditions passed    return True\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^\nIndentationError: expected an indented block after function definition on line 1\n",
+    "cases": {
+      "T1": "Error",
+      "T2": "Error",
+      "T3": "Error",
+      "T4": "Error",
+      "T5": "Error",
+      "T6": "Error",
+      "T7": "Error",
+      "T8": "Error",
+      "T9": "Error",
+      "T10": "Error",
+      "T11": "Error"
+    }
+  },
+  "final": {
+    "cases": {
+      "T1": true,
+      "T2": false,
+      "T3": false,
+      "T4": true,
+      "T5": false,
+      "T6": false,
+      "T7": false,
+      "T8": true,
+      "T9": false,
+      "T10": false,
+      "T11": true
+    }
+  }
+}
