@@ -55,12 +55,11 @@ PASS   X3   section 11: stages Plan, Generate, Critique and Repair all present  
 PASS   X4   section 4: the Bolt prompt carries AC1-AC6 and forbids login, backend, database  AC1-AC6 included; login, backend and database excluded
 PASS   X5   section 11: your Python v1 is inside a Generate response                         100% of your v1 is in a Generate response
 PASS   K1   section 12.1: real output of your suite                                          suite output pasted
-FAIL   Q1   section 10: reflection of 100-200 words                                          22 words, range 100-200
+PASS   Q1   section 10: reflection of 100-200 words                                          169 words, range 100-200
 ------------------------------------------------------------------------------
 Your v1 returns:    T1 error  T2 error  T3 error  T4 error  T5 error  T6 error  T7 error  T8 error  T9 error  T10 error  T11 error
 Your final returns: T1 true  T2 false  T3 false  T4 true  T5 false  T6 false  T7 false  T8 true  T9 false  T10 false  T11 true
 v1 (web/original/) has out-of-scope code: backend or database - a candidate for your issue log.
 Not counted for M - these fail on a can_book that follows the contract exactly: test_boolean_candidate_is_not_integer_time, test_fractional_end_returns_false, test_fractional_start_returns_false, test_text_end_returns_false, test_text_start_returns_false
-SUMMARY pass=54 fail=1 error=0   (55 checks)
-Every FAIL or ERROR you keep goes in report.md section 13 and in submission.yml known_fails.
-One you report and explain costs you nothing. One you hide costs the whole criterion.
+SUMMARY pass=55 fail=0 error=0   (55 checks)
+Behaviour and shape are clean. The grader still reads your review and opens your screenshots.

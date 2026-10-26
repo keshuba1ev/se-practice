@@ -15,6 +15,8 @@
 
 Python v1 is copied byte-for-byte from week-05 at 033d24b; its received response was one physical line and is not executable. Final Python and its initial 27 tests start from that practice's final versions. Web v1 and its first screenshot are copied unchanged from week-06 at ad29923. The web final starts from Week 06's final project and receives new SIS repairs. Reuse is declared, not presented as fresh generation. Dates for reused exchanges stay in the appendix. The project stays private; source exports provide the reviewable implementation.
 
+The reflection in section 10 is based on the student's Russian answers about room preparation, responsibility for AI correctness, design and fictional data. Codex organised and connected those answers with the recorded work. It is assisted editing/drafting, not a claim of unaided reflection.
+
 The first SIS commit, 93d7f6e, preserves the student's answers and explicitly records the assisted discussion. It precedes implementation changes but is not represented as an unaided baseline. The user approved the proposed reuse and checking plan before work continued.
 
 ## 2. Baseline — before any new AI exchange
@@ -201,7 +203,13 @@ The later verification plan labels start=end as “reversed”; that is an equal
 
 ## 10. Reflection
 
-Student reflection pending. This section must contain the student's100-200words about this completed work. No first-person experience has been invented by the assistant.
+При разборе этой работы я сначала думал, что между бронированиями нужно дополнительное время, чтобы люди успели выйти, подготовить помещение или провести технические работы. Потом мы разобрали, что в задании такого условия нет: интервалы могут соприкасаться. Поэтому полезную идею нельзя добавлять без согласования, если она меняет требования.
+
+Python-функция проверяет правила и возвращает True или False. Страница Bolt добавляет интерфейс, поля времени и понятный результат. Для функции важна правильность условий, а для страницы ещё и то, сможет ли пользователь удобно ввести данные и понять сообщение. Риск надёжности здесь — неправильное определение пересечения. Риск удобства — непонятная ошибка или неудобное отображение на телефоне.
+
+Я считаю, что сейчас ИИ хорошо справляется со своей работой, но оставлять всю ответственность за корректность ему неправильно. Нужны проверка требований, тесты и контроль разрешённых действий инструментов. При работе с ИИ также важно не раскрывать реальные данные студентов. Вымышленных данных достаточно для этого прототипа, а ненужный вход в аккаунт добавляет вопросы защиты паролей.
+
+Удобство страницы меня устраивает. Следующим улучшением я выбрал бы более выразительный дизайн, сохранив назначение страницы — только проверку доступности.
 
 ## 11. Appendix A — AI exchanges
 
@@ -520,6 +528,6 @@ Not applicable: Python Path A. Mutation checks are executed by the supplied chec
 
 | Check ID | Status and reason | What remains |
 | --- | --- | --- |
-| Q1 | FAIL: the student reflection is still22words of status text, not a100-200word reflection | Student supplies their own reflection before submission. |
+| None | No retained automated FAIL or ERROR | Checker assesses shape and behaviour, not independent authorship. |
 
-Latest run:54PASS,1FAIL,0ERROR out of55checks. This is a draft, not ready for submission. The sole automated failure is explicitly declared. Baseline assistance is also disclosed even though the shape checker cannot assess authorship. The original Python import failure is reported as Error, not repaired or claimed as a working v1. Web T8/T9 cannot be represented by native HH:MM inputs; adding an explicit end-of-day input would be needed, but the assignment permits Not testable for those cases. Reflection awaits the student's own account. The assisted baseline is transparently distinguished from the required unaided baseline.
+Latest run:55PASS,0FAIL,0ERROR out of55checks. Baseline and reflection assistance remain disclosed: the shape checker does not assess independent authorship. The actual class-group code has not been supplied; CSCI-2208 identifies the course, not the group. The original Python import failure is reported as Error, not repaired or claimed as a working v1. Web T8/T9 cannot be represented by native HH:MM inputs; adding an explicit end-of-day input would be needed, but the assignment permits Not testable for those cases. Reflection now records the student's supplied views, organised with AI assistance; it is not claimed as unaided writing. The assisted baseline is transparently distinguished from the required unaided baseline.

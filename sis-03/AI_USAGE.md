@@ -2,7 +2,7 @@
 
 | Tool | Exact model / plan | Used for | Which files it touched | Reused from |
 | --- | --- | --- | --- | --- |
-| Codex in ChatGPT Work | not displayed | Baseline clarification, review, tests, report organisation and GitHub operations | report.md, code/test_booking.py, AI_USAGE.md, submission.yml, evidence | this SIS |
+| Codex in ChatGPT Work | not displayed | Baseline clarification, review, tests, report organisation, reflection drafting from student answers and GitHub operations | report.md, code/test_booking.py, AI_USAGE.md, submission.yml, evidence | this SIS |
 | ChatGPT (web) | GPT-6 (Instant) | Python v1 and initial plan from practice; generation response received via student paste | code/original/booking_v1.py | week-05 |
 | Bolt.new | not displayed; Standard agent mode | Web v1, new critique, two focused repairs, verification plan | web/original/, web/final/, exchange records | week-06 and this SIS |
 
@@ -14,7 +14,7 @@
 
 **Everything I submitted, I can explain and defend in class — including the overlap condition and what the agent did in section 9:** not yet confirmed by the student.
 
-**Anything I accepted from the AI without fully understanding it:** The student initially proposed multiple days, rejecting120minutes and a preparation buffer. The fixed scope and contract were explained in conversation. Detailed source review and evidence collection were performed with assistance; the student still needs to review the final report and write the reflection. The baseline is assisted and is not presented as the required unaided work.
+**Anything I accepted from the AI without fully understanding it:** The student initially proposed multiple days, rejecting120minutes and a preparation buffer. The fixed scope and contract were explained in conversation. Detailed source review and evidence collection were performed with assistance; the student supplied their views for section10; Codex organised them into the reflection. Independent mastery of every submitted detail has not been confirmed. The baseline is assisted and is not presented as the required unaided work.
 
 Signed: Abylai Keshubaev (prepared with AI assistance; no handwritten signature implied)
-Date: 2026-10-26
+Date: 2026-10-27
