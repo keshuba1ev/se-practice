@@ -1,0 +1,152 @@
+[
+  {
+    "source": "origin/week-05:week-05/code/original/booking_v1.py",
+    "destination": "code/original/booking_v1.py",
+    "sha256": "a8d4fd4eaf985292ae235279bfac67e080167ded205a5c28f7fee287fbd5ceb1",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/.gitkeep",
+    "destination": "web/original/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/.bolt/config.json",
+    "destination": "web/original/project/.bolt/config.json",
+    "sha256": "da87f3867aa1c920ea2dc6b29775a1be2bcf844ee6caa7b947341fae1a7b1b91",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/.bolt/prompt",
+    "destination": "web/original/project/.bolt/prompt",
+    "sha256": "42def6ea7c0d74a7a1fd64b4a10a309872466bf38de50210f6764ed95c4bc1e6",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/.gitignore",
+    "destination": "web/original/project/.gitignore",
+    "sha256": "6ae83bdb0e630c92f89f974c893b6cddd9490371a50a59b04080da0c2ccef422",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/eslint.config.js",
+    "destination": "web/original/project/eslint.config.js",
+    "sha256": "fa3cc12579fb0ef678a3153b31ec396d81ef2fec284a1a5ecb779c0ff336cfe0",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/index.html",
+    "destination": "web/original/project/index.html",
+    "sha256": "003ae8f02be23e301d2a2c8d1638864ecc3c55045af300ab8aa6a1d7cc2e794c",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/package-lock.json",
+    "destination": "web/original/project/package-lock.json",
+    "sha256": "944da667130a7c3a159c8aa5527d91488ca3f2a61142a8c4a4e5d41d66d077ae",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/package.json",
+    "destination": "web/original/project/package.json",
+    "sha256": "a4ee598140eae79e3e00eb144b867ee8c3cff07491ca6c1cf9c7f5201dc1e937",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/postcss.config.js",
+    "destination": "web/original/project/postcss.config.js",
+    "sha256": "e32657baf631d7c5f4dc67b4b2ee0ec8e7d5b3c41860e09cddce7c0377cd80bc",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/App.tsx",
+    "destination": "web/original/project/src/App.tsx",
+    "sha256": "a42ddadc77008d961639c0287ea3988fbeb88e4391656a5b292b9a35081bc773",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/components/ResultBanner.tsx",
+    "destination": "web/original/project/src/components/ResultBanner.tsx",
+    "sha256": "cb015027a44e0cd1b962cfeb5439ebc5c9338df45c5aa7c9d0ab13b3e1d9e89a",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/components/RoomCard.tsx",
+    "destination": "web/original/project/src/components/RoomCard.tsx",
+    "sha256": "f78733c74d6a21f99cbf069cdbd9b8f90a7066876134ad5129e6fa086d3f5f3a",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/components/TimeField.tsx",
+    "destination": "web/original/project/src/components/TimeField.tsx",
+    "sha256": "1fe274bbe5dc07feb588442a1909fe0051321abde02d0fb5a508cf03af4eb91c",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/index.css",
+    "destination": "web/original/project/src/index.css",
+    "sha256": "cc1a7ad0d019ddb1d32d0ecb588ba0ac26ce41d8625dd6c366348b25f83a28ec",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/lib/availability.ts",
+    "destination": "web/original/project/src/lib/availability.ts",
+    "sha256": "b5d7cb3606ef8c96a11048fa5206bf3cc1bbcfdc22c9d079a92f0b9f941dcb4f",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/lib/sampleData.ts",
+    "destination": "web/original/project/src/lib/sampleData.ts",
+    "sha256": "744672fbd97fb4de7f5654915c46cc7c79e89736a2771106eb456c43acd7ac93",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/lib/types.ts",
+    "destination": "web/original/project/src/lib/types.ts",
+    "sha256": "ddd0c9187efb22a21498aee3124df10fa3d51031d4eeb64a91e0ed0f4f77ec5a",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/main.tsx",
+    "destination": "web/original/project/src/main.tsx",
+    "sha256": "832842269af94b055b2cd42fd27a0f212773b36d20083b631b863cbb5f0fd09e",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/src/vite-env.d.ts",
+    "destination": "web/original/project/src/vite-env.d.ts",
+    "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/tailwind.config.js",
+    "destination": "web/original/project/tailwind.config.js",
+    "sha256": "316c86f90ec708a4e953dbba5f6064ddae1feb701754f872b599c4bc2a0aceb5",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/tsconfig.app.json",
+    "destination": "web/original/project/tsconfig.app.json",
+    "sha256": "9750ea1ad666ba467781ab8e047a2337b7692b774de0865a98dbd189ca3fd87e",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/tsconfig.json",
+    "destination": "web/original/project/tsconfig.json",
+    "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/tsconfig.node.json",
+    "destination": "web/original/project/tsconfig.node.json",
+    "sha256": "a96b9ba5e40d95b92adf56431fdf9cbe25b5c2557621f0666615bff6889dfc50",
+    "unchanged": true
+  },
+  {
+    "source": "origin/week-06:week-06/original/project/vite.config.ts",
+    "destination": "web/original/project/vite.config.ts",
+    "sha256": "15e39e0c9e4539c1a425babec469b76b8170a83638ed1413ceeea0133d8dc1ab",
+    "unchanged": true
+  }
+]

@@ -1,30 +1,20 @@
 # AI Usage Disclosure — SIS #03
 
-Required by the course academic policy (Generative AI use level **D — AI-integrated**).
-You are responsible for the accuracy, testing and integrity of everything you submit,
-including anything an AI tool produced.
-
 | Tool | Exact model / plan | Used for | Which files it touched | Reused from |
 | --- | --- | --- | --- | --- |
-| | | the plan (stage A) | | this SIS / week-05 |
-| | | Python v1 (stage B) | `code/original/booking_v1.py` | this SIS / week-05 |
-| Bolt.new | | web prototype v1 (stage B) | `web/original/` | this SIS / week-06 |
-| | | critique (stage C) | | this SIS |
-| | | repair (stage D) | | this SIS |
+| Codex in ChatGPT Work | not displayed | Baseline clarification, review, tests, report organisation and GitHub operations | report.md, code/test_booking.py, AI_USAGE.md, submission.yml, evidence | this SIS |
+| ChatGPT (web) | GPT-6 (Instant) | Python v1 and initial plan from practice; generation response received via student paste | code/original/booking_v1.py | week-05 |
+| Bolt.new | not displayed; Standard agent mode | Web v1, new critique, two focused repairs, verification plan | web/original/, web/final/, exchange records | week-06 and this SIS |
 
-**The assistant wrote, or helped write, my tests in `code/`:** yes / no
-<!-- Either answer is allowed. If "yes": say which tests, and how you checked that their EXPECTED
-     values come from AC1–AC5 and not from what the generated code happens to return. -->
+**The assistant wrote, or helped write, my tests in `code/`:** yes. The first27tests are reused from Week05; Codex added exact T10, repeated T11/data equality, and bool-input tests. Expected values are derived from AC1-AC5, not from generated output. Actual runs are preserved in evidence/python-suite.txt and python-cases.json.
 
-**`code/original/` and `web/original/` hold the AI's first versions exactly as returned:** yes / no
+**`code/original/` and `web/original/` hold the AI's first versions exactly as returned:** yes, copied unchanged from the practice branches. The Python version is exactly the received one-line paste, not a reconstructed executable version. No claim is made about whether copying introduced its formatting defect.
 
-**Every result in report.md section 5 was actually run or seen, not assumed:** yes / no
+**Every result in report.md section 5 was actually run or seen, not assumed:** yes. Setup/input limitations are explicitly Not testable. Closest-fixture diagnostics are not substituted for fixed cases. Codex operated the tests and browser; this does not imply independent student execution.
 
-**Everything I submitted, I can explain and defend in class — including the overlap condition
-and what the agent did in section 9:** yes / no
+**Everything I submitted, I can explain and defend in class — including the overlap condition and what the agent did in section 9:** not yet confirmed by the student.
 
-**Anything I accepted from the AI without fully understanding it:**
-<!-- Name the file and the line. An honest entry here costs far less than a blank one that turns out to be untrue. -->
+**Anything I accepted from the AI without fully understanding it:** The student initially proposed multiple days, rejecting120minutes and a preparation buffer. The fixed scope and contract were explained in conversation. Detailed source review and evidence collection were performed with assistance; the student still needs to review the final report and write the reflection. The baseline is assisted and is not presented as the required unaided work.
 
-Signed: <your name>
-Date:
+Signed: Abylai Keshubaev (prepared with AI assistance; no handwritten signature implied)
+Date: 2026-10-26
