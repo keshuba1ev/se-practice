@@ -85,4 +85,21 @@ describe('canBook: fixed acceptance criteria', () => {
       bookings: [{ start: 600, end: 660 }, { start: 700, end: 760 }],
     }))).toBe(false);
   });
+  test('E1 AC1 first future minute is permitted', () => {
+    expect(canBook(freshRequest(541, 570))).toBe(true);
+  });
+
+  test('E2 AC4 gap touches both existing bookings', () => {
+    expect(canBook(freshRequest(660, 720, {
+      bookings: [{ start: 600, end: 660 }, { start: 720, end: 780 }],
+    }))).toBe(true);
+  });
+
+  test('E3 AC5 repeated accepted checks keep all data unchanged', () => {
+    const request = freshRequest(660, 720);
+    const before = structuredClone(request.bookings);
+    expect(canBook(request)).toBe(true);
+    expect(canBook(request)).toBe(true);
+    expect(request.bookings).toEqual(before);
+  });
 });
