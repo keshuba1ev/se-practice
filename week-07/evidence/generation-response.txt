@@ -1,0 +1,5 @@
+Run command: cd week-07/app && npx vitest run
+
+AC mapping: T02–T05 and X1 check AC1; T06–T07 check AC2; T13 checks AC3; T01,T08–T12,T14 and X2 check AC4; the dedicated AC5 test checks an Available result and complete booking-data equality against a pre-call clone. Each test creates fresh fixture data and passes now=540 rather than reading the clock. Import ./booking exercises the same canBook called by App.
+
+AC6 requires browser checks: the Boolean function cannot establish readable feedback, layout or mobile usability. No rule specifies the policy for malformed existing bookings, such as a reversed pair; observe and declare it separately instead of inventing a required result. The first suite intentionally records the agreed case plan rather than silently expanding the interface or changing implementation. The test file is provided separately and preserved unchanged in suites/first/.

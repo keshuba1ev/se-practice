@@ -1,0 +1,19 @@
+Week 07 submission.yml - shape only, never quality   (submission.yml)
+
+PASS   D1   schema and week                                          schema 1, week 07
+PASS   D2   student.name                                             student.name: Abylai Keshubaev
+PASS   D3   student.student_id                                       student.student_id: 24B031847
+PASS   D4   student.github                                           student.github: keshuba1ev
+PASS   D5   assistant.tool                                           assistant.tool: Codex in ChatGPT Work
+PASS   D6   assistant.model is an exact model name or not displayed  assistant.model: gpt-6.1-sol
+PASS   D7   project: baseline, Bolt link, Vitest version             week-06, Vitest 3.2.4
+PASS   D8   checker numbers add up                                   pass + fail + error = 33
+PASS   D9   checker numbers match a run made now                     declared 32/1/0, a run now gives 32/1/0
+PASS   D10  checker.commit                                           checker.commit: 2a2069b
+PASS   D11  known_fails lists exactly what still fails               known_fails matches the checker: ['U2']
+PASS   D12  counts match the files and lab-report.md                 counts filled and match
+PASS   D13  assumptions.invalid_existing_booking is decided          invalid_existing_booking: returns-true
+PASS   D14  review_findings: three, each naming what it is about     5 review findings
+PASS   D15  honesty block answered                                   honesty block answered
+------------------------------------------------------------------------------
+SUMMARY pass=15 fail=0 error=0   (15 checks)

@@ -1,0 +1,11 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/week-07-work/week-07/app
+
+ ✓ src/booking.test.ts (20 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+   Start at  19:20:04
+   Duration  221ms (transform 26ms, setup 0ms, collect 24ms, tests 3ms, environment 0ms, prepare 76ms)
+

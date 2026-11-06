@@ -1,0 +1,38 @@
+schema: 1
+week: "07"
+student:
+  name: Abylai Keshubaev
+  student_id: 24B031847
+  github: keshuba1ev
+assistant:
+  tool: Codex in ChatGPT Work
+  model: gpt-6.1-sol
+project:
+  baseline: week-06
+  bolt_url: not-shared
+  vitest: 3.2.4
+counts:
+  tests_first: 17
+  tests_final: 20
+  first_run_failed: 0
+  review_decisions: 5
+  mutants_detected: 3
+checker:
+  pass: 32
+  fail: 1
+  error: 0
+  commit: 2a2069b
+  known_fails: [U2]
+assumptions:
+  invalid_existing_booking: returns-true
+review_findings:
+  - T06 agrees with AC2: exactly 120 minutes is allowed; M1 fails this assertion.
+  - T01 and T08 agree with AC4: touching endpoints are permitted, and M2 fails.
+  - AC5 snapshots complete booking data before an accepted call; E3 also repeats it.
+  - AC1 coverage improved with E1 for the first valid minute after now.
+  - RoomCard.tsx omitted roomId in its booking prop type; a type-only correction passed tsc.
+honesty:
+  first_suite_unedited: yes
+  outputs_unedited: yes
+  mutants_restored: yes
+  ai_usage_disclosed: yes

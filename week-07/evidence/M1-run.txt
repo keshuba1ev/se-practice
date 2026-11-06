@@ -1,0 +1,54 @@
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/week-07-work/week-07/app
+
+ ❯ src/booking.test.ts (20 tests | 1 failed) 8ms
+   ✓ canBook: fixed acceptance criteria > T01 AC4 touching after 1ms
+   ✓ canBook: fixed acceptance criteria > T02 AC1 starts now 0ms
+   ✓ canBook: fixed acceptance criteria > T03 AC1 zero duration 0ms
+   ✓ canBook: fixed acceptance criteria > T04 AC1 reversed 0ms
+   ✓ canBook: fixed acceptance criteria > T05 AC1 past day end 0ms
+   × canBook: fixed acceptance criteria > T06 AC2 exactly 120 minutes 5ms
+     → expected false to be true // Object.is equality
+   ✓ canBook: fixed acceptance criteria > T07 AC2 121 minutes 0ms
+   ✓ canBook: fixed acceptance criteria > T08 AC4 touching before 0ms
+   ✓ canBook: fixed acceptance criteria > T09 AC4 partial overlap 0ms
+   ✓ canBook: fixed acceptance criteria > T10 AC4 contains existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > T11 AC4 inside existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > T12 AC4 identical interval 0ms
+   ✓ canBook: fixed acceptance criteria > T13 AC3 blocked 0ms
+   ✓ canBook: fixed acceptance criteria > T14 AC4 empty bookings 0ms
+   ✓ canBook: fixed acceptance criteria > AC5 accepted check preserves existing booking data 0ms
+   ✓ canBook: fixed acceptance criteria > X1 AC1 ending exactly at midnight 0ms
+   ✓ canBook: fixed acceptance criteria > X2 AC4 overlap with the second existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > E1 AC1 first future minute is permitted 0ms
+   ✓ canBook: fixed acceptance criteria > E2 AC4 gap touches both existing bookings 0ms
+   ✓ canBook: fixed acceptance criteria > E3 AC5 repeated accepted checks keep all data unchanged 0ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  19:14:16
+   Duration  248ms (transform 30ms, setup 0ms, collect 29ms, tests 8ms, environment 0ms, prepare 81ms)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/booking.test.ts > canBook: fixed acceptance criteria > T06 AC2 exactly 120 minutes
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/booking.test.ts:37:45
+     35| 
+     36|   test('T06 AC2 exactly 120 minutes', () => {
+     37|     expect(canBook(freshRequest(720, 840))).toBe(true);
+       |                                             ^
+     38|   });
+     39| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
