@@ -4,7 +4,7 @@ import { fmt } from '@/lib/availability';
 
 interface RoomCardProps {
   room: Room;
-  bookings: { start: number; end: number; bookedBy: string }[];
+  bookings: { roomId: string; start: number; end: number; bookedBy: string }[];
   selected: boolean;
   onSelect: () => void;
 }

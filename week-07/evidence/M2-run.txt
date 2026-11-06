@@ -1,0 +1,134 @@
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/week-07-work/week-07/app
+
+ ❯ src/booking.test.ts (20 tests | 5 failed) 9ms
+   × canBook: fixed acceptance criteria > T01 AC4 touching after 5ms
+     → expected false to be true // Object.is equality
+   ✓ canBook: fixed acceptance criteria > T02 AC1 starts now 0ms
+   ✓ canBook: fixed acceptance criteria > T03 AC1 zero duration 0ms
+   ✓ canBook: fixed acceptance criteria > T04 AC1 reversed 0ms
+   ✓ canBook: fixed acceptance criteria > T05 AC1 past day end 0ms
+   ✓ canBook: fixed acceptance criteria > T06 AC2 exactly 120 minutes 0ms
+   ✓ canBook: fixed acceptance criteria > T07 AC2 121 minutes 0ms
+   × canBook: fixed acceptance criteria > T08 AC4 touching before 0ms
+     → expected false to be true // Object.is equality
+   ✓ canBook: fixed acceptance criteria > T09 AC4 partial overlap 0ms
+   ✓ canBook: fixed acceptance criteria > T10 AC4 contains existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > T11 AC4 inside existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > T12 AC4 identical interval 0ms
+   ✓ canBook: fixed acceptance criteria > T13 AC3 blocked 0ms
+   ✓ canBook: fixed acceptance criteria > T14 AC4 empty bookings 0ms
+   × canBook: fixed acceptance criteria > AC5 accepted check preserves existing booking data 0ms
+     → expected false to be true // Object.is equality
+   ✓ canBook: fixed acceptance criteria > X1 AC1 ending exactly at midnight 0ms
+   ✓ canBook: fixed acceptance criteria > X2 AC4 overlap with the second existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > E1 AC1 first future minute is permitted 0ms
+   × canBook: fixed acceptance criteria > E2 AC4 gap touches both existing bookings 0ms
+     → expected false to be true // Object.is equality
+   × canBook: fixed acceptance criteria > E3 AC5 repeated accepted checks keep all data unchanged 0ms
+     → expected false to be true // Object.is equality
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 15 passed (20)
+   Start at  19:14:17
+   Duration  225ms (transform 28ms, setup 0ms, collect 27ms, tests 9ms, environment 0ms, prepare 51ms)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/booking.test.ts > canBook: fixed acceptance criteria > T01 AC4 touching after
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/booking.test.ts:17:45
+     15| describe('canBook: fixed acceptance criteria', () => {
+     16|   test('T01 AC4 touching after', () => {
+     17|     expect(canBook(freshRequest(660, 720))).toBe(true);
+       |                                             ^
+     18|   });
+     19| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/booking.test.ts > canBook: fixed acceptance criteria > T08 AC4 touching before
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/booking.test.ts:45:45
+     43| 
+     44|   test('T08 AC4 touching before', () => {
+     45|     expect(canBook(freshRequest(570, 600))).toBe(true);
+       |                                             ^
+     46|   });
+     47| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/booking.test.ts > canBook: fixed acceptance criteria > AC5 accepted check preserves existing booking data
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/booking.test.ts:75:30
+     73|     const request = freshRequest(660, 720);
+     74|     const before = structuredClone(request.bookings);
+     75|     expect(canBook(request)).toBe(true);
+       |                              ^
+     76|     expect(request.bookings).toEqual(before);
+     77|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/booking.test.ts > canBook: fixed acceptance criteria > E2 AC4 gap touches both existing bookings
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/booking.test.ts:95:10
+     93|     expect(canBook(freshRequest(660, 720, {
+     94|       bookings: [{ start: 600, end: 660 }, { start: 720, end: 780 }],
+     95|     }))).toBe(true);
+       |          ^
+     96|   });
+     97| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/booking.test.ts > canBook: fixed acceptance criteria > E3 AC5 repeated accepted checks keep all data unchanged
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/booking.test.ts:101:30
+     99|     const request = freshRequest(660, 720);
+    100|     const before = structuredClone(request.bookings);
+    101|     expect(canBook(request)).toBe(true);
+       |                              ^
+    102|     expect(canBook(request)).toBe(true);
+    103|     expect(request.bookings).toEqual(before);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

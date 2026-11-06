@@ -1,0 +1,34 @@
+{
+  "trials": [
+    {
+      "id": "M1",
+      "exit": 1,
+      "failed_names": [
+        "T06 AC2 exactly 120 minutes"
+      ],
+      "detected_by_assertion": true
+    },
+    {
+      "id": "M2",
+      "exit": 1,
+      "failed_names": [
+        "T01 AC4 touching after",
+        "T08 AC4 touching before",
+        "AC5 accepted check preserves existing booking data",
+        "E2 AC4 gap touches both existing bookings",
+        "E3 AC5 repeated accepted checks keep all data unchanged"
+      ],
+      "detected_by_assertion": true
+    },
+    {
+      "id": "M3",
+      "exit": 1,
+      "failed_names": [
+        "T13 AC3 blocked"
+      ],
+      "detected_by_assertion": true
+    }
+  ],
+  "module_restored": true,
+  "tests_unchanged": true
+}
