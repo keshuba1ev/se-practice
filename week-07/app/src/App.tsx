@@ -6,6 +6,7 @@ import { ResultBanner } from '@/components/ResultBanner';
 import { SAMPLE_BOOKINGS, SAMPLE_ROOMS } from '@/lib/sampleData';
 import { checkAvailability, fmt, parseTime } from '@/lib/availability';
 import type { Decision } from '@/lib/types';
+import { canBook } from './booking';
 
 function App() {
   const [roomId, setRoomId] = useState<string>('');
@@ -43,8 +44,21 @@ function App() {
       return;
     }
 
-    setDecision(
-      checkAvailability({ roomId, start, end, currentTime }, SAMPLE_ROOMS, SAMPLE_BOOKINGS)
+    const room = SAMPLE_ROOMS.find((item) => item.id === roomId);
+    const available = canBook({
+      start,
+      end,
+      now: currentTime,
+      blocked: room?.blocked ?? true,
+      bookings: SAMPLE_BOOKINGS.filter((booking) => booking.roomId === roomId),
+    });
+    // The page keeps the existing human-readable reasons; the predicate owns the decision.
+    const details = checkAvailability(
+      { roomId, start, end, currentTime }, SAMPLE_ROOMS, SAMPLE_BOOKINGS
+    );
+    setDecision(available
+      ? { ok: true, message: details.message }
+      : { ok: false, reason: details.ok ? 'unavailable' : details.reason, message: details.message }
     );
   }
 
