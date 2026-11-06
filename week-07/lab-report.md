@@ -76,21 +76,85 @@ five columns.
 
 ## 4. Task 3 — the generation prompt and the first suite
 
+The supplied generation instruction was applied by Codex in this existing conversation, not sent to a new external chat. This workflow difference is disclosed; no separate chat or tool response is invented. The test file and accompanying answer were generated before review and execution.
+
 **The prompt exactly as I sent it.** Use the deck's prompt with `[our test framework]` replaced by
 `Vitest`, followed by the case table from section 3:
 
 ```text
-(paste here)
+Generate tests for the existing booking function using Vitest. Use AC1–AC6 and the reviewed case table below.
+
+Import the real function used by the page. Keep its code unchanged. Use fixed time and fresh fixtures. Assert exact decisions and unchanged booking data.
+
+Return the test file, run command, and AC mapping. Flag unclear requirements. We will run the tests ourselves.
+
+Reviewed case table:
+| ID | Candidate / changed input | Expected | AC | Reason (in your words) |
+| --- | --- | --- | --- | --- |
+| T01 | 660–720 (touching after) | true | AC4 |  The existing interval ends at660, which it excludes; a request starting at660 only touches it. |
+| T02 | 540–570 (starts now) | false | AC1 |  Start540 equals now540; starting strictly after now excludes equality. |
+| T03 | 720–720 (zero duration) | false | AC1 |  The end equals the start, so the interval has no positive length. |
+| T04 | 750–720 (reversed) | false | AC1 |  The requested end720 occurs before its start750. |
+| T05 | 1380–1441 (past day end) | false | AC1 |  End1441 is one minute outside the allowed day ending1440. |
+| T06 | 720–840 (120 minutes) | true | AC2 |  840 minus720 is120; the maximum is inclusive, so this limit is allowed. |
+| T07 | 720–841 (121 minutes) | false | AC2 |  841 minus720 is121, one minute beyond the maximum duration. |
+| T08 | 570–600 (touching before) | true | AC4 |  End600 is excluded from the candidate, so it does not share occupied time with a booking starting600. |
+| T09 | 630–690 (partial overlap) | false | AC4 |  The intervals share time from630 until660. |
+| T10 | 570–690 (contains booking) | false | AC4 |  The request spans the whole occupied600-660 interval. |
+| T11 | 615–645 (inside booking) | false | AC4 |  Every minute of615-645 lies inside the occupied600-660 interval. |
+| T12 | 600–660 (identical interval) | false | AC4 |  The request uses exactly the same occupied interval as the existing booking. |
+| T13 | 660–720, blocked = true | false | AC3 |  Blocked status rejects the request even though its times would otherwise be valid. |
+| T14 | 630–690, bookings = [] | true | AC4 |  With an empty bookings array there is nothing to overlap; start630 is future and duration60 is valid. |
+| AC5 | an Available request — the bookings after the call equal the bookings before | true, data unchanged | AC5 |  Use an accepted660-720 request and compare the complete original booking data with its pre-call snapshot. |
+| X1 | 1380–1440, default fixture | true | AC1 | Ending at1440 is the inclusive day boundary and this request lasts60minutes. |
+| X2 | 720–780, bookings=[{start:600,end:660},{start:700,end:760}] | false | AC4 | The first interval does not overlap, but the second overlaps720-760; every booking must be checked. |
+
+
+Existing booking.ts:
+```ts
+export interface BookingInterval {
+  start: number;
+  end: number;
+}
+
+export interface BookingRequest {
+  start: number;
+  end: number;
+  now: number;
+  blocked: boolean;
+  bookings: readonly BookingInterval[];
+}
+
+/** Extracted Week 06 decision. The caller supplies the room and same-day data. */
+export function canBook({ start, end, now, blocked, bookings }: BookingRequest): boolean {
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return false;
+  if (start < 0 || end > 1440) return false;
+  if (start >= end) return false;
+  if (start <= now) return false;
+  if (end - start > 120) return false;
+  if (blocked) return false;
+  for (const booking of bookings) {
+    if (start < booking.end && booking.start < end) return false;
+  }
+  return true;
+}
+```
+
+AC1–AC6 are the fixed criteria in the supplied README section3.
 ```
 
 **The assistant's answer: run command, AC mapping and any unclear requirements it flagged,
 pasted unedited.** Its test file goes to `suites/first/` and is not pasted here:
 
 ```text
-(paste here)
+Run command: cd week-07/app && npx vitest run
+
+AC mapping: T02–T05 and X1 check AC1; T06–T07 check AC2; T13 checks AC3; T01,T08–T12,T14 and X2 check AC4; the dedicated AC5 test checks an Available result and complete booking-data equality against a pre-call clone. Each test creates fresh fixture data and passes now=540 rather than reading the clock. Import ./booking exercises the same canBook called by App.
+
+AC6 requires browser checks: the Boolean function cannot establish readable feedback, layout or mobile usability. No rule specifies the policy for malformed existing bookings, such as a reversed pair; observe and declare it separately instead of inventing a required result. The first suite intentionally records the agreed case plan rather than silently expanding the interface or changing implementation. The test file is provided separately and preserved unchanged in suites/first/.
 ```
 
-The first suite was saved to `suites/first/` **before** I changed anything in it: yes / no
+The first suite was saved to `suites/first/` **before** I changed anything in it: yes
 
 ---
 
@@ -103,8 +167,11 @@ requests* · *mocked booking function*, or your own) and the AC that decides it.
 
 | # | Test or part of the suite | What is weak or wrong | Decision: accept / revise / reject | AC or reason |
 | --- | --- | --- | --- | --- |
-| 1 | | | accept / revise / reject | |
-| 2 | | | accept / revise / reject | |
+| 1 | Exact decisions T01–T14 | No weak truthiness or no-exception assertion found | accept | Expected values come from AC1–AC4, including120allowed and endpoint touching. |
+| 2 | Real ./booking import and freshRequest | No mocked function or shared fixture found | accept | Each call uses the page predicate and a new booking array; no clock is read. |
+| 3 | AC5 accepted request with structuredClone | Proper pre-call snapshot and exact accepted result | accept | An available request reaches any potential append path; full equality detects mutation. |
+| 4 | Missing positive lower future boundary | First suite does not check now+1 | revise | Add an accepted541–570 case to catch a predicate that rejects the first valid minute. |
+| 5 | X2 rejection alone does not show a valid gap between two bookings | Missing combined touching boundary | revise | Add660–720 between600–660 and720–780; AC4 must allow both touches. |
 
 ---
 
