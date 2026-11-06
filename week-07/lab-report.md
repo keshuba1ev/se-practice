@@ -43,29 +43,31 @@ the behaviour did not change. Also say which file of the page now calls it. 40 w
 
 ## 3. Task 2 — the test plan
 
+Prepared with Codex assistance before generating the first suite. The reasons were derived from the fixed acceptance criteria, not observed output. They are not claimed as an unaided student plan.
+
 Default fixture: `now = 540`, `blocked = false`, `bookings = [{ start: 600, end: 660 }]`, fresh
 for every test. **The Expected column comes from AC1–AC4, never from the code.** Write the
 **reason** for each expected result **before** you send the generation prompt.
 
 | ID | Candidate / changed input | Expected | AC | Reason (in your words) |
 | --- | --- | --- | --- | --- |
-| T01 | 660–720 (touching after) | true | AC4 | |
-| T02 | 540–570 (starts now) | false | AC1 | |
-| T03 | 720–720 (zero duration) | false | AC1 | |
-| T04 | 750–720 (reversed) | false | AC1 | |
-| T05 | 1380–1441 (past day end) | false | AC1 | |
-| T06 | 720–840 (120 minutes) | true | AC2 | |
-| T07 | 720–841 (121 minutes) | false | AC2 | |
-| T08 | 570–600 (touching before) | true | AC4 | |
-| T09 | 630–690 (partial overlap) | false | AC4 | |
-| T10 | 570–690 (contains booking) | false | AC4 | |
-| T11 | 615–645 (inside booking) | false | AC4 | |
-| T12 | 600–660 (identical interval) | false | AC4 | |
-| T13 | 660–720, blocked = true | false | AC3 | |
-| T14 | 630–690, bookings = [] | true | AC4 | |
-| AC5 | an Available request — the bookings after the call equal the bookings before | true, data unchanged | AC5 | |
-| X1 | | | | |
-| X2 | | | | |
+| T01 | 660–720 (touching after) | true | AC4 |  The existing interval ends at660, which it excludes; a request starting at660 only touches it. |
+| T02 | 540–570 (starts now) | false | AC1 |  Start540 equals now540; starting strictly after now excludes equality. |
+| T03 | 720–720 (zero duration) | false | AC1 |  The end equals the start, so the interval has no positive length. |
+| T04 | 750–720 (reversed) | false | AC1 |  The requested end720 occurs before its start750. |
+| T05 | 1380–1441 (past day end) | false | AC1 |  End1441 is one minute outside the allowed day ending1440. |
+| T06 | 720–840 (120 minutes) | true | AC2 |  840 minus720 is120; the maximum is inclusive, so this limit is allowed. |
+| T07 | 720–841 (121 minutes) | false | AC2 |  841 minus720 is121, one minute beyond the maximum duration. |
+| T08 | 570–600 (touching before) | true | AC4 |  End600 is excluded from the candidate, so it does not share occupied time with a booking starting600. |
+| T09 | 630–690 (partial overlap) | false | AC4 |  The intervals share time from630 until660. |
+| T10 | 570–690 (contains booking) | false | AC4 |  The request spans the whole occupied600-660 interval. |
+| T11 | 615–645 (inside booking) | false | AC4 |  Every minute of615-645 lies inside the occupied600-660 interval. |
+| T12 | 600–660 (identical interval) | false | AC4 |  The request uses exactly the same occupied interval as the existing booking. |
+| T13 | 660–720, blocked = true | false | AC3 |  Blocked status rejects the request even though its times would otherwise be valid. |
+| T14 | 630–690, bookings = [] | true | AC4 |  With an empty bookings array there is nothing to overlap; start630 is future and duration60 is valid. |
+| AC5 | an Available request — the bookings after the call equal the bookings before | true, data unchanged | AC5 |  Use an accepted660-720 request and compare the complete original booking data with its pre-call snapshot. |
+| X1 | 1380–1440, default fixture | true | AC1 | Ending at1440 is the inclusive day boundary and this request lasts60minutes. |
+| X2 | 720–780, bookings=[{start:600,end:660},{start:700,end:760}] | false | AC4 | The first interval does not overlap, but the second overlaps720-760; every booking must be checked. |
 
 X1 and X2 are **your own two cases**: a boundary or a state that T01–T14 do not reach. Fill all
 five columns.
