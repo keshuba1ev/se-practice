@@ -1,0 +1,31 @@
+schema: 1
+week: "09"
+student:
+  name: Abylai Keshubaev
+  student_id: 24B031847
+  github: keshuba1ev
+assistant:
+  tool: ChatGPT
+  model: not displayed
+  fresh_chats: yes
+calls:
+  r3: asked
+  first_run_s_fails: 9
+checker:
+  pass: 27
+  fail: 1
+  error: 2
+  commit: 8ce41ad
+  known_fails: [F4, F5, F6]
+review_findings:
+  - S03 and S10 require integer times; S11 requires inclusive maximum 1440.
+  - R1 used correct minute conversions and retained the touching endpoint.
+  - R2 had no recoverable rendered reply; F4 fails and F5/F6 cannot check a fabricated replacement.
+  - R3 asked about time and room state but omitted now and the unsupported tomorrow scope.
+  - AC2 duration and AC4 overlap comparisons remain function responsibilities.
+  - A8 is blocked because an unknown MCP server must not receive environment secrets.
+honesty:
+  definition_written_by_me: no
+  calls_unedited: no
+  outputs_unedited: yes
+  ai_usage_disclosed: yes
