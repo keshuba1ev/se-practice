@@ -1,0 +1,21 @@
+
+> vite-react-typescript-starter@0.0.0 capture:evidence
+> node ../evidence/capture-evidence.mjs
+
+PASS F1/F2: 25 attendees + projector + whiteboard leave exactly Athena and Newton.
+CAPTURE filter-match 1440 1000
+PASS F4: 61 attendees produce no rooms and an explicit empty-state message.
+CAPTURE filter-empty 1440 1000
+PASS F5 switch-a: Athena is Available at 10:00–11:00, now fixed at 09:00.
+CAPTURE switch-a 1440 1000
+PASS F5 switch-b: same times, Curie becomes Unavailable without another submit.
+CAPTURE switch-b 1440 1000
+PASS F3: selectable blocked Turing remains Unavailable.
+PASS AC6: malformed time exposes field feedback and removes stale Available status.
+PASS B1/B3: exactly 120 minutes ending at the next reservation is Available.
+PASS B2: 121 minutes is Unavailable.
+PASS AC1: 23:00–24:00 is accepted and displayed without midnight wrap.
+PASS AC6: actual 390×844 browser viewport, no horizontal overflow (390/390), form and Available result visible after scrolling.
+CAPTURE narrow 390 1416
+PASS No page errors and no requests outside the local preview server.
+SUMMARY: 11 checks passed; 5 distinct screenshots saved.

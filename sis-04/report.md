@@ -2,7 +2,7 @@
 
 ## 1. Setup and starting point
 
-Prepared for **Keshubayev Abylay**, Student ID **24B031847**, GitHub **keshuba1ev**. Checks and implementation were performed by the assistant; independent student review is not asserted. No dates were backdated. This remains a draft until the five screenshots and student review of the edited reflection are supplied.
+Prepared for **Keshubayev Abylay**, Student ID **24B031847**, GitHub **keshuba1ev**. Checks and implementation were performed by the assistant; independent student review is not asserted. No dates were backdated. All five screenshot files have now been captured and checked. Student review of the AI-edited reflection remains unconfirmed; unaided authorship is not asserted.
 
 | Item | Value |
 | --- | --- |
@@ -114,21 +114,23 @@ Required modules: rooms.ts exports Room and ROOMS (4+ complete fictional rooms),
 
 Five fictional rooms keep their existing names, capacities and schedules, now with equipment and nested bookings in rooms.ts. The attendees field and equipment checkboxes call filterRooms: capacity is inclusive and every selected item is required. Blocked rooms remain visible and selectable, with a Blocked label; checkRoom still rejects them. An unknown room id returns false.
 
-The page displays “No rooms match your requirements” and a correction hint when the filter returns nothing. The fixed demo now is 09:00. Once Check availability is pressed, feedback is derived from the current room/time; switching rooms recalculates without another submit. If a filter removes the selection, both selection and old result clear. Text inputs support the valid endpoint 24:00. Pure domain functions and five actual React/DOM tests verify these behaviors; pixel layout and phone usability remain unverified because screenshots could not be captured.
+The page displays “No rooms match your requirements” and a correction hint when the filter returns nothing. The fixed demo now is 09:00. Once Check availability is pressed, feedback is derived from the current room/time; switching rooms recalculates without another submit. If a filter removes the selection, both selection and old result clear. Text inputs support the valid endpoint 24:00. Pure domain functions and five actual React/DOM tests verify these behaviors; the actual Chromium mobile viewport was also checked for horizontal overflow and inspected through the captured portrait image. This is browser emulation, not a claim of testing physical phone hardware.
 
 ### 4.2 Demonstration
 
-The table specifies the reproducible capture steps, **not observations from screenshots**. No screenshot files were fabricated.
+The five files are actual Chromium screenshots from the HTTP-served production build in GitHub Actions. Their dimensions, hashes, selected inputs and asserted results are recorded in evidence/capture-manifest.json; evidence/visual-qa-ci.txt is the real capture output.
 
 | Screenshot | What it shows |
 | --- | --- |
-| evidence/filter-match.png | NOT CAPTURED. Set attendees=25 and projector+whiteboard: expected Athena 101 (40) and Newton 220 (30) only. |
-| evidence/filter-empty.png | NOT CAPTURED. Set attendees=61: expected zero matching rooms and the explicit no-match message. |
-| evidence/switch-a.png | NOT CAPTURED. Reset, choose Athena 101, enter 10:00–11:00 and check: expected Available at fixed now=09:00. |
-| evidence/switch-b.png | NOT CAPTURED. Keep 10:00–11:00, switch to Curie 204: expected Unavailable because its own booking is 10:00–11:00. |
-| evidence/narrow.png | NOT CAPTURED. Open the same app at a portrait phone viewport, e.g. 390×844; check controls, feedback and horizontal overflow. |
+| evidence/filter-match.png | 25 attendees with projector+whiteboard: exactly Athena 101 and Newton 220 remain. |
+| evidence/filter-empty.png | 61 attendees with the same equipment: zero rooms and the explicit no-match message. |
+| evidence/switch-a.png | Athena 101, 10:00–11:00, fixed now09:00: Available; existing reservation only touches the start. |
+| evidence/switch-b.png | Same unchanged times, Curie 204 selected: Unavailable from its own overlapping booking, without a second submit. |
+| evidence/narrow.png | Actual 390×844 mobile browser viewport, full-page portrait capture, Athena selected and Available after filtering; no horizontal overflow. |
 
-The cloud browser could not reach the workspace's HTTP loopback server (ERR_CONNECTION_REFUSED). Opening the local preview file was then rejected by browser URL policy. That policy was not bypassed. No browser screenshots, actual portrait-width result or real-device check is claimed. jsdom tests cannot establish layout correctness.
+The cloud browser could not reach workspace loopback and rejected local-file navigation. The first local automated Chromium launch also failed because the workspace disallows socket(); its attempted permission escalation was rejected. No local protection was disabled. The successful test ran instead in GitHub's isolated hosted runner, with repository contents read-only and only localhost application requests during page interaction. The first CI attempt used ubuntu-latest (26.04), unsupported by pinned Playwright 1.56.1; the runner was pinned to supported Ubuntu 24.04. Both failed attempts remain in evidence. The script owns and closes its preview server/browser and checks exit status. A mobile viewport and touch emulation are not physical-device testing.
+
+Successful visual run: https://github.com/keshuba1ev/se-practice/actions/runs/44954799219. CI provenance: source commit 4ed870cfebdf92c59a0b6a70c766e8f2d3763552; captured 2026-11-21T22:05:06.591Z; Chromium 141.0.7390.37. The source files under app/src were unchanged by the screenshot setup. The isolated run, not the blocked local attempt, produced the images.
 
 ## 5. Refactoring (Task 3)
 
@@ -215,22 +217,22 @@ Evidence: catalog-tests-red.txt preserves the missing-filter failure, catalog-te
 ```text
 npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
 
- RUN  v3.2.4 /workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/sis-04-final/sis-04/app
 
- ✓ src/lib/time.test.ts (4 tests) 6ms
- ✓ src/catalog.test.ts (16 tests) 10ms
+ ✓ src/lib/time.test.ts (4 tests) 5ms
  ✓ src/booking.test.ts (20 tests) 12ms
- ✓ src/ui.test.tsx (5 tests) 970ms
-   ✓ UI F1 F2 B5 rendered filters require capacity and ALL equipment  332ms
+ ✓ src/catalog.test.ts (16 tests) 10ms
+ ✓ src/ui.test.tsx (5 tests) 996ms
+   ✓ UI F1 F2 B5 rendered filters require capacity and ALL equipment  348ms
 
  Test Files  4 passed (4)
       Tests  45 passed (45)
-   Start at  02:49:51
-   Duration  2.72s (transform 288ms, setup 0ms, collect 665ms, tests 999ms, environment 611ms, prepare 549ms)
+   Start at  03:02:30
+   Duration  2.90s (transform 341ms, setup 0ms, collect 700ms, tests 1.02s, environment 666ms, prepare 1.64s)
 
 ```
 
-The committed final-typecheck.txt, final-build.txt and final-lint.txt are the matching real command outputs; all completed successfully. No claim that a production build verifies UI layout is made.
+The matching final-typecheck.txt, final-build.txt and final-lint.txt are real successful outputs. Real browser layout evidence is recorded separately in §4.2; a build alone is not layout verification.
 
 ## 7. Quality evaluation (Task 5)
 
@@ -239,7 +241,7 @@ The committed final-typecheck.txt, final-build.txt and final-lint.txt are the ma
 | Automated tests passed / total | 20/20 | 45/45 | Exact Vitest Tests lines in §1.1 and §6.3; original 20-test file remains byte-identical. |
 | Duplicated logic locations removed | 0 removed; two rule evaluators present | 1 redundant evaluator removed; one remains | The one removed location is the single row in §5.3; compare deletion of lib/availability.ts and App's duplicate call against the baseline. |
 | Code structure: modules and their responsibilities | 12 src files; 9 production TS/TSX modules; data split and two booking evaluators | 17 src files; 11 production TS/TSX modules; rooms/booking/filter/UI separated | git ls-tree baseline and git ls-files app/src, recorded in structure-before.txt/after.txt; counts include main, exclude tests, .d.ts and CSS for production modules. More files is not claimed as an automatic quality gain. |
-| Remaining limitation | Stale feedback after time edits; live-clock-dependent demo; no equipment filter | Generic rejection checklist; browser/portrait screenshots not obtained; no pixel-layout verification | Inspect baseline App setters, final message branch and the five real rendered UI tests. Browser connection refusal and local-file URL-policy block prevented visual evidence; no success claim replaces them. |
+| Remaining limitation | Stale feedback after time edits; live-clock-dependent demo; no equipment filter | Generic rejection checklist; physical-device testing not performed | Inspect baseline App setters, final message branch and the five real rendered UI tests. Five real captures, their manifest and visual-qa-ci.txt now establish desktop and mobile-viewport evidence; this does not establish behavior on every physical device. |
 
 ## 8. AI evidence appendix
 
@@ -382,12 +384,9 @@ No room or booking data is modified.
 
 | Check | Why it still fails |
 | --- | --- |
-| E1 | Filter match/empty screenshots are absent. Their intended states are documented, but no image is claimed as captured. |
-| E2 | Room switch screenshots are absent. Pure and rendered F5 tests pass, but they do not replace screenshot evidence. |
-| E3 | No portrait-width browser screenshot was obtained; jsdom has no actual layout engine. |
+| None | All 33 checks pass after adding the five actual screenshots. |
 
-
-The unavailable browser evidence and student review of the edited reflection keep this an incomplete draft despite passing technical tests. The baseline import also has the disclosed .gitignore relocation exception in §1; it is not presented as a byte-identical full directory. The reflection now meets the word-count check, but AI-assisted editing does not satisfy a claim of unaided authorship. The original student draft is preserved in evidence/student-reflection-original.txt. The group code was not provided and is declared as not provided rather than invented. Keep the PR open and do not submit it as complete until these items are addressed.
+The baseline import has the disclosed .gitignore relocation exception in §1, declared baseline_unchanged:no; the history was retained rather than rewritten. The reflection meets the word-count check but was factually edited and expanded with AI at the student's request; this does not establish compliance with the unaided-authoring requirement. The original student draft is preserved. The group code remains not provided rather than invented. Keep the PR open and do not merge it.
 
 ## 10. AI reflection (Task 6)
 
@@ -397,8 +396,8 @@ Student-provided draft, factually edited and expanded with AI assistance at the 
 
 Контекст для ИИ включал карту файлов, существующие функции, ограничения проекта и ожидаемое поведение. Полезным оказался поэтапный подход: сначала сохранить исходную версию, затем зафиксировать анализ и только после этого менять код. Однако первый ответ модели содержал неверное соответствие B1–B6. Это обнаружил агент при сверке с заданием; план был исправлен до изменения исходников. Позже пришлось отклонить и предложенную моделью сигнатуру filterRooms, поскольку задание требует объект criteria.
 
-Я самостоятельно не запускал 45 тестов, проверку TypeScript, сборку и линтер: их выполнял агент. Также я пока не подтверждаю личное ревью всех изменений и проверку мобильной версии. Отсутствующие скриншоты нельзя считать готовыми только на основании успешных тестов.
+Я самостоятельно не запускал 45 тестов, проверку TypeScript, сборку и линтер: их выполнял агент. Также я пока не подтверждаю личное ревью всех изменений и проверку мобильной версии. Скриншоты нельзя считать готовыми только на основании успешных тестов: позже агент получил их отдельным запуском настоящего браузера в GitHub Actions.
 
 Проверки повлияли на реализацию конкретно: новые тесты сначала показали отсутствие модуля фильтрации, TypeScript обнаружил неполные тестовые данные, а проверки интерфейса выявили проблему доступного имени поля времени. После исправлений проходят 45 тестов, включая пять проверок React-интерфейса. Это подтверждает проверенные сценарии, но не внешний вид страницы.
 
-Следующим шагом для меня остаются самостоятельный запуск приложения, просмотр изменений и получение пяти настоящих скриншотов, включая портретный мобильный экран. После этого можно предметно оценить удобство формы и понятность сообщений об отказе.
+Следующим шагом для меня остаются самостоятельный запуск приложения, просмотр изменений и проверка пяти снимков, полученных агентом, включая портретный мобильный экран. После этого можно предметно оценить удобство формы и понятность сообщений об отказе.

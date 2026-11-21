@@ -1,0 +1,101 @@
+{
+  "sourceCommit": "4ed870cfebdf92c59a0b6a70c766e8f2d3763552",
+  "capturedAt": "2026-11-21T22:05:06.591Z",
+  "browser": "141.0.7390.37",
+  "origin": "http://127.0.0.1:5182",
+  "checks": [
+    "F1/F2: 25 attendees + projector + whiteboard leave exactly Athena and Newton.",
+    "F4: 61 attendees produce no rooms and an explicit empty-state message.",
+    "F5 switch-a: Athena is Available at 10:00–11:00, now fixed at 09:00.",
+    "F5 switch-b: same times, Curie becomes Unavailable without another submit.",
+    "F3: selectable blocked Turing remains Unavailable.",
+    "AC6: malformed time exposes field feedback and removes stale Available status.",
+    "B1/B3: exactly 120 minutes ending at the next reservation is Available.",
+    "B2: 121 minutes is Unavailable.",
+    "AC1: 23:00–24:00 is accepted and displayed without midnight wrap.",
+    "AC6: actual 390×844 browser viewport, no horizontal overflow (390/390), form and Available result visible after scrolling.",
+    "No page errors and no requests outside the local preview server."
+  ],
+  "pageErrors": [],
+  "requestCount": 6,
+  "screenshots": [
+    {
+      "name": "filter-match.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "44e17824639b4350d016bd439b80d28a44b41aa3771a5fa52113800b23a9138a",
+      "state": {
+        "attendees": 25,
+        "equipment": [
+          "projector",
+          "whiteboard"
+        ],
+        "rooms": [
+          "Athena 101",
+          "Newton 220"
+        ]
+      }
+    },
+    {
+      "name": "filter-empty.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "5780855cbe8c8808d7cb086458d7f08aad934859e78de6f9070b3402626d6185",
+      "state": {
+        "attendees": 61,
+        "equipment": [
+          "projector",
+          "whiteboard"
+        ],
+        "rooms": []
+      }
+    },
+    {
+      "name": "switch-a.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "03d64804ebc630c19905270d402e598033e742ab465b5b4afaa0b6ac31fe79fa",
+      "state": {
+        "selected": "Athena 101",
+        "start": "10:00",
+        "end": "11:00",
+        "result": "Available"
+      }
+    },
+    {
+      "name": "switch-b.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "f217459554e820465fa5f58fb003ce946a444760812ba585321caee676447cb8",
+      "state": {
+        "selected": "Curie 204",
+        "start": "10:00",
+        "end": "11:00",
+        "result": "Unavailable"
+      }
+    },
+    {
+      "name": "narrow.png",
+      "width": 390,
+      "height": 1416,
+      "sha256": "3635a1e2246e06057556f6aa4c88a85d8324200f6ebad8c44ea560ca11056ed0",
+      "state": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "layout": {
+          "width": 390,
+          "client": 390,
+          "scroll": 390,
+          "height": 844
+        },
+        "selected": "Athena 101",
+        "start": "10:00",
+        "end": "11:00",
+        "result": "Available",
+        "emulation": "Chromium mobile viewport; not physical hardware"
+      }
+    }
+  ]
+}
