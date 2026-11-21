@@ -1,6 +1,10 @@
 @startuml
 skinparam componentStyle rectangle
+component main
+component "index.css" as Styles
 component App
+main --> App
+main --> Styles
 component RoomCard
 component TimeField
 component ResultBanner

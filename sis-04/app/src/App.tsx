@@ -3,7 +3,7 @@ import { Clock, Building2, CalendarClock } from 'lucide-react';
 import { RoomCard } from '@/components/RoomCard';
 import { TimeField } from '@/components/TimeField';
 import { ResultBanner } from '@/components/ResultBanner';
-import { ROOMS, EQUIPMENT } from './rooms';
+import { ROOMS, EQUIPMENT, type Room } from './rooms';
 import { filterRooms, type RoomCriteria } from './filter';
 import { RoomFilters } from './components/RoomFilters';
 import { fmt, parseTime } from '@/lib/time';
@@ -12,13 +12,13 @@ import { checkRoom } from './booking';
 
 const DEMO_NOW = 540;
 
-function App() {
+function App({ rooms = ROOMS }: { rooms?: Room[] }) {
   const [roomId, setRoomId] = useState<string>('');
   const [startStr, setStartStr] = useState('');
   const [endStr, setEndStr] = useState('');
   const [criteria, setCriteria] = useState<RoomCriteria>({ attendees: 1, equipment: [] });
   const [hasChecked, setHasChecked] = useState(false);
-  const matches = filterRooms(ROOMS, criteria);
+  const matches = filterRooms(rooms, criteria);
   const selectedRoom = matches.find(room => room.id === roomId);
   const start = parseTime(startStr);
   const end = parseTime(endStr);
@@ -31,7 +31,7 @@ function App() {
     if (!selectedRoom) {
       decision = { ok: false, reason: 'no-room', message: 'Select a room from the matching results.' };
     } else if (!startError && !endError) {
-      const ok = checkRoom(ROOMS, selectedRoom.id, { start, end, now: DEMO_NOW });
+      const ok = checkRoom(rooms, selectedRoom.id, { start, end, now: DEMO_NOW });
       decision = ok
         ? { ok: true, message: `${selectedRoom.name} is free from ${fmt(start)} to ${fmt(end)}.` }
         : { ok: false, reason: 'unavailable', message: `${selectedRoom.name}: check that the end is after the start, the start is after 09:00, the slot is at most 120 minutes, and the room is open with no conflicting reservation.` };
@@ -45,7 +45,7 @@ function App() {
 
   function updateCriteria(next: RoomCriteria) {
     setCriteria(next);
-    if (!filterRooms(ROOMS, next).some(room => room.id === roomId)) {
+    if (!filterRooms(rooms, next).some(room => room.id === roomId)) {
       setRoomId('');
       setHasChecked(false);
     }
@@ -83,7 +83,7 @@ function App() {
               <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
                 <CalendarClock className="h-4 w-4" /> Rooms
               </h2>
-              <span className="text-xs text-slate-400">{matches.length} of {ROOMS.length} rooms</span>
+              <span className="text-xs text-slate-400">{matches.length} of {rooms.length} rooms</span>
             </div>
             <RoomFilters criteria={criteria} equipment={EQUIPMENT} onChange={updateCriteria} />
             {matches.length === 0 && (

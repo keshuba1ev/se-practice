@@ -1,0 +1,1390 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app
+
+ ✓ src/lib/time.test.ts (4 tests) 10ms
+ ✓ src/catalog.test.ts (16 tests) 9ms
+ ✓ src/booking.test.ts (20 tests) 41ms
+ ❯ src/ui.test.tsx (5 tests | 4 failed) 560ms
+   ✓ UI F1 F2 B5 rendered filters require capacity and ALL equipment 255ms
+   × UI F4 filtering out selection clears old feedback and shows empty state 90ms
+     → Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+   × UI F5 INT room switching refreshes the result without a second submit 87ms
+     → Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+   × UI F3 AC3 blocked card is selectable and always unavailable 66ms
+     → Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+   × UI AC1 AC6 time edits refresh decision and show malformed input feedback 61ms
+     → Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/ui.test.tsx > UI F4 filtering out selection clears old feedback and shows empty state
+TestingLibraryElementError: Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ getAllByLabelText node_modules/@testing-library/dom/dist/queries/label-text.js:111:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillTimes src/ui.test.tsx:17:27
+     15| }
+     16| function fillTimes(start = '10:00', end = '11:00') {
+     17|   fireEvent.change(screen.getByLabelText('Start'), { target: { value: …
+       |                           ^
+     18|   fireEvent.change(screen.getByLabelText('End'), { target: { value: en…
+     19| }
+ ❯ src/ui.test.tsx:36:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/ui.test.tsx > UI F5 INT room switching refreshes the result without a second submit
+TestingLibraryElementError: Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ getAllByLabelText node_modules/@testing-library/dom/dist/queries/label-text.js:111:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillTimes src/ui.test.tsx:17:27
+     15| }
+     16| function fillTimes(start = '10:00', end = '11:00') {
+     17|   fireEvent.change(screen.getByLabelText('Start'), { target: { value: …
+       |                           ^
+     18|   fireEvent.change(screen.getByLabelText('End'), { target: { value: en…
+     19| }
+ ❯ src/ui.test.tsx:48:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/ui.test.tsx > UI F3 AC3 blocked card is selectable and always unavailable
+TestingLibraryElementError: Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ getAllByLabelText node_modules/@testing-library/dom/dist/queries/label-text.js:111:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillTimes src/ui.test.tsx:17:27
+     15| }
+     16| function fillTimes(start = '10:00', end = '11:00') {
+     17|   fireEvent.change(screen.getByLabelText('Start'), { target: { value: …
+       |                           ^
+     18|   fireEvent.change(screen.getByLabelText('End'), { target: { value: en…
+     19| }
+ ❯ src/ui.test.tsx:62:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/ui.test.tsx > UI AC1 AC6 time edits refresh decision and show malformed input feedback
+TestingLibraryElementError: Unable to find a label with the text of: Start
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"border-b border-slate-200 bg-white/80 backdrop-blur"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mx-auto flex max-w-5xl items-center gap-3 px-4 py-4 sm:px-6"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600 text-white"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"lucide lucide-building2 h-5 w-5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 6h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 10h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 14h4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 18h4"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"text-lg font-semibold sm:text-xl"[39m
+            [36m>[39m
+              [0mSmart Campus Room Availability[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-xs text-slate-500 sm:text-sm"[39m
+            [36m>[39m
+              [0mFind a room that fits your group, then check your time slot.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"grid gap-6 lg:grid-cols-5"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"lg:col-span-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-3 flex items-center justify-between"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mclass[39m=[32m"lucide lucide-calendar-clock h-4 w-4"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mheight[39m=[32m"24"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-linecap[39m=[32m"round"[39m
+                  [33mstroke-linejoin[39m=[32m"round"[39m
+                  [33mstroke-width[39m=[32m"2"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mwidth[39m=[32m"24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M16 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M8 2v4"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M3 10h5"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M17.5 17.5 16 16.3V14"[39m
+                  [36m/>[39m
+                  [36m<circle[39m
+                    [33mcx[39m=[32m"16"[39m
+                    [33mcy[39m=[32m"16"[39m
+                    [33mr[39m=[32m"6"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Rooms[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xs text-slate-400"[39m
+              [36m>[39m
+                [0m4[0m
+                [0m of [0m
+                [0m4[0m
+                [0m rooms[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<fieldset[39m
+              [33mclass[39m=[32m"mb-5 rounded-xl border border-slate-200 bg-white p-4"[39m
+            [36m>[39m
+              [36m<legend[39m
+                [33mclass[39m=[32m"px-1 text-sm font-semibold text-slate-700"[39m
+              [36m>[39m
+                [0mRoom requirements[0m
+              [36m</legend>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"flex items-center justify-between gap-3 text-sm text-slate-700"[39m
+              [36m>[39m
+                [0mAttendees[0m
+                [36m<input[39m
+                  [33mclass[39m=[32m"w-24 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"[39m
+                  [33mmin[39m=[32m"1"[39m
+                  [33mstep[39m=[32m"1"[39m
+                  [33mtype[39m=[32m"number"[39m
+                  [33mvalue[39m=[32m"1"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"mt-3 text-xs text-slate-500"[39m
+              [36m>[39m
+                [0mRequired equipment · all selected items[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mt-2 flex flex-wrap gap-3"[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 text-sm capitalize text-slate-700"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"h-4 w-4 accent-sky-600"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [0mprojector[0m
+                [36m</label>[39m
+            ...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ getAllByLabelText node_modules/@testing-library/dom/dist/queries/label-text.js:111:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillTimes src/ui.test.tsx:17:27
+     15| }
+     16| function fillTimes(start = '10:00', end = '11:00') {
+     17|   fireEvent.change(screen.getByLabelText('Start'), { target: { value: …
+       |                           ^
+     18|   fireEvent.change(screen.getByLabelText('End'), { target: { value: en…
+     19| }
+ ❯ src/ui.test.tsx:70:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  4 failed | 41 passed (45)
+   Start at  02:42:42
+   Duration  2.14s (transform 309ms, setup 0ms, collect 684ms, tests 620ms, environment 550ms, prepare 800ms)
+

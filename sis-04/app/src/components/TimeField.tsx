@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 interface TimeFieldProps {
   label: string;
   value: string;
@@ -7,10 +9,14 @@ interface TimeFieldProps {
 }
 
 export function TimeField({ label, value, onChange, hint, error }: TimeFieldProps) {
+  const id = useId();
   return (
     <label className="block">
-      <span className="block text-sm font-medium text-slate-700">{label}</span>
+      <span id={`${id}-label`} className="block text-sm font-medium text-slate-700">{label}</span>
       <input
+        aria-labelledby={`${id}-label`}
+        aria-describedby={hint || error ? `${id}-help` : undefined}
+        aria-invalid={Boolean(error)}
         type="text"
         inputMode="numeric"
         placeholder="HH:MM"
@@ -24,9 +30,9 @@ export function TimeField({ label, value, onChange, hint, error }: TimeFieldProp
         ].join(' ')}
       />
       {error ? (
-        <span className="mt-1 block text-xs text-rose-600">{error}</span>
+        <span id={`${id}-help`} className="mt-1 block text-xs text-rose-600">{error}</span>
       ) : hint ? (
-        <span className="mt-1 block text-xs text-slate-400">{hint}</span>
+        <span id={`${id}-help`} className="mt-1 block text-xs text-slate-400">{hint}</span>
       ) : null}
     </label>
   );

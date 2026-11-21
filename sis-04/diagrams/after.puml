@@ -1,6 +1,10 @@
 @startuml
 skinparam componentStyle rectangle
+component main
+component "index.css" as Styles
 component App
+main --> App
+main --> Styles
 component "rooms (catalog + Room type)" as Rooms
 component "filter (filterRooms)" as Filter
 component "booking (canBook + checkRoom)" as Booking
