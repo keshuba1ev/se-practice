@@ -14,4 +14,4 @@ computing gzip size...
 dist/index.html                   0.71 kB │ gzip:  0.39 kB
 dist/assets/index-CmT_VGXL.css   14.46 kB │ gzip:  3.43 kB
 dist/assets/index-pBAHKSZW.js   157.51 kB │ gzip: 50.37 kB
-✓ built in 2.61s
+✓ built in 3.88s

@@ -1,0 +1,44 @@
+name: SIS 04 visual evidence
+on:
+  push:
+    branches: [sis-04]
+    paths:
+      - 'sis-04/**'
+      - '.github/workflows/sis-04-visual-evidence.yml'
+permissions:
+  contents: read
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: sis-04/app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: sis-04/app/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Capture and verify real browser states
+        run: npm run capture:evidence 2>&1 | tee ../evidence/visual-qa-ci.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sis-04-visual-evidence
+          path: |
+            sis-04/evidence/filter-match.png
+            sis-04/evidence/filter-empty.png
+            sis-04/evidence/switch-a.png
+            sis-04/evidence/switch-b.png
+            sis-04/evidence/narrow.png
+            sis-04/evidence/capture-manifest.json
+            sis-04/evidence/visual-qa-ci.txt
+          if-no-files-found: warn
+          retention-days: 7
