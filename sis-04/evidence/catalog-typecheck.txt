@@ -1,0 +1,9 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> vite-react-typescript-starter@0.0.0 typecheck
+> tsc --noEmit -p tsconfig.app.json
+
+src/catalog.test.ts(8,5): error TS2741: Property 'building' is missing in type '{ id: string; name: string; capacity: number; equipment: string[]; blocked: false; bookings: { start: number; end: number; }[]; }' but required in type 'Room'.
+src/catalog.test.ts(9,5): error TS2741: Property 'building' is missing in type '{ id: string; name: string; capacity: number; equipment: string[]; blocked: false; bookings: never[]; }' but required in type 'Room'.
+src/catalog.test.ts(10,5): error TS2741: Property 'building' is missing in type '{ id: string; name: string; capacity: number; equipment: string[]; blocked: false; bookings: never[]; }' but required in type 'Room'.
+src/catalog.test.ts(11,5): error TS2741: Property 'building' is missing in type '{ id: string; name: string; capacity: number; equipment: string[]; blocked: true; bookings: never[]; }' but required in type 'Room'.

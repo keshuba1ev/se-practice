@@ -1,3 +1,5 @@
+import type { Room } from './rooms';
+
 export interface BookingInterval {
   start: number;
   end: number;
@@ -23,4 +25,15 @@ export function canBook({ start, end, now, blocked, bookings }: BookingRequest):
     if (start < booking.end && booking.start < end) return false;
   }
   return true;
+}
+
+/** F3/F5: lookup once and delegate, using only this room's state. */
+export function checkRoom(
+  rooms: readonly Room[],
+  roomId: string,
+  request: { start: number; end: number; now: number },
+): boolean {
+  const room = rooms.find(item => item.id === roomId);
+  if (!room) return false;
+  return canBook({ ...request, blocked: room.blocked, bookings: room.bookings });
 }
