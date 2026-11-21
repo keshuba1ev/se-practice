@@ -3,13 +3,14 @@ on:
   push:
     branches: [sis-04]
     paths:
-      - 'sis-04/**'
+      - 'sis-04/app/**'
+      - 'sis-04/evidence/capture-evidence.mjs'
       - '.github/workflows/sis-04-visual-evidence.yml'
 permissions:
   contents: read
 jobs:
   screenshots:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     defaults:
       run:
