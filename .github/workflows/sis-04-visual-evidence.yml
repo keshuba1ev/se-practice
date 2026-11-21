@@ -14,6 +14,7 @@ jobs:
     timeout-minutes: 10
     defaults:
       run:
+        shell: bash
         working-directory: sis-04/app
     steps:
       - uses: actions/checkout@v4
