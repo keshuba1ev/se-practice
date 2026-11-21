@@ -20,18 +20,18 @@ counts:
   risks: 5
   exchanges: 3
 checker:
-  pass: 30
+  pass: 33
   fail: 0
-  error: 3
-  commit: da9d265
-  known_fails: [E1, E2, E3]
+  error: 0
+  commit: f410e3e58399965b6aa84f7e9bc42598aab306aa
+  known_fails: []
 review_findings:
   - B1-B6 were mislabeled in the first AI reply; corrected fixed IDs were recorded before app source changes.
   - F2 uses every selected equipment item, while the model's positional filterRooms arguments were changed to the required criteria object.
   - F5 uses the selected room's own bookings; a rendered UI test switches at identical times without a second submit.
   - AC5 original canBook and its 20 tests are unchanged; filtering and repeated wrapper calls preserve the full catalog.
   - AC6 rendered tests found ambiguous time labels; label and hint references were separated and all 45 tests pass.
-  - AC6 pixel layout remains unverified; the missing five screenshots are disclosed as E1, E2 and E3.
+  - AC6 five genuine Chromium screenshots and 11 browser assertions passed in GitHub Actions; the 390px viewport had no horizontal overflow. Physical hardware was not tested.
   - src/App.tsx and all other baseline code were unchanged; app/.gitignore was relocated, so a full unchanged-tree claim is explicitly declined.
 honesty:
   baseline_unchanged: no
