@@ -1,5 +1,6 @@
 /** Local visual QA of the real HTTP-served production build; no connected browser/profile. */
 import assert from 'node:assert/strict';
+import { stripVTControlCharacters } from 'node:util';
 import { createRequire } from 'node:module';
 import { spawn, execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -13,8 +14,8 @@ const origin = 'http://127.0.0.1:5182';
 const viteCli = fileURLToPath(new URL('../app/node_modules/vite/bin/vite.js', import.meta.url));
 const server = spawn(process.execPath, [viteCli, 'preview', '--host', '127.0.0.1', '--port', '5182', '--strictPort'], { cwd: appDir, stdio: ['ignore', 'pipe', 'pipe'] });
 let serverText = '';
-server.stdout.on('data', b => { serverText += b; });
-server.stderr.on('data', b => { serverText += b; });
+server.stdout.on('data', b => { serverText += stripVTControlCharacters(b.toString()); });
+server.stderr.on('data', b => { serverText += stripVTControlCharacters(b.toString()); });
 let browser;
 const checks = [];
 const pageErrors = [];
