@@ -1,0 +1,32 @@
+1. filter.ts
+Filters by capacity and requires every selected equipment item. Empty equipment requirements match all rooms.
+[…]
+export function filterRooms(
+  rooms: Room[],
+  attendees: number,
+  requiredEquipment: string[]
+): Room[] {
+  return rooms.filter(
+    (room) =>
+      room.capacity >= attendees &&
+      requiredEquipment.every((item) =>
+        room.equipment.includes(item)
+      )
+  );
+}
+[…]
+  const room = rooms.find((item) => item.id === roomId);
+
+  if (!room) return false;
+
+  return canBook({
+    ...request,
+    blocked: room.blocked,
+    bookings: room.bookings,
+  });
+[…]
+This ensures that:
+Unknown room IDs return false.
+Blocked rooms are rejected by canBook.
+Only the selected room's bookings are checked.
+No room or booking data is modified.

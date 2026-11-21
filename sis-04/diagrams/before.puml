@@ -1,0 +1,27 @@
+@startuml
+skinparam componentStyle rectangle
+component main
+component "index.css" as Styles
+component App
+main --> App
+main --> Styles
+component RoomCard
+component TimeField
+component ResultBanner
+component "booking (canBook)" as Booking
+component "lib/availability (second rule evaluator + time)" as Availability
+component "lib/sampleData (flat arrays)" as Data
+component "lib/types" as Types
+App --> Booking
+App --> Availability
+App --> Data
+App --> RoomCard
+App --> TimeField
+App --> ResultBanner
+App ..> Types : types
+RoomCard --> Availability
+RoomCard ..> Types : types
+ResultBanner ..> Types : types
+Availability ..> Types : types
+Data ..> Types : types
+@enduml

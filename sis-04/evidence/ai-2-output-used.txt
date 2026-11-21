@@ -1,0 +1,11 @@
+The corrections are accepted. The existing canBook() remains completely unchanged, including its signature, implementation and 20 passing tests.
+Capacity and equipment filtering belong exclusively in filterRooms(). They must not be added to canBook().
+[…]
+Switching rooms automatically recomputes the result.
+Editing time refreshes the result.
+Switching rooms uses only their own bookings.
+If filtering removes the selected room, clear that selection and its result.
+[…]
+Blocked rooms remain selectable and display a clear Blocked label.
+[…]
+Final design decision: Filtering determines which rooms meet the requirements; checkRoom() determines whether the selected room is available; the UI communicates the current decision. canBook() remains unchanged.

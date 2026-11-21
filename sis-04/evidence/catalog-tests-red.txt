@@ -1,0 +1,29 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app
+
+ ✓ src/booking.test.ts (20 tests) 7ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/catalog.test.ts [ src/catalog.test.ts ]
+Error: Cannot find module './filter' imported from '/workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app/src/catalog.test.ts'
+ ❯ src/catalog.test.ts:3:31
+      1| import { describe, expect, test } from 'vitest';
+      2| import { canBook, checkRoom } from './booking';
+      3| import { filterRooms } from './filter';
+       |                               ^
+      4| import type { Room } from './rooms';
+      5| 
+
+Caused by: Error: Failed to load url ./filter (resolved id: ./filter) in /workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app/src/catalog.test.ts. Does the file exist?
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/dep-CDnG8rE7.js:51858:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  20 passed (20)
+   Start at  02:35:52
+   Duration  700ms (transform 134ms, setup 0ms, collect 73ms, tests 7ms, environment 1ms, prepare 549ms)
+

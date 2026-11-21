@@ -1,0 +1,13 @@
+Analyse this unchanged Week 07 TypeScript app for SIS 04. Give maintainability risks with file/function references and a numbered SMALL plan. No code or full rewrite yet.
+Repository map:
+app/src/App.tsx: form, selection, live nowMinutes(), calls canBook then checkAvailability for its message.
+app/src/booking.ts: pure canBook({start,end,now,blocked,bookings}), 20 passing tests in booking.test.ts.
+app/src/lib/availability.ts: checkAvailability repeats interval, 120, blocked and strict overlap checks; also fmt and parseTime.
+app/src/lib/sampleData.ts: five SAMPLE_ROOMS with id/name/building/capacity/blocked, and separate flat SAMPLE_BOOKINGS with roomId.
+app/src/lib/types.ts: Room lacks equipment and nested bookings; Decision is a Boolean/message union.
+app/src/components/RoomCard.tsx: filters the flat bookings by roomId, renders a button with onClick and aria-disabled={room.blocked}.
+app/src/components/TimeField.tsx and ResultBanner.tsx: presentation.
+Observed snippets: App calls canBook with SAMPLE_BOOKINGS.filter(b => b.roomId === roomId), then calls checkAvailability with the same inputs; handleCheck saves decision in state; selection clears it, editing time does not. nowMinutes uses new Date. canBook uses start < booking.end && booking.start < end.
+Preserve AC1: 0 <= start < end <= 1440 and start > supplied now; AC2 duration <=120; AC3 blocked rejected; AC4 no overlap, touching allowed; AC5 no data mutation or saved booking; AC6 clear responsive feedback.
+Add F1 capacity >= attendees; F2 ALL selected equipment; F3 blocked never available; F4 clear no-match state; F5 switching rooms refreshes result using only that room's bookings.
+Required modules: rooms.ts exports Room and ROOMS (4+ complete fictional rooms), filter.ts exports filterRooms, booking.ts keeps canBook and adds checkRoom(rooms,roomId,request), UI imports rules. Keep original tests; add F1-F5, B1-B6 and INT with independent fixed fixtures. Constraints: no login, payments, backend, live APIs, database or storage; fictional data and fixed time only. Suggest an alternative for handling blocked rooms and explain its tradeoff.

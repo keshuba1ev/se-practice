@@ -1,0 +1,12 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app
+
+ ✓ src/booking.test.ts (20 tests) 9ms
+ ✓ src/catalog.test.ts (16 tests) 12ms
+
+ Test Files  2 passed (2)
+      Tests  36 passed (36)
+   Start at  02:36:20
+   Duration  774ms (transform 146ms, setup 0ms, collect 200ms, tests 21ms, environment 1ms, prepare 502ms)
+

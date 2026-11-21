@@ -1,0 +1,32 @@
+@startuml
+skinparam componentStyle rectangle
+component main
+component "index.css" as Styles
+component App
+main --> App
+main --> Styles
+component "rooms (catalog + Room type)" as Rooms
+component "filter (filterRooms)" as Filter
+component "booking (canBook + checkRoom)" as Booking
+component RoomCard
+component RoomFilters
+component TimeField
+component ResultBanner
+component "lib/time" as Time
+component "lib/types (Decision)" as Types
+App --> Rooms
+App --> Filter
+App --> Booking
+App --> RoomCard
+App --> RoomFilters
+App --> TimeField
+App --> ResultBanner
+App --> Time
+App ..> Types : types
+Filter ..> Rooms : types
+Booking ..> Rooms : types
+RoomCard ..> Rooms : types
+RoomCard --> Time
+RoomFilters ..> Filter : types
+ResultBanner ..> Types : types
+@enduml
