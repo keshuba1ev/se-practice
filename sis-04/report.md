@@ -14,7 +14,7 @@ Prepared for **Keshubayev Abylay**, Student ID **24B031847**, GitHub **keshuba1e
 | Vitest version | 3.2.4 |
 | Where I ran the tests | Task workspace, Node 24.22.3, using app/package-lock.json |
 
-The Week 07 source at ab4478304ba926451b10ec08976faf269b54635c was copied unchanged into app/. All 24 application files were compared byte for byte; their hashes are in evidence/baseline-files.sha256. No week-08 branch existed when the repository was checked. Main was 4e8a0cde5e86c7fe09b0372e5ebc43d72ec5d43f. The equivalent local baseline is 2a45c8d; the published baseline above has the same tree and was created through the connected GitHub account with server-generated dates. Later stages were published as they were completed.
+The 24 imported Week 07 application files at ab4478304ba926451b10ec08976faf269b54635c were compared byte for byte; their hashes are in evidence/baseline-files.sha256. A final full-tree comparison found one import exception: the original app/.gitignore had been moved/replaced by the root ignore file before the baseline commit. All application code, configuration and tests were preserved, but the entire app tree was not identical. The original app/.gitignore is restored in the final tree; baseline_unchanged is honestly declared no. The original baseline history is retained rather than rewritten. No week-08 branch existed when the repository was checked. Main was 4e8a0cde5e86c7fe09b0372e5ebc43d72ec5d43f. The equivalent local baseline is 2a45c8d; the published baseline above has the same tree and was created through the connected GitHub account with server-generated dates. Later stages were published as they were completed.
 
 The first attempt used an incomplete dependency cache and stopped with ERR_MODULE_NOT_FOUND for @vitest/utils. It is preserved in evidence/baseline-attempt-missing-dependency.txt. npm ci --ignore-scripts restored the lockfile dependencies without source changes, then the actual baseline suite passed. Early report placeholders were accidentally replaced inside template comments; final report placement was corrected without changing the preserved run logs or the baseline source.
 
@@ -92,7 +92,7 @@ Required modules: rooms.ts exports Room and ROOMS (4+ complete fictional rooms),
 <!-- Numbered, in the order you will do it, smallest safe step first. Written BEFORE you change
      code: the commit that adds this section comes before the commit that changes app/src. -->
 
-1. Keep the unchanged baseline and all 20 regression tests; record the verified starting file hashes and run.
+1. Preserve the imported baseline source and all 20 regression tests; record the verified starting file hashes and run.
 2. Write independent filter/checkRoom tests first; observe the missing-module failure. Add complete rooms.ts and pure filterRooms; run all tests.
 3. Add checkRoom as an unknown-ID-safe adapter to unchanged canBook, using only the selected room's blocked/bookings; run all tests and typecheck.
 4. Replace the duplicate availability evaluator with one rule source in booking.ts; retain parse/format helpers and meaningful messages. Run regression tests before UI wiring.
@@ -387,7 +387,7 @@ No room or booking data is modified.
 | E3 | No portrait-width browser screenshot was obtained; jsdom has no actual layout engine. |
 
 
-The unavailable browser evidence and student review of the edited reflection keep this an incomplete draft despite passing technical tests. The reflection now meets the word-count check, but AI-assisted editing does not satisfy a claim of unaided authorship. The original student draft is preserved in evidence/student-reflection-original.txt. The group code was not provided and is declared as not provided rather than invented. Keep the PR open and do not submit it as complete until these items are addressed.
+The unavailable browser evidence and student review of the edited reflection keep this an incomplete draft despite passing technical tests. The baseline import also has the disclosed .gitignore relocation exception in §1; it is not presented as a byte-identical full directory. The reflection now meets the word-count check, but AI-assisted editing does not satisfy a claim of unaided authorship. The original student draft is preserved in evidence/student-reflection-original.txt. The group code was not provided and is declared as not provided rather than invented. Keep the PR open and do not submit it as complete until these items are addressed.
 
 ## 10. AI reflection (Task 6)
 

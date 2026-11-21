@@ -9,7 +9,7 @@
 
 **Every run pasted in report.md was produced by my code on my machine (or Codespace), unedited:** yes, actual code runs in the assistant task workspace, not a claim of student execution. Full original outputs remain in evidence/, including the failed attempts.
 
-**Every number in report.md section 7 was measured the way its row says:** yes. No percentage improvement or time-spent estimate is fabricated. Commit dates were generated at real publication time.
+**Every number in report.md section 7 was measured the way its row says:** yes. No percentage improvement or time-spent estimate is fabricated. Commit dates were generated at real publication time. The final tree comparison found the baseline import had relocated the original app/.gitignore; application code and tests were unchanged, but baseline_unchanged is declared no. The original ignore file was restored in the final tree, without rewriting baseline history.
 
 **I shared no credentials, keys or private data with any tool:** yes. Only fictional catalog data, source and the existing student identification used for coursework were published to the student's requested repository. No environment values or real-room/student records were sent to the analysis chat.
 
