@@ -5,10 +5,10 @@ import type { Room } from './rooms';
 
 function catalog(): Room[] {
   return [
-    { id: 'a', name: 'Fixture A', capacity: 8, equipment: ['projector'], blocked: false, bookings: [{ start: 600, end: 660 }] },
-    { id: 'b', name: 'Fixture B', capacity: 7, equipment: ['whiteboard'], blocked: false, bookings: [] },
-    { id: 'c', name: 'Fixture C', capacity: 20, equipment: ['projector', 'whiteboard'], blocked: false, bookings: [] },
-    { id: 'd', name: 'Fixture D', capacity: 12, equipment: ['projector', 'whiteboard'], blocked: true, bookings: [] },
+    { id: 'a', name: 'Fixture A', building: 'Fixture Wing', capacity: 8, equipment: ['projector'], blocked: false, bookings: [{ start: 600, end: 660 }] },
+    { id: 'b', name: 'Fixture B', building: 'Fixture Wing', capacity: 7, equipment: ['whiteboard'], blocked: false, bookings: [] },
+    { id: 'c', name: 'Fixture C', building: 'Fixture Wing', capacity: 20, equipment: ['projector', 'whiteboard'], blocked: false, bookings: [] },
+    { id: 'd', name: 'Fixture D', building: 'Fixture Wing', capacity: 12, equipment: ['projector', 'whiteboard'], blocked: true, bookings: [] },
   ];
 }
 

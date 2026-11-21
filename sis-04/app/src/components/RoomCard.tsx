@@ -1,30 +1,26 @@
 import { CheckCircle2, Lock, Users, MapPin } from 'lucide-react';
-import type { Room } from '@/lib/types';
-import { fmt } from '@/lib/availability';
+import type { Room } from '../rooms';
+import { fmt } from '@/lib/time';
 
 interface RoomCardProps {
   room: Room;
-  bookings: { roomId: string; start: number; end: number; bookedBy: string }[];
   selected: boolean;
   onSelect: () => void;
 }
 
-export function RoomCard({ room, bookings, selected, onSelect }: RoomCardProps) {
-  const today = bookings
-    .filter((b) => b.roomId === room.id)
-    .sort((a, b) => a.start - b.start);
+export function RoomCard({ room, selected, onSelect }: RoomCardProps) {
+  const today = [...room.bookings].sort((a, b) => a.start - b.start);
 
   return (
     <button
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      aria-disabled={room.blocked}
       className={[
         'w-full text-left rounded-xl border p-4 transition-all duration-200',
         'focus:outline-none focus:ring-2 focus:ring-sky-400',
         room.blocked
-          ? 'border-rose-200 bg-rose-50/40 hover:border-rose-300'
+          ? 'border-rose-200 bg-rose-50/40 hover:border-rose-300 ' + (selected ? 'ring-2 ring-sky-500' : '')
           : selected
           ? 'border-sky-500 bg-sky-50 shadow-sm ring-1 ring-sky-200'
           : 'border-slate-200 bg-white hover:border-sky-300 hover:shadow-sm',
@@ -52,6 +48,8 @@ export function RoomCard({ room, bookings, selected, onSelect }: RoomCardProps) 
         <Users className="h-3.5 w-3.5" /> Capacity {room.capacity}
       </div>
 
+      <p className="mt-2 text-xs text-slate-500 capitalize">{room.equipment.join(' · ')}</p>
+
       {today.length > 0 && (
         <ul className="mt-3 space-y-1">
           {today.map((b, i) => (
@@ -59,7 +57,7 @@ export function RoomCard({ room, bookings, selected, onSelect }: RoomCardProps) 
               key={i}
               className="flex items-center justify-between rounded-md bg-slate-100 px-2 py-1 text-xs text-slate-600"
             >
-              <span className="truncate">{b.bookedBy}</span>
+              <span>Reserved</span>
               <span className="tabular-nums text-slate-500">
                 {fmt(b.start)}–{fmt(b.end)}
               </span>

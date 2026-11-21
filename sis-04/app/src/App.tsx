@@ -1,80 +1,63 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Clock, Building2, CalendarClock } from 'lucide-react';
 import { RoomCard } from '@/components/RoomCard';
 import { TimeField } from '@/components/TimeField';
 import { ResultBanner } from '@/components/ResultBanner';
-import { SAMPLE_BOOKINGS, SAMPLE_ROOMS } from '@/lib/sampleData';
-import { checkAvailability, fmt, parseTime } from '@/lib/availability';
+import { ROOMS, EQUIPMENT } from './rooms';
+import { filterRooms, type RoomCriteria } from './filter';
+import { RoomFilters } from './components/RoomFilters';
+import { fmt, parseTime } from '@/lib/time';
 import type { Decision } from '@/lib/types';
-import { canBook } from './booking';
+import { checkRoom } from './booking';
+
+const DEMO_NOW = 540;
 
 function App() {
   const [roomId, setRoomId] = useState<string>('');
   const [startStr, setStartStr] = useState('');
   const [endStr, setEndStr] = useState('');
-  const [currentTime, setCurrentTime] = useState(() => nowMinutes());
-  const [decision, setDecision] = useState<Decision | null>(null);
-  const [startError, setStartError] = useState<string | undefined>();
-  const [endError, setEndError] = useState<string | undefined>();
+  const [criteria, setCriteria] = useState<RoomCriteria>({ attendees: 1, equipment: [] });
+  const [hasChecked, setHasChecked] = useState(false);
+  const matches = filterRooms(ROOMS, criteria);
+  const selectedRoom = matches.find(room => room.id === roomId);
+  const start = parseTime(startStr);
+  const end = parseTime(endStr);
+  const startError = hasChecked && Number.isNaN(start) ? 'Enter HH:MM, from 00:00 to 24:00.' : undefined;
+  const endError = hasChecked && Number.isNaN(end) ? 'Enter HH:MM, from 00:00 to 24:00.' : undefined;
+
+  // Derived from current inputs: room switching and time edits cannot retain an old decision.
+  let decision: Decision | null = null;
+  if (hasChecked) {
+    if (!selectedRoom) {
+      decision = { ok: false, reason: 'no-room', message: 'Select a room from the matching results.' };
+    } else if (!startError && !endError) {
+      const ok = checkRoom(ROOMS, selectedRoom.id, { start, end, now: DEMO_NOW });
+      decision = ok
+        ? { ok: true, message: `${selectedRoom.name} is free from ${fmt(start)} to ${fmt(end)}.` }
+        : { ok: false, reason: 'unavailable', message: `${selectedRoom.name}: check that the end is after the start, the start is after 09:00, the slot is at most 120 minutes, and the room is open with no conflicting reservation.` };
+    }
+  }
 
   function handleCheck(e: React.FormEvent) {
     e.preventDefault();
-    setStartError(undefined);
-    setEndError(undefined);
+    setHasChecked(true);
+  }
 
-    if (!roomId) {
-      setDecision({ ok: false, reason: 'no-room', message: 'Please select a room first.' });
-      return;
+  function updateCriteria(next: RoomCriteria) {
+    setCriteria(next);
+    if (!filterRooms(ROOMS, next).some(room => room.id === roomId)) {
+      setRoomId('');
+      setHasChecked(false);
     }
-
-    const start = parseTime(startStr);
-    const end = parseTime(endStr);
-
-    let fieldError = false;
-    if (Number.isNaN(start)) {
-      setStartError('Enter a start time as HH:MM.');
-      fieldError = true;
-    }
-    if (Number.isNaN(end)) {
-      setEndError('Enter an end time as HH:MM.');
-      fieldError = true;
-    }
-    if (fieldError) {
-      setDecision(null);
-      return;
-    }
-
-    const room = SAMPLE_ROOMS.find((item) => item.id === roomId);
-    const available = canBook({
-      start,
-      end,
-      now: currentTime,
-      blocked: room?.blocked ?? true,
-      bookings: SAMPLE_BOOKINGS.filter((booking) => booking.roomId === roomId),
-    });
-    // The page keeps the existing human-readable reasons; the predicate owns the decision.
-    const details = checkAvailability(
-      { roomId, start, end, currentTime }, SAMPLE_ROOMS, SAMPLE_BOOKINGS
-    );
-    setDecision(available
-      ? { ok: true, message: details.message }
-      : { ok: false, reason: details.ok ? 'unavailable' : details.reason, message: details.message }
-    );
   }
 
   function reset() {
     setRoomId('');
     setStartStr('');
     setEndStr('');
-    setDecision(null);
-    setStartError(undefined);
-    setEndError(undefined);
+    setCriteria({ attendees: 1, equipment: [] });
+    setHasChecked(false);
   }
-
-  const selectedRoom = useMemo(
-    () => SAMPLE_ROOMS.find((r) => r.id === roomId),
-    [roomId]
-  );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
@@ -86,7 +69,7 @@ function App() {
           <div>
             <h1 className="text-lg font-semibold sm:text-xl">Smart Campus Room Availability</h1>
             <p className="text-xs text-slate-500 sm:text-sm">
-              Check whether a campus room is free for your proposed time slot.
+              Find a room that fits your group, then check your time slot.
             </p>
           </div>
         </div>
@@ -100,18 +83,23 @@ function App() {
               <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
                 <CalendarClock className="h-4 w-4" /> Rooms
               </h2>
-              <span className="text-xs text-slate-400">{SAMPLE_ROOMS.length} rooms</span>
+              <span className="text-xs text-slate-400">{matches.length} of {ROOMS.length} rooms</span>
             </div>
+            <RoomFilters criteria={criteria} equipment={EQUIPMENT} onChange={updateCriteria} />
+            {matches.length === 0 && (
+              <div role="status" className="rounded-xl border border-dashed border-slate-300 bg-white p-6 text-center">
+                <p className="font-semibold text-slate-800">No rooms match your requirements</p>
+                <p className="mt-1 text-sm text-slate-500">Reduce attendees or remove an equipment requirement.</p>
+              </div>
+            )}
             <div className="grid gap-3 sm:grid-cols-2">
-              {SAMPLE_ROOMS.map((room) => (
+              {matches.map((room) => (
                 <RoomCard
                   key={room.id}
                   room={room}
-                  bookings={SAMPLE_BOOKINGS}
                   selected={room.id === roomId}
                   onSelect={() => {
                     setRoomId(room.id);
-                    setDecision(null);
                   }}
                 />
               ))}
@@ -152,21 +140,9 @@ function App() {
                 />
               </div>
 
-              <div className="mt-4 flex items-center justify-between rounded-lg border border-slate-200 px-3 py-2">
-                <label htmlFor="currentTime" className="text-sm text-slate-600">
-                  Current time
-                </label>
-                <input
-                  id="currentTime"
-                  type="time"
-                  value={fmt(currentTime)}
-                  onChange={(e) => {
-                    const m = parseTime(e.target.value);
-                    if (!Number.isNaN(m)) setCurrentTime(m);
-                  }}
-                  className="rounded-md border border-slate-300 px-2 py-1 text-sm tabular-nums focus:outline-none focus:ring-2 focus:ring-sky-400"
-                />
-              </div>
+              <p className="mt-4 rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-600">
+                Demo current time: <strong>09:00</strong> · same day only
+              </p>
 
               <div className="mt-5 flex gap-3">
                 <button
@@ -187,7 +163,7 @@ function App() {
               <ResultBanner decision={decision} />
 
               <p className="mt-4 text-xs text-slate-400">
-                Checking does not create or modify any booking.
+                Fictional rooms only. Checking does not create or modify any booking. Touching reservations are allowed.
               </p>
             </form>
           </section>
@@ -195,11 +171,6 @@ function App() {
       </main>
     </div>
   );
-}
-
-function nowMinutes(): number {
-  const d = new Date();
-  return d.getHours() * 60 + d.getMinutes();
 }
 
 export default App;

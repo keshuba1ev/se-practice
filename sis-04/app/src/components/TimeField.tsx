@@ -11,7 +11,10 @@ export function TimeField({ label, value, onChange, hint, error }: TimeFieldProp
     <label className="block">
       <span className="block text-sm font-medium text-slate-700">{label}</span>
       <input
-        type="time"
+        type="text"
+        inputMode="numeric"
+        placeholder="HH:MM"
+        maxLength={5}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={[
