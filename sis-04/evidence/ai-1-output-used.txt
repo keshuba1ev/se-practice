@@ -1,0 +1,12 @@
+The main concern is duplicated business logic and a lack of a single source of truth for booking decisions.
+[…]
+In App.tsx, handleCheck saves the result in state, but editing a time does not clear it.
+This can cause misleading feedback: the displayed decision might relate to an earlier selection rather than the current form values.
+[…]
+Option A – Display blocked rooms but disable selection
+[…]
+Recommendation: Option A for SIS 04.
+[…]
+B1
+Start before or equal to supplied current time
+[…]
