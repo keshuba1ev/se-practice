@@ -1,0 +1,18 @@
+SIS #04 submission.yml - shape only, never quality   (submission.yml)
+
+PASS   D1   schema and assignment                                       schema 1, assignment sis-04
+PASS   D2   student.name and student.group                              name and group filled
+PASS   D3   student.student_id                                          student.student_id: 24B031847
+PASS   D4   student.github                                              student.github: keshuba1ev
+PASS   D5   assistant.tool                                              assistant.tool: Codex in ChatGPT Work; ChatGPT Default for recorded exchanges
+PASS   D6   assistant.model is an exact model name or not displayed     assistant.model: not displayed
+PASS   D7   project: starting point, baseline commit, language, Vitest  from week-07 at 88f7c7b5328b9130221660c5f145f231ac0c48e3, ts, Vitest 3.2.4
+PASS   D8   checker numbers add up                                      pass + fail + error = 33
+PASS   D9   checker numbers match a run made now                        declared 30/0/3, a run now gives 30/0/3
+PASS   D10  checker.commit                                              checker.commit: da9d265
+PASS   D11  known_fails lists exactly what still fails                  known_fails matches the checker: ['E1', 'E2', 'E3']
+PASS   D12  counts match the files and report.md                        counts filled and match
+PASS   D13  review_findings: three, each naming what it is about        7 review findings
+PASS   D14  honesty block answered                                      honesty block answered
+------------------------------------------------------------------------------
+SUMMARY pass=14 fail=0 error=0   (14 checks)
