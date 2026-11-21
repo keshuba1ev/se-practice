@@ -5,6 +5,7 @@ export function RoomFilters({ criteria, equipment, onChange }: {
   equipment: readonly string[];
   onChange: (criteria: RoomCriteria) => void;
 }) {
+  const selectedEquipment = new Set(criteria.equipment);
   return (
     <fieldset className="mb-5 rounded-xl border border-slate-200 bg-white p-4">
       <legend className="px-1 text-sm font-semibold text-slate-700">Room requirements</legend>
@@ -18,7 +19,7 @@ export function RoomFilters({ criteria, equipment, onChange }: {
       <div className="mt-2 flex flex-wrap gap-3">
         {equipment.map(item => (
           <label key={item} className="flex items-center gap-2 text-sm capitalize text-slate-700">
-            <input type="checkbox" checked={criteria.equipment.includes(item)}
+            <input type="checkbox" checked={selectedEquipment.has(item)}
               onChange={e => onChange({ ...criteria, equipment: e.target.checked
                 ? [...criteria.equipment, item] : criteria.equipment.filter(value => value !== item) })}
               className="h-4 w-4 accent-sky-600" />

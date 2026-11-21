@@ -2,13 +2,14 @@ npm warn Unknown env config "http-proxy". This will stop working in the next maj
 
  RUN  v3.2.4 /workspace/scratch/ab26a17e9871/sis-04-work/sis-04/app
 
- ✓ src/booking.test.ts (20 tests) 6ms
- ✓ src/lib/time.test.ts (4 tests) 5ms
- ✓ src/catalog.test.ts (16 tests) 9ms
- ✓ src/ui.test.tsx (5 tests) 738ms
+ ✓ src/lib/time.test.ts (4 tests) 6ms
+ ✓ src/catalog.test.ts (16 tests) 10ms
+ ✓ src/booking.test.ts (20 tests) 12ms
+ ✓ src/ui.test.tsx (5 tests) 970ms
+   ✓ UI F1 F2 B5 rendered filters require capacity and ALL equipment  332ms
 
  Test Files  4 passed (4)
       Tests  45 passed (45)
-   Start at  02:43:03
-   Duration  2.41s (transform 312ms, setup 0ms, collect 646ms, tests 759ms, environment 617ms, prepare 1.16s)
+   Start at  02:49:51
+   Duration  2.72s (transform 288ms, setup 0ms, collect 665ms, tests 999ms, environment 611ms, prepare 549ms)
 
