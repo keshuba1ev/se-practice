@@ -736,14 +736,23 @@ Optional prompt not sent. No asynchronous agent execution is claimed; the six ru
 
 | Check | Why it stays |
 | --- | --- |
-| L13 | Student-authored 80–150-word release conclusion requested; not fabricated by AI. |
+| none | All 31 structural checks pass. This does not certify independent student inspection, manual interaction or unaided authorship. |
 
 ## 10. Release decision and conclusion
 
 **Decision:** NO-GO
 
-Later evidence update: npm ci reported 24 vulnerabilities; npm audit --json independently returned exit 1 with 2 critical and 13 high reports. R6 is now confirmed at score 6. R1 is now approved and mitigated to 3, but a GO is still barred by R6 at 6. These are advisory counts rather than a claim of proven exploitation.
+The following conclusion was supplied by the user in this chat after the assistant explained the requested topics. Its final conversational question about formatting was omitted; the substantive wording is retained. Unaided authorship is not independently established. The unchanged course scope still forbids external deployment; future dependency remediation would not itself authorize it. Passing the checker establishes file shape and consistency, not the report's claim of grading readiness.
 
 <!-- Write your conclusion below this line -->
-Student-authored 80–150-word conclusion requested and still pending. No conclusion has been generated in the student's name. Provisional technical recommendation remains NO-GO while R6 remains at 6 and review requirements are unresolved; the student must make the final decision in their own words.
+**Вывод по итогам аудита: выпуск приложения в продакшен запрещён (решение — NO-GO), однако учебную работу по аудиту можно смело сдавать.**
 
+Несмотря на отличный прогресс по безопасности и качеству кода, выкатывать приложение в таком виде нельзя:
+
+- **Прогресс (R1 и R2):** Опасные инструкции в `AGENTS.md` успешно исправили после согласования, снизив риск с 9 до 3. Дублирование правил вынесли в чистый общий модуль — риск упал с 6 до 2, а все 21 тест по результатам прогона агента зелёные.
+- **Блокер (R6):** Проверка зависимостей показала 24 уязвимости, среди которых есть критические. Уровень риска застыл на отметке 6, поэтому выдать статус GO невозможно.
+
+**Что делать дальше:**
+Разграничиваем задачи. Запрет на релиз никак не мешает сдаче отчёта по аудиту — его можно защищать уже сейчас. Чтобы всё же выпустить приложение, нужно оценить, затрагивают ли найденные дыры наш код, отдельным коммитом обновить пакеты и заново прогнать проверки.
+
+**Итоговое решение:** **NO-GO**.

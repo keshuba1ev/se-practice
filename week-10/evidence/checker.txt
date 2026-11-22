@@ -30,9 +30,8 @@ PASS   L9   report 6: playbook prompt, answer, decisions, the approved diff     
 PASS   L10  report 7.2-7.3: UI check at two widths; tests not run                  two widths checked, tests not run listed
 PASS   L11  report 8: two mitigations, one the refactor; residual revised          R1 and R2 mitigated, residual revised
 PASS   L12  report 9.1: six background-agent rules                                 six rules
-FAIL   L13  report 10: decision consistent, 80-150 words, two risk IDs             section 10: 43 words, the task asks for 80-150; name two or more risk IDs from your register
+PASS   L13  report 10: decision consistent, 80-150 words, two risk IDs             NO-GO, 141 words, R1, R2, R6
 ------------------------------------------------------------------------------
-SUMMARY pass=30 fail=1 error=0   (31 checks)
+SUMMARY pass=31 fail=0 error=0   (31 checks)
 AGENTS.md lines changed (submission.yml counts.agents_lines_changed): 9
-Every FAIL or ERROR you keep goes in lab-report.md section 9.3 and in submission.yml known_fails.
-One you report and explain costs you nothing extra. One you hide costs the whole criterion.
+Files and shape are clean. Whether your risks are the right ones is the grader's reading, not this.
