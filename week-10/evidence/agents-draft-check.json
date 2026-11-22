@@ -1,0 +1,62 @@
+{
+  "draft_only": true,
+  "rows": [
+    {
+      "id": "A1",
+      "title": "app/AGENTS.md exists",
+      "verdict": "PASS",
+      "message": "/tmp/week10-proposed-playbook-check/AGENTS.md"
+    },
+    {
+      "id": "A2",
+      "title": "a minimal patch of provided/AGENTS.md (1-14 lines, headings kept)",
+      "verdict": "PASS",
+      "message": "9 line(s) changed, headings kept"
+    },
+    {
+      "id": "A3",
+      "title": "every command AGENTS.md names exists in package.json",
+      "verdict": "PASS",
+      "message": "every command it names exists"
+    },
+    {
+      "id": "C1",
+      "title": "constraint: one fictional room, no real data",
+      "verdict": "PASS",
+      "message": "one fictional room"
+    },
+    {
+      "id": "C2",
+      "title": "constraint: no login, no database",
+      "verdict": "PASS",
+      "message": "login and database forbidden"
+    },
+    {
+      "id": "C3",
+      "title": "constraint: AC1-AC6 preserved, AC4 as the contract says",
+      "verdict": "PASS",
+      "message": "AC1-AC6 listed, AC4 allows touching"
+    },
+    {
+      "id": "C4",
+      "title": "constraint: no secrets",
+      "verdict": "PASS",
+      "message": "secrets forbidden"
+    },
+    {
+      "id": "C5",
+      "title": "constraint: no external deployments",
+      "verdict": "PASS",
+      "message": "deployment forbidden"
+    },
+    {
+      "id": "C6",
+      "title": "constraint: run the tests before proposing acceptance",
+      "verdict": "PASS",
+      "message": "\"- Edit only task-approved source and tests; review the diff before acc\""
+    }
+  ],
+  "measured": {
+    "agents_lines_changed": 9
+  }
+}

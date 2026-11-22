@@ -1,0 +1,8 @@
+PASS AC4/AC6 desktop: touching reservation endpoint is Available; only one fictional room is shown.
+CAPTURE ui-desktop 1440 1000
+PASS R4 reproduced (unmitigated): stale Available remains after editing end to equal start, until resubmit.
+PASS AC1: resubmit rejects reversed/zero interval with explicit feedback.
+PASS AC4/AC6 mobile: overlap rejected with precise reason, 390px viewport has no horizontal overflow.
+CAPTURE ui-mobile 390 1009
+PASS No page errors or external application requests.
+SUMMARY: 5 browser checks; 2 actual screenshots. Automated interaction, not a claim of student manual UI testing.

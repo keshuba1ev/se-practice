@@ -1,0 +1,21 @@
+Command: npm audit --json --prefix week-10/app
+Exit status: 1 (advisories found)
+{
+  "vulnerabilities": {
+    "info": 0,
+    "low": 2,
+    "moderate": 7,
+    "high": 13,
+    "critical": 2,
+    "total": 24
+  },
+  "dependencies": {
+    "prod": 7,
+    "dev": 345,
+    "optional": 41,
+    "peer": 0,
+    "peerOptional": 0,
+    "total": 351
+  }
+}
+No npm audit fix was run; no dependency or lockfile was changed. Counts are advisory reports, not proof of exploitability.
