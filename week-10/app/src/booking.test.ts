@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import predicateSource from './booking.ts?raw';
+import uiAdapterSource from './lib/availability.ts?raw';
 import { checkAvailability } from './lib/availability';
 import { describe, expect, test } from 'vitest';
 import { canBook, type BookingRequest } from './booking';
@@ -109,8 +110,6 @@ describe('canBook: fixed acceptance criteria', () => {
 
 test('R2 AC4 AC5: boolean and UI adapters share one pure policy', () => {
   // Architecture guard: both public adapters must import the single rule owner.
-  const predicateSource = readFileSync(new URL('./booking.ts', import.meta.url), 'utf8');
-  const uiAdapterSource = readFileSync(new URL('./lib/availability.ts', import.meta.url), 'utf8');
   expect(predicateSource).toContain("from './lib/availabilityPolicy'");
   expect(uiAdapterSource).toContain("from './availabilityPolicy'");
   const bookings = Object.freeze([Object.freeze({ start: 600, end: 660 })]);

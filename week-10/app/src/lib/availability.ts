@@ -1,7 +1,7 @@
+import { evaluateBooking } from './availabilityPolicy';
 import type { Booking, CheckInput, Decision, Room } from './types';
 
 const MINUTES_PER_DAY = 1440;
-const MAX_DURATION = 120;
 
 /**
  * Evaluate a candidate booking interval against the acceptance criteria.
@@ -14,60 +14,35 @@ export function checkAvailability(
 ): Decision {
   const { roomId, start, end, currentTime } = input;
 
-  // AC1: interval validity and "start after current time"
-  if (!Number.isFinite(start) || !Number.isFinite(end)) {
-    return fail('invalid-interval', 'Please enter valid start and end times.');
-  }
-  if (start < 0 || end > MINUTES_PER_DAY) {
-    return fail(
-      'invalid-interval',
-      'Times must fall within the same day (00:00 to 24:00).'
-    );
-  }
-  if (start >= end) {
-    return fail(
-      'reversed-interval',
-      'End time must be after the start time.'
-    );
-  }
-  if (start <= currentTime) {
-    return fail(
-      'past-start',
-      'Start time must be later than the current time.'
-    );
-  }
-
-  // AC2: duration cap
-  if (end - start > MAX_DURATION) {
-    return fail(
-      'too-long',
-      'Bookings cannot be longer than 120 minutes.'
-    );
-  }
-
   const room = rooms.find((r) => r.id === roomId);
-  if (!room) {
-    return fail('unknown-room', 'Please select a room.');
-  }
+  const evaluation = evaluateBooking({
+    start, end, now: currentTime, blocked: room?.blocked ?? false,
+    bookings: bookings.filter((b) => b.roomId === roomId),
+  });
 
-  // AC3: blocked room
-  if (room.blocked) {
-    return fail(
-      'room-blocked',
-      `${room.name} is currently blocked and cannot be booked.`
-    );
+  // Keep the existing message text and invalid-time precedence over unknown room.
+  if (!evaluation.ok) {
+    switch (evaluation.reason) {
+      case 'invalid-interval':
+        return fail('invalid-interval', Number.isFinite(start) && Number.isFinite(end)
+          ? 'Times must fall within the same day (00:00 to 24:00).'
+          : 'Please enter valid start and end times.');
+      case 'reversed-interval':
+        return fail('reversed-interval', 'End time must be after the start time.');
+      case 'past-start':
+        return fail('past-start', 'Start time must be later than the current time.');
+      case 'too-long':
+        return fail('too-long', 'Bookings cannot be longer than 120 minutes.');
+    }
   }
-
-  // AC4: overlap (touching endpoints allowed)
-  const roomBookings = bookings.filter((b) => b.roomId === roomId);
-  const overlap = roomBookings.find(
-    (b) => start < b.end && b.start < end
-  );
-  if (overlap) {
-    return fail(
-      'overlap',
-      `Overlaps an existing booking (${fmt(overlap.start)}–${fmt(overlap.end)}).`
-    );
+  if (!room) return fail('unknown-room', 'Please select a room.');
+  if (!evaluation.ok) {
+    if (evaluation.reason === 'room-blocked') {
+      return fail('room-blocked', `${room.name} is currently blocked and cannot be booked.`);
+    }
+    if (evaluation.reason === 'overlap') {
+      return fail('overlap', `Overlaps an existing booking (${fmt(evaluation.booking.start)}–${fmt(evaluation.booking.end)}).`);
+    }
   }
 
   return { ok: true, message: `${room.name} is available from ${fmt(start)} to ${fmt(end)}.` };
