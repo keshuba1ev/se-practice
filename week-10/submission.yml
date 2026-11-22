@@ -18,7 +18,7 @@ counts:
   risks_registered: 6
   risks_confirmed: 6
   tests_final: 21
-  agents_lines_changed: 0
+  agents_lines_changed: 9
 audit:
   level: 1
 decision:
@@ -26,13 +26,13 @@ decision:
   mitigated: [R1, R2]
   release: no-go
 checker:
-  pass: 22
-  fail: 9
+  pass: 30
+  fail: 1
   error: 0
-  commit: 9cc3a471eb1bc159002ff3e8764891b47fd992da
-  known_fails: [A2, A3, C1, C2, C3, C4, C5, C6, L13]
+  commit: a8bf114614e6b0445549aedc1bb6dd3882e67883
+  known_fails: [L13]
 review_findings:
-  - R1 is a proposed formal mitigation only; AGENTS.md remains unchanged pending explicit student approval, and residual score stays 9.
+  - R1 concrete nine-line AGENTS.md patch was explicitly approved with Одобряю and applied exactly; residual score is now 3.
   - R2 duplication is removed by one pure availabilityPolicy; original 20 assertions plus an architecture and adapter integration regression pass.
   - R2 raw imports replaced node:fs after a real typecheck failure; no application dependency or lockfile changed.
   - R3 inherited five-room scope was corrected separately to one fictional room, preserving the unchanged checkpoint.
@@ -42,6 +42,6 @@ review_findings:
   - AC6 actual automated desktop and mobile captures exist; independent student manual testing and the unaided section 10 conclusion are not claimed.
 honesty:
   review_was_read_only: yes
-  agents_patch_approved_by_me: no
+  agents_patch_approved_by_me: yes
   outputs_unedited: yes
   ai_usage_disclosed: yes

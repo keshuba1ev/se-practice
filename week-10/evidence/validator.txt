@@ -8,9 +8,9 @@ PASS   D5   assistant.tool                                           assistant.t
 PASS   D6   assistant.model is an exact model name or not displayed  assistant.model: not displayed
 PASS   D7   assistant.environment and project                        chat, week-07, ts, Vitest 3.2.4
 PASS   D8   checker numbers add up                                   pass + fail + error = 31
-PASS   D9   checker numbers match a run made now                     declared 22/9/0, a run now gives 22/9/0
-PASS   D10  checker.commit                                           checker.commit: 9cc3a471eb1bc159002ff3e8764891b47fd992da
-PASS   D11  known_fails lists exactly what still fails               known_fails matches the checker: ['A2', 'A3', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'L13']
+PASS   D9   checker numbers match a run made now                     declared 30/1/0, a run now gives 30/1/0
+PASS   D10  checker.commit                                           checker.commit: a8bf114614e6b0445549aedc1bb6dd3882e67883
+PASS   D11  known_fails lists exactly what still fails               known_fails matches the checker: ['L13']
 PASS   D12  counts match the files and lab-report.md                 counts filled and match
 PASS   D13  audit and decision match lab-report.md                   Level 1, no-go
 PASS   D14  review_findings: three, each naming what it is about     8 review findings
