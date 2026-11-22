@@ -1,0 +1,49 @@
+{
+  "sourceCommit": "6be56f08d0c023088e7b5a0adbb0bc8e47bbebc5",
+  "capturedAt": "2026-11-22T17:06:33.305Z",
+  "browser": "141.0.7390.37",
+  "origin": "http://127.0.0.1:5183",
+  "checks": [
+    "AC4/AC6 desktop: touching reservation endpoint is Available; only one fictional room is shown.",
+    "R4 reproduced (unmitigated): stale Available remains after editing end to equal start, until resubmit.",
+    "AC1: resubmit rejects reversed/zero interval with explicit feedback.",
+    "AC4/AC6 mobile: overlap rejected with precise reason, 390px viewport has no horizontal overflow.",
+    "No page errors or external application requests."
+  ],
+  "pageErrors": [],
+  "screenshots": [
+    {
+      "name": "ui-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "e7723bd336b93c4f5f7aececb964d09b4092aa54c219575b08f16e238b966019",
+      "state": {
+        "start": "10:00",
+        "end": "11:00",
+        "currentTime": "09:00",
+        "result": "Available"
+      }
+    },
+    {
+      "name": "ui-mobile.png",
+      "width": 390,
+      "height": 1009,
+      "sha256": "f251bd6cebd2851456543438684cee7c9afeb0b76b410ce7be9593334c0f59e1",
+      "state": {
+        "start": "09:30",
+        "end": "10:30",
+        "currentTime": "09:00",
+        "result": "Unavailable",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "layout": {
+          "width": 390,
+          "client": 390,
+          "scroll": 390
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+Actual failed CI capture-step excerpt; full run: https://github.com/keshuba1ev/se-practice/actions/runs/45047109166
+2026-11-22T17:02:57.5732896Z ##[group]Run export PLAYWRIGHT_PACKAGE=/tmp/week10-visual-tools/node_modules/playwright/index.js
+2026-11-22T17:02:57.5733491Z [36;1mexport PLAYWRIGHT_PACKAGE=/tmp/week10-visual-tools/node_modules/playwright/index.js[0m
+2026-11-22T17:02:57.5734035Z [36;1mnode ../evidence/capture-ui.mjs 2>&1 | tee ../evidence/browser-ci.txt[0m
+2026-11-22T17:02:57.5760580Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-22T17:02:57.5760918Z env:
+2026-11-22T17:02:57.5761575Z   PLAYWRIGHT_PACKAGE: /tmp/week10-visual-tools/node_modules/playwright/package.json
+2026-11-22T17:02:57.5761979Z ##[endgroup]
+2026-11-22T17:03:01.2302987Z node:internal/modules/run_main:123
+2026-11-22T17:03:01.2303588Z     triggerUncaughtException(
+2026-11-22T17:03:01.2304057Z     ^
+2026-11-22T17:03:01.2304184Z 
+2026-11-22T17:03:01.2304622Z locator.fill: Error: strict mode violation: getByLabel('Start') resolved to 2 elements:
+2026-11-22T17:03:01.2306037Z     1) <input value="" type="time" class="mt-1 w-full rounded-lg border bg-white px-3 py-2 text-slate-900 tabular-nums focus:outline-none focus:ring-2 focus:ring-sky-400 border-slate-300"/> aka getByRole('textbox', { name: 'Start Must be after current' })
+2026-11-22T17:03:01.2307799Z     2) <input value="" type="time" class="mt-1 w-full rounded-lg border bg-white px-3 py-2 text-slate-900 tabular-nums focus:outline-none focus:ring-2 focus:ring-sky-400 border-slate-300"/> aka getByRole('textbox', { name: 'End Max 120 min after start' })
+2026-11-22T17:03:01.2308625Z 
+2026-11-22T17:03:01.2308807Z Call log:
+2026-11-22T17:03:01.2309121Z   - waiting for getByLabel('Start')
+2026-11-22T17:03:01.2309377Z 
+2026-11-22T17:03:01.2309664Z     at /home/runner/work/se-practice/se-practice/week-10/evidence/capture-ui.mjs:55:52
+2026-11-22T17:03:01.2310318Z 
+2026-11-22T17:03:01.2310451Z Node.js v22.23.5
+2026-11-22T17:03:01.2367345Z ##[error]Process completed with exit code 1.
+2026-11-22T17:03:01.2433359Z

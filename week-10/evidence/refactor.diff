@@ -1,0 +1,193 @@
+diff --git a/week-10/app/src/booking.test.ts b/week-10/app/src/booking.test.ts
+index 02a7c08..3e36c2d 100644
+--- a/week-10/app/src/booking.test.ts
++++ b/week-10/app/src/booking.test.ts
+@@ -1,4 +1,5 @@
+-import { readFileSync } from 'node:fs';
++import predicateSource from './booking.ts?raw';
++import uiAdapterSource from './lib/availability.ts?raw';
+ import { checkAvailability } from './lib/availability';
+ import { describe, expect, test } from 'vitest';
+ import { canBook, type BookingRequest } from './booking';
+@@ -109,8 +110,6 @@ describe('canBook: fixed acceptance criteria', () => {
+ 
+ test('R2 AC4 AC5: boolean and UI adapters share one pure policy', () => {
+   // Architecture guard: both public adapters must import the single rule owner.
+-  const predicateSource = readFileSync(new URL('./booking.ts', import.meta.url), 'utf8');
+-  const uiAdapterSource = readFileSync(new URL('./lib/availability.ts', import.meta.url), 'utf8');
+   expect(predicateSource).toContain("from './lib/availabilityPolicy'");
+   expect(uiAdapterSource).toContain("from './availabilityPolicy'");
+   const bookings = Object.freeze([Object.freeze({ start: 600, end: 660 })]);
+diff --git a/week-10/app/src/booking.ts b/week-10/app/src/booking.ts
+index a06f979..1e6d6ef 100644
+--- a/week-10/app/src/booking.ts
++++ b/week-10/app/src/booking.ts
+@@ -1,26 +1,7 @@
+-export interface BookingInterval {
+-  start: number;
+-  end: number;
+-}
+-
+-export interface BookingRequest {
+-  start: number;
+-  end: number;
+-  now: number;
+-  blocked: boolean;
+-  bookings: readonly BookingInterval[];
+-}
++import { evaluateBooking, type BookingRequest } from './lib/availabilityPolicy';
++export type { BookingInterval, BookingRequest } from './lib/availabilityPolicy';
+ 
+-/** Extracted Week 06 decision. The caller supplies the room and same-day data. */
+-export function canBook({ start, end, now, blocked, bookings }: BookingRequest): boolean {
+-  if (!Number.isFinite(start) || !Number.isFinite(end)) return false;
+-  if (start < 0 || end > 1440) return false;
+-  if (start >= end) return false;
+-  if (start <= now) return false;
+-  if (end - start > 120) return false;
+-  if (blocked) return false;
+-  for (const booking of bookings) {
+-    if (start < booking.end && booking.start < end) return false;
+-  }
+-  return true;
++/** Preserved public boolean API; all rules live in the shared pure policy. */
++export function canBook(request: BookingRequest): boolean {
++  return evaluateBooking(request).ok;
+ }
+diff --git a/week-10/app/src/lib/availability.ts b/week-10/app/src/lib/availability.ts
+index e88db30..81082e7 100644
+--- a/week-10/app/src/lib/availability.ts
++++ b/week-10/app/src/lib/availability.ts
+@@ -1,7 +1,7 @@
++import { evaluateBooking } from './availabilityPolicy';
+ import type { Booking, CheckInput, Decision, Room } from './types';
+ 
+ const MINUTES_PER_DAY = 1440;
+-const MAX_DURATION = 120;
+ 
+ /**
+  * Evaluate a candidate booking interval against the acceptance criteria.
+@@ -14,60 +14,35 @@ export function checkAvailability(
+ ): Decision {
+   const { roomId, start, end, currentTime } = input;
+ 
+-  // AC1: interval validity and "start after current time"
+-  if (!Number.isFinite(start) || !Number.isFinite(end)) {
+-    return fail('invalid-interval', 'Please enter valid start and end times.');
+-  }
+-  if (start < 0 || end > MINUTES_PER_DAY) {
+-    return fail(
+-      'invalid-interval',
+-      'Times must fall within the same day (00:00 to 24:00).'
+-    );
+-  }
+-  if (start >= end) {
+-    return fail(
+-      'reversed-interval',
+-      'End time must be after the start time.'
+-    );
+-  }
+-  if (start <= currentTime) {
+-    return fail(
+-      'past-start',
+-      'Start time must be later than the current time.'
+-    );
+-  }
+-
+-  // AC2: duration cap
+-  if (end - start > MAX_DURATION) {
+-    return fail(
+-      'too-long',
+-      'Bookings cannot be longer than 120 minutes.'
+-    );
+-  }
+-
+   const room = rooms.find((r) => r.id === roomId);
+-  if (!room) {
+-    return fail('unknown-room', 'Please select a room.');
+-  }
++  const evaluation = evaluateBooking({
++    start, end, now: currentTime, blocked: room?.blocked ?? false,
++    bookings: bookings.filter((b) => b.roomId === roomId),
++  });
+ 
+-  // AC3: blocked room
+-  if (room.blocked) {
+-    return fail(
+-      'room-blocked',
+-      `${room.name} is currently blocked and cannot be booked.`
+-    );
++  // Keep the existing message text and invalid-time precedence over unknown room.
++  if (!evaluation.ok) {
++    switch (evaluation.reason) {
++      case 'invalid-interval':
++        return fail('invalid-interval', Number.isFinite(start) && Number.isFinite(end)
++          ? 'Times must fall within the same day (00:00 to 24:00).'
++          : 'Please enter valid start and end times.');
++      case 'reversed-interval':
++        return fail('reversed-interval', 'End time must be after the start time.');
++      case 'past-start':
++        return fail('past-start', 'Start time must be later than the current time.');
++      case 'too-long':
++        return fail('too-long', 'Bookings cannot be longer than 120 minutes.');
++    }
+   }
+-
+-  // AC4: overlap (touching endpoints allowed)
+-  const roomBookings = bookings.filter((b) => b.roomId === roomId);
+-  const overlap = roomBookings.find(
+-    (b) => start < b.end && b.start < end
+-  );
+-  if (overlap) {
+-    return fail(
+-      'overlap',
+-      `Overlaps an existing booking (${fmt(overlap.start)}–${fmt(overlap.end)}).`
+-    );
++  if (!room) return fail('unknown-room', 'Please select a room.');
++  if (!evaluation.ok) {
++    if (evaluation.reason === 'room-blocked') {
++      return fail('room-blocked', `${room.name} is currently blocked and cannot be booked.`);
++    }
++    if (evaluation.reason === 'overlap') {
++      return fail('overlap', `Overlaps an existing booking (${fmt(evaluation.booking.start)}–${fmt(evaluation.booking.end)}).`);
++    }
+   }
+ 
+   return { ok: true, message: `${room.name} is available from ${fmt(start)} to ${fmt(end)}.` };
+diff --git a/week-10/app/src/lib/availabilityPolicy.ts b/week-10/app/src/lib/availabilityPolicy.ts
+new file mode 100644
+index 0000000..17e03af
+--- /dev/null
++++ b/week-10/app/src/lib/availabilityPolicy.ts
+@@ -0,0 +1,31 @@
++export interface BookingInterval {
++  start: number;
++  end: number;
++}
++
++export interface BookingRequest {
++  start: number;
++  end: number;
++  now: number;
++  blocked: boolean;
++  bookings: readonly BookingInterval[];
++}
++
++export type AvailabilityEvaluation =
++  | { ok: true }
++  | { ok: false; reason: 'invalid-interval' | 'reversed-interval' | 'past-start' | 'too-long' | 'room-blocked' }
++  | { ok: false; reason: 'overlap'; booking: BookingInterval };
++
++/** Single pure rule owner; adapters keep their existing public return shapes. */
++export function evaluateBooking({ start, end, now, blocked, bookings }: BookingRequest): AvailabilityEvaluation {
++  if (!Number.isFinite(start) || !Number.isFinite(end)) return { ok: false, reason: 'invalid-interval' };
++  if (start < 0 || end > 1440) return { ok: false, reason: 'invalid-interval' };
++  if (start >= end) return { ok: false, reason: 'reversed-interval' };
++  if (start <= now) return { ok: false, reason: 'past-start' };
++  if (end - start > 120) return { ok: false, reason: 'too-long' };
++  if (blocked) return { ok: false, reason: 'room-blocked' };
++  for (const booking of bookings) {
++    if (start < booking.end && booking.start < end) return { ok: false, reason: 'overlap', booking };
++  }
++  return { ok: true };
++}

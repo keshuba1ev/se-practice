@@ -1,0 +1,47 @@
+schema: 1
+week: "10"
+student:
+  name: Keshubayev Abylay
+  student_id: 24B031847
+  github: keshuba1ev
+assistant:
+  tool: Codex in ChatGPT Work
+  model: not displayed
+  environment: chat
+project:
+  starting_point: week-07
+  baseline_commit: ed0731ef6205d0e2ca3c77f722b9df1439cacab7
+  language: ts
+  vitest: 3.2.4
+counts:
+  claims_challenged: 7
+  risks_registered: 6
+  risks_confirmed: 6
+  tests_final: 21
+  agents_lines_changed: 9
+audit:
+  level: 1
+decision:
+  top_two: [R1, R2]
+  mitigated: [R1, R2]
+  release: no-go
+checker:
+  pass: 31
+  fail: 0
+  error: 0
+  commit: 4d5683286e104ebac21bf6be3454627b6dc9bd7c
+  known_fails: []
+review_findings:
+  - R1 concrete nine-line AGENTS.md patch was explicitly approved with Одобряю and applied exactly; residual score is now 3.
+  - R2 duplication is removed by one pure availabilityPolicy; original 20 assertions plus an architecture and adapter integration regression pass.
+  - R2 raw imports replaced node:fs after a real typecheck failure; no application dependency or lockfile changed.
+  - R3 inherited five-room scope was corrected separately to one fictional room, preserving the unchanged checkpoint.
+  - R4 stale feedback was reproduced in Chromium and remains open with explicit resubmit required.
+  - R6 npm audit reported 24 advisories including 2 critical and 13 high, so score 6 blocks GO; no exploit or remediation is claimed.
+  - Readiness row 2b is no because no current app architecture document exists; the 80 percent rule gives Level 1.
+  - AC6 actual automated desktop and mobile captures exist; independent student manual testing and unaided authorship are not claimed; the user-provided section 10 conclusion is included.
+honesty:
+  review_was_read_only: yes
+  agents_patch_approved_by_me: yes
+  outputs_unedited: yes
+  ai_usage_disclosed: yes

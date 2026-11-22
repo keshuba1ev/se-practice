@@ -1,0 +1,2 @@
+PASS: 5202 canBook results exactly equal baseline; 10404 UI-adapter decisions/messages exactly equal baseline; fixtures unchanged.
+Inputs include touching, overlap, 120/121 boundaries, midnight, invalid numbers, blocked and unknown room. This equivalence check preserves existing invalid-clock behavior; it does not prove every possible input.

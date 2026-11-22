@@ -1,0 +1,15 @@
+
+> vite-react-typescript-starter@0.0.0 test
+> vitest run
+
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/week-10-work/week-10/app
+
+ ✓ src/booking.test.ts (20 tests) 6ms
+
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+   Start at  21:53:37
+   Duration  567ms (transform 70ms, setup 0ms, collect 49ms, tests 6ms, environment 0ms, prepare 96ms)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.

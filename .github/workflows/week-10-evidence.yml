@@ -1,0 +1,49 @@
+name: Week 10 checks and local browser evidence
+on:
+  push:
+    branches: [week-10]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+        working-directory: week-10/app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: week-10/app/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+      - name: Install isolated evidence tooling (no application dependency changes)
+        run: |
+          npm install --prefix /tmp/week10-visual-tools --no-audit --no-fund playwright@1.56.1
+          /tmp/week10-visual-tools/node_modules/.bin/playwright install --with-deps chromium
+      - name: Capture the localhost build, never deploy
+        env:
+          PLAYWRIGHT_PACKAGE: /tmp/week10-visual-tools/node_modules/playwright/package.json
+        run: |
+          export PLAYWRIGHT_PACKAGE=/tmp/week10-visual-tools/node_modules/playwright/index.js
+          node ../evidence/capture-ui.mjs 2>&1 | tee ../evidence/browser-ci.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: week-10-browser-evidence
+          path: |
+            week-10/evidence/ui-desktop.png
+            week-10/evidence/ui-mobile.png
+            week-10/evidence/capture-manifest.json
+            week-10/evidence/browser-ci.txt
+          if-no-files-found: warn
+          retention-days: 7
