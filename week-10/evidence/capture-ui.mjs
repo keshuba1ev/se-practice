@@ -52,14 +52,14 @@ try {
   await page.goto(origin, { waitUntil: 'networkidle' });
   assert.equal(await page.getByRole('button', { name: /Athena 101/ }).count(), 1);
   await page.getByRole('button', { name: /Athena 101/ }).click();
-  await page.getByLabel('Start', { exact: false }).fill('10:00');
-  await page.getByLabel('End', { exact: false }).fill('11:00');
+  await page.getByLabel(/^Start/).fill('10:00');
+  await page.getByLabel(/^End/).fill('11:00');
   await page.getByLabel('Current time', { exact: true }).fill('09:00');
   await page.getByRole('button', { name: 'Check availability', exact: true }).click();
   await page.getByText('Available', { exact: true }).waitFor();
   ok('AC4/AC6 desktop: touching reservation endpoint is Available; only one fictional room is shown.');
   await shot(page, 'ui-desktop', { start:'10:00', end:'11:00', currentTime:'09:00', result:'Available' });
-  await page.getByLabel('End', { exact: false }).fill('10:00');
+  await page.getByLabel(/^End/).fill('10:00');
   assert.equal(await page.getByText('Available', { exact: true }).count(), 1);
   ok('R4 reproduced (unmitigated): stale Available remains after editing end to equal start, until resubmit.');
   await page.getByRole('button', { name: 'Check availability', exact: true }).click();
@@ -69,8 +69,8 @@ try {
   const phone = await mobile.newPage(); monitor(phone);
   await phone.goto(origin, { waitUntil:'networkidle' });
   await phone.getByRole('button', { name:/Athena 101/ }).click();
-  await phone.getByLabel('Start', { exact:false }).fill('09:30');
-  await phone.getByLabel('End', { exact:false }).fill('10:30');
+  await phone.getByLabel(/^Start/).fill('09:30');
+  await phone.getByLabel(/^End/).fill('10:30');
   await phone.getByLabel('Current time', { exact:true }).fill('09:00');
   await phone.getByRole('button', { name:'Check availability', exact:true }).click();
   await phone.getByText('Unavailable', { exact:true }).waitFor();
