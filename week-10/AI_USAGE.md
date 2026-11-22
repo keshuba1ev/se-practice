@@ -3,7 +3,7 @@
 | Tool | Exact model / plan | Used for | Which files it touched |
 | --- | --- | --- | --- |
 | Codex in ChatGPT Work | not displayed | Explicit read-only playbook summary and risk review of the checkpoint | none in app during review; preserved responses/status in evidence afterward |
-| Same assistant | not displayed | Code challenge, risk scoring, readiness audit, playbook draft | lab-report.md, evidence/; app/AGENTS.md awaiting student approval |
+| Same assistant | not displayed | Code challenge, risk scoring, readiness audit, playbook draft | lab-report.md, evidence/; app/AGENTS.md, applied exactly after the student replied “Одобряю” |
 | Same assistant | not displayed | Reviewed R2 pure-policy extraction and architecture/integration guard; separate one-room scope correction | app/src/booking.ts, booking.test.ts, lib/availability.ts, lib/availabilityPolicy.ts, lib/sampleData.ts |
 | Same assistant | not displayed | Actual terminal checks, differential comparison and isolated Chromium evidence automation | evidence/, repository .github/workflows/week-10-evidence.yml |
 | Same assistant | not displayed | Report drafting and factual declaration | lab-report.md, submission.yml, AI_USAGE.md |
@@ -12,7 +12,7 @@
 
 **I labelled every claim after opening the cited file myself:** no independent student inspection is confirmed. The assistant opened the files, traced handlers and ran the commands, then labelled claims with stated uncertainty. The student must review those labels rather than claim those executions as personal work.
 
-**Every change to app was reviewed by me as a diff before acceptance:** student review pending. The assistant inspected the proposed policy diff before applying it under the assigned scope. Playbook approval was specifically requested and is not assumed. No human approval is inferred from a green check.
+**Every change to app was reviewed by me as a diff before acceptance:** student review pending. The assistant inspected the proposed policy diff before applying it under the assigned scope. Playbook approval was specifically requested and explicitly received as “Одобряю”; only that concrete patch is approved. No human approval is inferred from a green check.
 
 **Another assistant was used:** no. The same Codex assistant performed the lab; prior SIS 04 tooling structure was consulted to build a new screenshot workflow, but no SIS application feature/source was imported into this one-room project. No external chat replies or model versions were fabricated.
 
@@ -24,5 +24,5 @@
 
 No application dependency/lockfile changed. Playwright is isolated outside app only in the disposable evidence runner; it is not an application package or production service. Workflow permissions are contents:read, checkout credentials are not persisted, only localhost app requests are permitted during browser tests, and nothing is deployed. Automated Chromium interaction is not presented as a student's manual browser/physical-phone test. Names in room/booking fixtures are fictional. Commit times are real and were not backdated.
 
-Signed: Prepared for Keshubayev Abylay; student confirmation pending.
+Signed: Prepared for Keshubayev Abylay; playbook patch explicitly approved, independent source review and unaided conclusion still pending.
 Date: 22 November 2026 (Almaty)

@@ -163,7 +163,7 @@ Final-tree readiness below is an audit rubric, not certification. Checkpoint lac
 
 ## 6. Task 6 — the agent playbook
 
-User approval is required by the exact assignment prompt before the drafted playbook is applied. It was requested through the chat approval question; pending status must not be replaced with an assumed yes.
+The student approved the concrete proposed playbook patch in this chat with “Одобряю”. The assistant then applied the exact draft, without additional changes; evidence/agents-approval.txt records the scope. This approval does not establish independent review of other source changes or authorship of the release conclusion.
 
 ### 6.1 The playbook prompt and the answer
 
@@ -182,7 +182,7 @@ These are nine original lines replaced and one line inserted, ten changed lines 
 
 ### 6.2 Findings and my decisions
 
-Assistant technical review recommendations below; student approval pending, so no row is represented as a completed human approval. The preserved AI draft answer miscounted ten changed lines; a dry-run of the supplied check_agents on a separate temporary copy measured nine (evidence/agents-draft-check.json), with all playbook constraints passing there. This is draft validation only; app/AGENTS.md is unchanged.
+The student approved the concrete modifications in rows 1–9 with “Одобряю”; row 10 remains rejected as outside the minimal patch. The preserved AI draft answer miscounted ten changed lines; a dry-run of the supplied check_agents on a separate temporary copy measured nine (evidence/agents-draft-check.json), with all playbook constraints passing there. That was draft validation before approval; the same nine-line patch is now applied to app/AGENTS.md and checked in the final tree.
 
 | # | Rule or line in AGENTS.md | Missing / conflicting | Decision | Why |
 | --- | --- | --- | --- | --- |
@@ -199,12 +199,14 @@ Assistant technical review recommendations below; student approval pending, so n
 
 ### 6.3 The approved patch
 
-Approval pending: the following is the proposed, unapplied diff, not an approved patch.
+Applied exactly after the student’s explicit approval. Actual git diff:
 
 ```text
---- week-10/provided/AGENTS.md	2026-11-22 21:52:28.662512424 +0500
-+++ /tmp/week10-agents-approved-draft.md	2026-11-22 21:53:07.368242931 +0500
-@@ -9,30 +9,31 @@
+diff --git a/week-10/app/AGENTS.md b/week-10/app/AGENTS.md
+index b786d88..e69c0be 100644
+--- a/week-10/app/AGENTS.md
++++ b/week-10/app/AGENTS.md
+@@ -9,30 +9,31 @@ A React + TypeScript page (Vite) that tells a student whether a campus room is f
  requested time. The booking rule lives in `src/booking.ts` (`canBook`); the page is `src/App.tsx`;
  the tests are in `src/booking.test.ts`.
  
@@ -365,24 +367,26 @@ The isolated CI runner serves only localhost and has repository contents:read, n
 
 ## 8. Task 8 — mitigate two risks
 
-The formal top-two mitigations are the R1 playbook patch (waiting for human approval) and R2 policy extraction. Separately, R3 scope correction removes inherited extra fictional fixtures; it is not hidden inside the refactor and does not add a feature.
+The formal top-two mitigations are the explicitly student-approved R1 playbook patch and R2 policy extraction. Separately, R3 scope correction removes inherited extra fictional fixtures; it is not hidden inside the refactor and does not add a feature.
 
 ### 8.1 The first mitigation
 
 **Risk:** R1
 
-This is the playbook mitigation, not the refactor. It is not applied yet because student approval is pending.
+This is the playbook mitigation, not the refactor. The student explicitly approved the concrete patch with “Одобряю”; it was applied exactly as proposed.
 
 **Problem → pattern → benefit:** Not applicable to this documentation-only patch.
 
-**What I rejected from the agent's patch, and why:** Rejected a complete rewrite, extra headings, deployment tooling, new app dependencies and unrequested infrastructure because the assignment requires a focused patch. The assistant reviewed the draft diff; this is not human acceptance.
+**What I rejected from the agent's patch, and why:** Rejected a complete rewrite, extra headings, deployment tooling, new app dependencies and unrequested infrastructure because the assignment requires a focused patch. The assistant reviewed the draft diff, and the student then explicitly approved that concrete patch.
 
-The diff I approved (`git diff`): not yet approved by the student; proposed patch only.
+The diff I approved (`git diff`), explicitly approved by the student:
 
 ```text
---- week-10/provided/AGENTS.md	2026-11-22 21:52:28.662512424 +0500
-+++ /tmp/week10-agents-approved-draft.md	2026-11-22 21:53:07.368242931 +0500
-@@ -9,30 +9,31 @@
+diff --git a/week-10/app/AGENTS.md b/week-10/app/AGENTS.md
+index b786d88..e69c0be 100644
+--- a/week-10/app/AGENTS.md
++++ b/week-10/app/AGENTS.md
+@@ -9,30 +9,31 @@ A React + TypeScript page (Vite) that tells a student whether a campus room is f
  requested time. The booking rule lives in `src/booking.ts` (`canBook`); the page is `src/App.tsx`;
  the tests are in `src/booking.test.ts`.
  
@@ -680,7 +684,7 @@ Inputs include touching, overlap, 120/121 boundaries, midnight, invalid numbers,
 
 | ID | L before | I before | Score before | L after | I after | Score after | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| R1 | 3 | 3 | 9 | 3 | 3 | 9 | Approval pending: no risk reduction credited until app/AGENTS.md is actually patched. |
+| R1 | 3 | 3 | 9 | 1 | 3 | 3 | Explicitly approved nine-line playbook patch applied; all named checks exist, six constraints checked. Instructions reduce likelihood but cannot prevent a human violating them. |
 | R2 | 3 | 2 | 6 | 1 | 2 | 2 | Both public adapters import the sole pure owner; architecture/integration test green; 15606 equivalence comparisons. |
 | R3 | 2 | 2 | 4 | 1 | 2 | 2 | Separate sampleData patch leaves only fictional r1 with its own bookings; no broader catalog feature. |
 | R4 | 2 | 2 | 4 | 2 | 2 | 4 | Time-edit staleness not fixed; require explicit resubmit, and no reservation is written. |
@@ -732,22 +736,14 @@ Optional prompt not sent. No asynchronous agent execution is claimed; the six ru
 
 | Check | Why it stays |
 | --- | --- |
-| A2 | The copied playbook is intentionally still unchanged: explicit user approval of the concrete draft is pending. |
-| A3 | The original nonexistent test:unit and deployment command remain until that approval; no command is claimed to exist. |
-| C1 | Original real-data permission remains in the unapplied playbook; actual app fixtures are fictional and reduced to one. |
-| C2 | Original database/login permission remains; neither feature was implemented. |
-| C3 | Original incorrect touching rule and missing AC6 remain pending patch; real code preserves AC1–AC6 semantics. |
-| C4 | Original playbook lacks the proposed no-secrets rule; no secret was used. |
-| C5 | Original deployment instruction remains unapplied; no external deployment occurred. |
-| C6 | Original finish instructions lack the proposed test gate; actual tests/checks were nevertheless run. |
 | L13 | Student-authored 80–150-word release conclusion requested; not fabricated by AI. |
 
 ## 10. Release decision and conclusion
 
 **Decision:** NO-GO
 
-Later evidence update: npm ci reported 24 vulnerabilities; npm audit --json independently returned exit 1 with 2 critical and 13 high reports. R6 is now confirmed at score 6. A GO is therefore barred even if R1 receives approval. These are advisory counts rather than a claim of proven exploitation.
+Later evidence update: npm ci reported 24 vulnerabilities; npm audit --json independently returned exit 1 with 2 critical and 13 high reports. R6 is now confirmed at score 6. R1 is now approved and mitigated to 3, but a GO is still barred by R6 at 6. These are advisory counts rather than a claim of proven exploitation.
 
 <!-- Write your conclusion below this line -->
-Student-authored 80–150-word conclusion requested and still pending. No conclusion has been generated in the student's name. Provisional technical recommendation remains NO-GO while R1 is unmitigated and review requirements are unresolved; the student must make the final decision in their own words.
+Student-authored 80–150-word conclusion requested and still pending. No conclusion has been generated in the student's name. Provisional technical recommendation remains NO-GO while R6 remains at 6 and review requirements are unresolved; the student must make the final decision in their own words.
 

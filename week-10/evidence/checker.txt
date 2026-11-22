@@ -5,14 +5,14 @@ PASS   B2   export is clean: no node_modules, no .env, under 5 MB               
 PASS   S1   suite imports vitest and the real canBook, nothing mocked or skipped   app/src/booking.test.ts: 21 tests, real canBook
 PASS   S2   a regression test named after a risk you mitigated                     R2: "R2 AC4 AC5: boolean and UI adapters share one pure policy"
 PASS   A1   app/AGENTS.md exists                                                   app/AGENTS.md
-FAIL   A2   a minimal patch of provided/AGENTS.md (1-14 lines, headings kept)      app/AGENTS.md is still exactly the provided file - apply the patch you approved (Part 6)
-FAIL   A3   every command AGENTS.md names exists in package.json                   AGENTS.md names commands that do not exist: npm run test:unit (no such script); npx netlify (netlify is not in package.json)
-FAIL   C1   constraint: one fictional room, no real data                           permits real data: "For realism, use real room names and the real timetable from the KBTU "; no rule that the data is fictional; no rule of one room
-FAIL   C2   constraint: no login, no database                                      permits it: "- If bookings need to persist, add a small Supabase table and a login "; no rule forbidding a login; no rule forbidding a database
-FAIL   C3   constraint: AC1-AC6 preserved, AC4 as the contract says                not listed: AC6; AC4 must say that touching at an endpoint is allowed (the contract), not an overlap
-FAIL   C4   constraint: no secrets                                                 no rule forbidding secrets
-FAIL   C5   constraint: no external deployments                                    permits it: "- When the build passes, publish a preview with `npx netlify deploy --"; no rule forbidding deployment
-FAIL   C6   constraint: run the tests before proposing acceptance                  no rule that the tests must run (and pass) before a change is proposed as done
+PASS   A2   a minimal patch of provided/AGENTS.md (1-14 lines, headings kept)      9 line(s) changed, headings kept
+PASS   A3   every command AGENTS.md names exists in package.json                   every command it names exists
+PASS   C1   constraint: one fictional room, no real data                           one fictional room
+PASS   C2   constraint: no login, no database                                      login and database forbidden
+PASS   C3   constraint: AC1-AC6 preserved, AC4 as the contract says                AC1-AC6 listed, AC4 allows touching
+PASS   C4   constraint: no secrets                                                 secrets forbidden
+PASS   C5   constraint: no external deployments                                    deployment forbidden
+PASS   C6   constraint: run the tests before proposing acceptance                  "- Edit only task-approved source and tests; review the diff before acc"
 PASS   E1   UI check screenshot: evidence/ui-desktop.png                           evidence/ui-desktop.png
 PASS   E2   UI check screenshot: evidence/ui-mobile.png                            evidence/ui-mobile.png
 PASS   R1   report 2.2: the baseline Vitest run                                    20 passed, 0 failed (20)
@@ -30,9 +30,9 @@ PASS   L9   report 6: playbook prompt, answer, decisions, the approved diff     
 PASS   L10  report 7.2-7.3: UI check at two widths; tests not run                  two widths checked, tests not run listed
 PASS   L11  report 8: two mitigations, one the refactor; residual revised          R1 and R2 mitigated, residual revised
 PASS   L12  report 9.1: six background-agent rules                                 six rules
-FAIL   L13  report 10: decision consistent, 80-150 words, two risk IDs             section 10: 42 words, the task asks for 80-150; name two or more risk IDs from your register
+FAIL   L13  report 10: decision consistent, 80-150 words, two risk IDs             section 10: 43 words, the task asks for 80-150; name two or more risk IDs from your register
 ------------------------------------------------------------------------------
-SUMMARY pass=22 fail=9 error=0   (31 checks)
-AGENTS.md lines changed (submission.yml counts.agents_lines_changed): 0
+SUMMARY pass=30 fail=1 error=0   (31 checks)
+AGENTS.md lines changed (submission.yml counts.agents_lines_changed): 9
 Every FAIL or ERROR you keep goes in lab-report.md section 9.3 and in submission.yml known_fails.
 One you report and explain costs you nothing extra. One you hide costs the whole criterion.
