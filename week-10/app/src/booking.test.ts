@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { checkAvailability } from './lib/availability';
 import { describe, expect, test } from 'vitest';
 import { canBook, type BookingRequest } from './booking';
 
@@ -102,4 +104,23 @@ describe('canBook: fixed acceptance criteria', () => {
     expect(canBook(request)).toBe(true);
     expect(request.bookings).toEqual(before);
   });
+});
+
+
+test('R2 AC4 AC5: boolean and UI adapters share one pure policy', () => {
+  // Architecture guard: both public adapters must import the single rule owner.
+  const predicateSource = readFileSync(new URL('./booking.ts', import.meta.url), 'utf8');
+  const uiAdapterSource = readFileSync(new URL('./lib/availability.ts', import.meta.url), 'utf8');
+  expect(predicateSource).toContain("from './lib/availabilityPolicy'");
+  expect(uiAdapterSource).toContain("from './availabilityPolicy'");
+  const bookings = Object.freeze([Object.freeze({ start: 600, end: 660 })]);
+  const rooms = [{ id: 'test-room', name: 'Fictional test room', building: 'Test', capacity: 1, blocked: false }];
+  const uiBookings = [{ id: 'test-booking', roomId: 'test-room', start: 600, end: 660, bookedBy: 'Fictional event' }];
+  const before = structuredClone(uiBookings);
+  expect(canBook({ start: 660, end: 720, now: 540, blocked: false, bookings })).toBe(true);
+  expect(checkAvailability({ roomId: 'test-room', start: 660, end: 720, currentTime: 540 }, rooms, uiBookings).ok).toBe(true);
+  expect(canBook({ start: 630, end: 690, now: 540, blocked: false, bookings })).toBe(false);
+  expect(checkAvailability({ roomId: 'test-room', start: 630, end: 690, currentTime: 540 }, rooms, uiBookings)).toMatchObject({ ok: false, reason: 'overlap' });
+  expect(uiBookings).toEqual(before);
+  expect(bookings).toEqual([{ start: 600, end: 660 }]);
 });

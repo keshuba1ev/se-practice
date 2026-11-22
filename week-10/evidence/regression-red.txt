@@ -1,0 +1,85 @@
+
+> vite-react-typescript-starter@0.0.0 test
+> vitest run
+
+
+ RUN  v3.2.4 /workspace/scratch/ab26a17e9871/week-10-work/week-10/app
+
+ ❯ src/booking.test.ts (21 tests | 1 failed) 17ms
+   ✓ canBook: fixed acceptance criteria > T01 AC4 touching after 2ms
+   ✓ canBook: fixed acceptance criteria > T02 AC1 starts now 0ms
+   ✓ canBook: fixed acceptance criteria > T03 AC1 zero duration 0ms
+   ✓ canBook: fixed acceptance criteria > T04 AC1 reversed 0ms
+   ✓ canBook: fixed acceptance criteria > T05 AC1 past day end 0ms
+   ✓ canBook: fixed acceptance criteria > T06 AC2 exactly 120 minutes 0ms
+   ✓ canBook: fixed acceptance criteria > T07 AC2 121 minutes 0ms
+   ✓ canBook: fixed acceptance criteria > T08 AC4 touching before 0ms
+   ✓ canBook: fixed acceptance criteria > T09 AC4 partial overlap 0ms
+   ✓ canBook: fixed acceptance criteria > T10 AC4 contains existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > T11 AC4 inside existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > T12 AC4 identical interval 0ms
+   ✓ canBook: fixed acceptance criteria > T13 AC3 blocked 0ms
+   ✓ canBook: fixed acceptance criteria > T14 AC4 empty bookings 0ms
+   ✓ canBook: fixed acceptance criteria > AC5 accepted check preserves existing booking data 1ms
+   ✓ canBook: fixed acceptance criteria > X1 AC1 ending exactly at midnight 0ms
+   ✓ canBook: fixed acceptance criteria > X2 AC4 overlap with the second existing booking 0ms
+   ✓ canBook: fixed acceptance criteria > E1 AC1 first future minute is permitted 0ms
+   ✓ canBook: fixed acceptance criteria > E2 AC4 gap touches both existing bookings 0ms
+   ✓ canBook: fixed acceptance criteria > E3 AC5 repeated accepted checks keep all data unchanged 0ms
+   × R2 AC4 AC5: boolean and UI adapters share one pure policy 10ms
+     → expected 'export interface BookingInterval {\n …' to contain 'from \'./lib/availabilityPolicy\''
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  21:56:03
+   Duration  636ms (transform 70ms, setup 0ms, collect 69ms, tests 17ms, environment 0ms, prepare 218ms)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/booking.test.ts > R2 AC4 AC5: boolean and UI adapters share one pure policy
+AssertionError: expected 'export interface BookingInterval {\n …' to contain 'from \'./lib/availabilityPolicy\''
+
+- Expected
++ Received
+
+- from './lib/availabilityPolicy'
++ export interface BookingInterval {
++   start: number;
++   end: number;
++ }
++
++ export interface BookingRequest {
++   start: number;
++   end: number;
++   now: number;
++   blocked: boolean;
++   bookings: readonly BookingInterval[];
++ }
++
++ /** Extracted Week 06 decision. The caller supplies the room and same-day data. */
++ export function canBook({ start, end, now, blocked, bookings }: BookingRequest): boolean {
++   if (!Number.isFinite(start) || !Number.isFinite(end)) return false;
++   if (start < 0 || end > 1440) return false;
++   if (start >= end) return false;
++   if (start <= now) return false;
++   if (end - start > 120) return false;
++   if (blocked) return false;
++   for (const booking of bookings) {
++     if (start < booking.end && booking.start < end) return false;
++   }
++   return true;
++ }
++
+
+ ❯ src/booking.test.ts:114:27
+    112|   const predicateSource = readFileSync(new URL('./booking.ts', import.…
+    113|   const uiAdapterSource = readFileSync(new URL('./lib/availability.ts'…
+    114|   expect(predicateSource).toContain("from './lib/availabilityPolicy'");
+       |                           ^
+    115|   expect(uiAdapterSource).toContain("from './availabilityPolicy'");
+    116|   const bookings = Object.freeze([Object.freeze({ start: 600, end: 660…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
